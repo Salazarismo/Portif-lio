@@ -32,17 +32,48 @@ import PortfolioGrid from "../islands/PortfolioGrid.island";
 <BaseLayout title="Página Base" description="Estrutura semântica inicial">
   <Fragment slot="nav"><Header /><AppStateBar /></Fragment>
   <Hero
-    title="Se sua landing demora mais de 2s, você já está perdendo clientes todos os dias."
-    subtitle="Eu crio páginas ultra-rápidas que o Google prioriza e seu cliente adora."
+    title="Engenheiro focado em performance e entregas B2B."
+    subtitle="Provas reais: LCP 0.95s; reduções de latência e fluxos medidos. Ver projetos e solicitar orçamento."
     imageAlt="Hero visual"
     proofMetrics={[
       { label: "Seu cliente vê a oferta imediatamente.", value: "Carregamento Instantâneo" },
       { label: "O layout não “pula” enquanto o cliente clica.", value: "Visual Estável" },
       { label: "Funciona rápido até na rua com internet lenta.", value: "Otimizado para 4G/Celular" },
     ]}
-    ctaLabel="Quero parar de perder vendas"
-    ctaHref="#contact"
+    ctaLabel="Ver projetos"
+    ctaHref="#projects"
   />
+  <Section id="stack" title="Stack e proficiência" type="informacional" objective="Comunicar competências" action="Ver projetos" completion="Stack exibida" tone="alt">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-token-4">
+      <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+        <p data-text="ui-label">Web</p>
+        <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+          <li data-text="body-normal">Astro — Avançado</li>
+          <li data-text="body-normal">Next.js — Avançado</li>
+          <li data-text="body-normal">Preact/React — Avançado</li>
+        </ul>
+      </div>
+      <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+        <p data-text="ui-label">Backend & dados</p>
+        <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+          <li data-text="body-normal">FastAPI — Avançado</li>
+          <li data-text="body-normal">PostgreSQL/SQLAlchemy — Avançado</li>
+          <li data-text="body-normal">Zod/OpenAPI — Avançado</li>
+        </ul>
+      </div>
+      <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+        <p data-text="ui-label">Mobile & multiplataforma</p>
+        <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+          <li data-text="body-normal">Flutter/Dart — Avançado</li>
+          <li data-text="body-normal">Riverpod/go_router — Avançado</li>
+          <li data-text="body-normal">Drift/SQLite — Avançado</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: var(--space-3); max-width: 65ch">
+      <p data-text="body-muted">O que eu faço melhor: performance mensurável, arquitetura enxuta, UX acessível e resultados em produção.</p>
+    </div>
+  </Section>
   <Section id="portfolio" title="Portfólio" type="demonstracao" objective="Mostrar projetos realizados" action="Explorar projetos" completion="Grid renderizado" tone="default">
     <PortfolioGrid
       client:load

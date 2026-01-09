@@ -12,6 +12,26 @@ export const prerender = false;
           <h1 id="title" data-text="heading-2xl">Habit Analyzer</h1>
           <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com analytics e relatórios.</p>
           <p data-text="ui-label">Pré‑agregação e cache reduziram em até 40% o custo de leitura de analytics em janelas grandes.</p>
+          <section aria-labelledby="tldr-p3" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+            <h2 id="tldr-p3" data-text="heading-lg">TL;DR</h2>
+            <p data-text="body-normal">Engenheiro full‑stack — reduzi custo de leitura de analytics em até 40%.</p>
+            <ul style="display:grid; gap: var(--space-1)">
+              <li data-text="body-normal">Problema: analytics lentos em janelas grandes.</li>
+              <li data-text="body-normal">Solução: pré‑agregação diária + cache versionado.</li>
+              <li data-text="body-normal">Impacto: −40% latência, fluxo crítico coberto por E2E.</li>
+            </ul>
+            <div style="margin-top: var(--space-2)">
+              <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Código / README</a>
+            </div>
+            <div style="margin-top: var(--space-2)">
+              <p data-text="ui-label">Como testar em 3 passos</p>
+              <ul style="display:grid; gap: var(--space-1)">
+                <li data-text="body-normal">Clonar repo e instalar deps (frontend e backend).</li>
+                <li data-text="body-normal">Subir FastAPI + PostgreSQL (Docker) e rodar seed.</li>
+                <li data-text="body-normal">Abrir frontend, login e executar fluxo “registrar hábito → visualizar analytics”.</li>
+              </ul>
+            </div>
+          </section>
           <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Full‑stack solo</span>
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Next.js + FastAPI</span>
@@ -27,6 +47,32 @@ export const prerender = false;
           </div>
           <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
             <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label" style="padding:6px 12px; border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">Código</a>
+          </div>
+        </section>
+        <section aria-labelledby="highlights-p3" style="display:grid; gap: var(--space-2)">
+          <h2 id="highlights-p3" data-text="heading-xl">Destaques</h2>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(22ch, 1fr)); gap: var(--space-2)">
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Performance</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">−40% latência em analytics</li>
+                <li data-text="body-normal">Cache + pré‑agregação</li>
+              </ul>
+            </div>
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Qualidade</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">E2E no fluxo crítico</li>
+                <li data-text="body-normal">OpenAPI estável</li>
+              </ul>
+            </div>
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Arquitetura</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">Next.js + FastAPI</li>
+                <li data-text="body-normal">PostgreSQL + Cache</li>
+              </ul>
+            </div>
           </div>
         </section>
         <Divider />
@@ -55,6 +101,32 @@ export const prerender = false;
               </style>
               <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Tendência de melhoria</figcaption>
             </figure>
+          </div>
+        </section>
+        <section aria-labelledby="highlights-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="highlights-p5" data-text="heading-xl">Destaques</h2>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(22ch, 1fr)); gap: var(--space-2)">
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Eficiência</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">Tempo: 45s → 20–25s</li>
+                <li data-text="body-normal">Cliques: −40–55%</li>
+              </ul>
+            </div>
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Acessibilidade</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">Semantics + Tooltips</li>
+                <li data-text="body-normal">Fluxo único multiplataforma</li>
+              </ul>
+            </div>
+            <div data-cell data-z="1" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <p data-text="ui-label">Arquitetura</p>
+              <ul style="display:grid; gap: var(--space-1); margin-top: var(--space-1)">
+                <li data-text="body-normal">Flutter/Dart</li>
+                <li data-text="body-normal">Riverpod • go_router • Drift</li>
+              </ul>
+            </div>
           </div>
         </section>
         <Divider />
@@ -204,6 +276,18 @@ use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS<
           <h1 id="title-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
           <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades, reduzindo o tempo de lançamento em 45–60%.</p>
           <p data-text="ui-label">Para pequenos e médios produtores e técnicos agronômicos que precisam registrar atividades no campo com rapidez e consistência.</p>
+          <section aria-labelledby="tldr-p5" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+            <h2 id="tldr-p5" data-text="heading-lg">TL;DR</h2>
+            <p data-text="body-normal">Full‑stack Flutter — reduzi tempo de registro em 45–60% com atalhos.</p>
+            <ul style="display:grid; gap: var(--space-1)">
+              <li data-text="body-normal">Problema: registros lentos em campo e baixa conectividade.</li>
+              <li data-text="body-normal">Solução: QuickActionButton com Semantics + rotas nomeadas.</li>
+              <li data-text="body-normal">Impacto: 45s → 20–25s; −40–55% cliques.</li>
+            </ul>
+            <div style="margin-top: var(--space-2)">
+              <span data-text="body-muted">Software privado em produção e de propriedade empresarial — README/demonstração não disponíveis.</span>
+            </div>
+          </section>
           <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Full‑stack Flutter solo</span>
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Flutter/Dart</span>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../components/BaseLayout.astro";
+import Divider from "../../components/ui/Divider.astro";
 const { id } = Astro.params;
 export const prerender = false;
 ---
@@ -28,6 +29,7 @@ export const prerender = false;
             <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label" style="padding:6px 12px; border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">Código</a>
           </div>
         </section>
+        <Divider />
 
         <section aria-labelledby="problem" style="display:grid; gap: var(--space-2)">
           <h2 id="problem" data-text="heading-xl">Por que isso existe?</h2>
@@ -36,7 +38,26 @@ export const prerender = false;
             <li data-text="body-normal">Decisões de ajuste ficam imprecisas sem métricas claras.</li>
             <li data-text="body-normal">Sem registros consolidados, análise semanal/mensal se torna onerosa.</li>
           </ul>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3)">
+            <figure style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <picture>
+                <img src="/images/analytics-code.svg" alt="Visual de analytics: trecho de código de resumo e cache" width="600" height="300" style="width:100%; height:auto; border-radius: var(--radius-sm)" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Visual de analytics</figcaption>
+            </figure>
+            <figure style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+              <div style="height:140px; border-radius: var(--radius-sm); background: var(--surface-2); overflow:hidden">
+                <div style="width:0%; height:100%; background: var(--success); animation: barGrow 1200ms var(--ease-standard) forwards"></div>
+              </div>
+              <style is:inline>
+                @keyframes barGrow { from { width:0% } to { width:85% } }
+                @media (prefers-reduced-motion: reduce) { .bar { animation: none } }
+              </style>
+              <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Tendência de melhoria</figcaption>
+            </figure>
+          </div>
         </section>
+        <Divider />
 
         <section aria-labelledby="arch" style="display:grid; gap: var(--space-2)">
           <h2 id="arch" data-text="heading-xl">Arquitetura</h2>
@@ -65,6 +86,7 @@ export const prerender = false;
             </svg>
           </figure>
         </section>
+        <Divider />
 
         <section aria-labelledby="decisions" style="display:grid; gap: var(--space-2)">
           <h2 id="decisions" data-text="heading-xl">Decisões Técnicas‑Chave</h2>
@@ -90,7 +112,12 @@ export const prerender = false;
               <p data-text="body-normal">Motivo: flexibilidade e performance em páginas críticas. Trade‑off: complexidade de hidratação.</p>
             </div>
           </div>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <a href="https://adorable-azimuth.vercel.app/projects/p3" data-text="ui-label" style="padding:6px 12px; border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">Demo</a>
+            <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label" style="padding:6px 12px; border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">Código</a>
+          </div>
         </section>
+        <Divider />
 
         <section aria-labelledby="results" style="display:grid; gap: var(--space-2)">
           <h2 id="results" data-text="heading-xl">Resultados</h2>
@@ -123,6 +150,7 @@ export const prerender = false;
             </table>
           </div>
         </section>
+        <Divider />
 
         <section aria-labelledby="quality" style="display:grid; gap: var(--space-2)">
           <h2 id="quality" data-text="heading-xl">Qualidade e Engenharia</h2>
@@ -158,6 +186,7 @@ use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS<
             </div>
           </div>
         </section>
+        <Divider />
 
         <section aria-labelledby="next" style="display:grid; gap: var(--space-2)">
           <h2 id="next" data-text="heading-xl">Próximos passos</h2>

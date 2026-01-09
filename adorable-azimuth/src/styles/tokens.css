@@ -1,0 +1,96 @@
+@theme {
+  --font-family-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --font-size-sm: 0.875rem;
+  --line-height-sm: var(--line-height-normal);
+  --font-size-base: 1rem;
+  --line-height-base: var(--line-height-normal);
+  --font-size-lg: 1.125rem;
+  --line-height-lg: var(--line-height-normal);
+  --font-size-xl: 1.25rem;
+  --line-height-xl: var(--line-height-tight);
+  --font-size-2xl: 1.5rem;
+  --line-height-2xl: var(--line-height-tight);
+  --font-size-3xl: 1.875rem;
+  --line-height-3xl: var(--line-height-tight);
+
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 3rem;
+  --spacing-8: 4rem;
+  --spacing-9: 6rem;
+
+  --container-max: 72rem;
+
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  --color-bg: hsl(0 0% 100%);
+  --color-text: hsl(222 47% 11%);
+  --color-primary: hsl(221 83% 53%);
+  --color-primary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(215 20% 65%);
+  --color-muted: hsl(210 40% 96%);
+  --color-border: hsl(214 26% 83%);
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-success: hsl(142 71% 45%);
+  --color-success-foreground: hsl(0 0% 100%);
+
+  --border-width-1: 1px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 2px 6px rgba(0,0,0,0.10);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-xl: 0 8px 24px rgba(0,0,0,0.16);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  /* Alias conforme M0 — Design System Core */
+  --surface-1: var(--color-bg);
+  --surface-2: var(--color-muted);
+  --ink-1: var(--color-text);
+  --ink-2: var(--color-secondary);
+  --accent-1: var(--color-primary);
+  --accent-ink: var(--color-primary-foreground);
+  --danger: var(--color-destructive);
+  --danger-ink: var(--color-destructive-foreground);
+  --success: var(--color-success);
+  --success-ink: var(--color-success-foreground);
+
+  --space-0: var(--spacing-0);
+  --space-1: var(--spacing-1);
+  --space-2: var(--spacing-2);
+  --space-3: var(--spacing-3);
+  --space-4: var(--spacing-4);
+  --space-5: var(--spacing-5);
+  --space-6: var(--spacing-6);
+  --space-7: var(--spacing-7);
+  --space-8: var(--spacing-8);
+  --space-9: var(--spacing-9);
+
+  --elevation-1: var(--shadow-sm);
+  --elevation-2: var(--shadow-md);
+  --elevation-3: var(--shadow-lg);
+}

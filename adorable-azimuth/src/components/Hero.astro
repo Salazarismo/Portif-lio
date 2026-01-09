@@ -1,0 +1,65 @@
+---
+import ProofStrip from "./ux/ProofStrip.astro";
+import Button from "./ui/Button.astro";
+import StateBanner from "./ui/StateBanner.astro";
+interface Metric { label: string; value: string }
+interface Props { title: string; subtitle?: string; imageAlt?: string; proofMetrics?: Metric[]; ctaLabel?: string; ctaHref?: string }
+const { title, subtitle, imageAlt = 'Hero visual', proofMetrics = [], ctaLabel = 'Diagnosticar sua landing', ctaHref = '#contact' } = Astro.props as Props;
+---
+<section aria-labelledby="hero-title" class="px-4 py-8" data-objective="Apresentar valor de forma clara" data-action="Explorar projetos ou contatar" data-completion="Imagem hero carregada" data-anim="hero">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-token-6 items-center">
+      <div data-cell class="md:col-span-6">
+        <h1 id="hero-title" data-text="heading-3xl" style="font-family: var(--font-family-sans)">{title}</h1>
+        {subtitle && <p class="mt-2" data-text="body-muted">{subtitle}</p>}
+        <style is:inline>
+          #hero-title { font-family: var(--font-family-sans); }
+        </style>
+        {proofMetrics.length > 0 && (
+          <div class="mt-3">
+            <ProofStrip items={proofMetrics} />
+          </div>
+        )}
+        <div class="mt-3">
+          <Button as="a" href={ctaHref} variant="primary" data-cta>{ctaLabel}</Button>
+        </div>
+        <div class="mt-2">
+          <StateBanner type="info" message="Sem mágica. Métricas reais. Produção real." />
+        </div>
+      </div>
+      <div data-cell class="md:col-span-6">
+        <figure aria-label="Comparativo de performance: antes 3.2s, depois 0.9s" style="display:grid; gap: var(--space-3); padding: var(--space-3); background: var(--surface-1); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--elevation-2)">
+          <div style="display:flex; align-items:center; justify-content:space-between">
+            <span data-text="ui-label">Comparativo</span>
+            <span data-text="ui-helper">Dados simulados para demonstração</span>
+          </div>
+          <div style="display:grid; gap: var(--space-2)">
+            <div style="display:grid; gap: var(--space-1)">
+              <div style="display:flex; align-items:center; justify-content:space-between">
+                <span data-text="ui-label">Antes</span>
+                <span data-text="ui-helper">3.2s</span>
+              </div>
+              <div style="height: 10px; border-radius: var(--radius-md); background: var(--surface-2); overflow:hidden">
+                <div style="width:75%; height:100%; background: var(--danger);"></div>
+              </div>
+            </div>
+            <div style="display:grid; gap: var(--space-1)">
+              <div style="display:flex; align-items:center; justify-content:space-between">
+                <span data-text="ui-label">Depois</span>
+                <span data-text="ui-helper">0.9s</span>
+              </div>
+              <div style="height: 10px; border-radius: var(--radius-md); background: var(--surface-2); overflow:hidden">
+                <div style="width:25%; height:100%; background: var(--success);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center">
+            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">LCP 0.95s</span>
+            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">CLS 0</span>
+            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">JS Budget 24.86KB</span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

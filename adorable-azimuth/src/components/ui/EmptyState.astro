@@ -1,0 +1,13 @@
+---
+interface Props { title?: string; description?: string }
+const { title = 'Nada por aqui', description = 'Ainda não há itens para exibir.' } = Astro.props as Props;
+---
+<div data-z="1" style="background: var(--color-muted); color: var(--color-text); border-radius: var(--radius-md); padding: var(--spacing-4); display:grid; gap: var(--spacing-2); box-shadow: var(--elevation-1); border-style: solid; border-width: var(--border-width-1); border-color: var(--color-border)">
+  <div style="display:inline-flex; align-items:center; justify-content:center; width: 2.5em; height: 2.5em; border-radius: var(--radius-full); background: var(--color-bg); box-shadow: var(--elevation-1)">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.2" />
+    </svg>
+  </div>
+  <strong style="font-weight: var(--font-weight-medium)">{title}</strong>
+  <p class="text-base" style="line-height: var(--line-height-normal)">{description}</p>
+</div>

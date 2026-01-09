@@ -1,0 +1,6 @@
+---
+interface Props { id: string; name: string; checked?: boolean; disabled?: boolean }
+const { id, name, checked = false, disabled = false } = Astro.props as Props;
+---
+<input id={id} name={name} type="checkbox" checked={checked} disabled={disabled} class="ui-toggle" />
+

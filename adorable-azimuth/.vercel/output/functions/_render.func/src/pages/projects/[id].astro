@@ -1,0 +1,8 @@
+---
+import BaseLayout from "../../components/BaseLayout.astro";
+const { id } = Astro.params;
+export const prerender = false;
+---
+<BaseLayout title={`Projeto ${id}`} description="">
+  <div class="container"></div>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'destructive' | 'danger';
+  as?: 'button' | 'a';
+  href?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  dataCta?: boolean;
+}
+const { variant = 'primary', as = 'button', href = '#', disabled = false, loading = false, dataCta = false } = Astro.props as Props;
+const common = `display:inline-flex; align-items:center; justify-content:center; gap: var(--spacing-2); padding: var(--spacing-2) var(--spacing-4); border-radius: var(--radius-md); transition: box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);`;
+let variantStyle = '';
+if (variant === 'primary') variantStyle = `background: var(--color-primary); color: var(--color-primary-foreground);`;
+else if (variant === 'secondary') variantStyle = `background: var(--color-muted); color: var(--color-text);`;
+else if (variant === 'ghost') variantStyle = `background: transparent; color: var(--color-text); border-style: solid; border-color: var(--color-border); border-width: var(--border-width-1);`;
+else if (variant === 'destructive' || variant === 'danger') variantStyle = `background: var(--color-destructive); color: var(--color-destructive-foreground);`;
+const stateDisabled = disabled || loading;
+const ariaBusy = loading ? 'true' : 'false';
+---
+{as === 'a' ? (
+  <a href={href} data-variant={variant} data-intent="button" data-state={stateDisabled ? 'disabled' : loading ? 'loading' : 'default'} data-cta={dataCta ? 'true' : undefined} aria-busy={ariaBusy} aria-disabled={stateDisabled} style={`${common} ${variantStyle} ${stateDisabled ? 'opacity: 0.6; pointer-events: none;' : ''}`}>
+    <slot />
+    {loading && (
+      <svg width="16" height="16" viewBox="0 0 50 50" aria-hidden="true">
+        <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.3" />
+        <path d="M25 5 a20 20 0 0 1 0 40" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+      </svg>
+    )}
+  </a>
+) : (
+  <button type="button" data-variant={variant} data-intent="button" data-state={stateDisabled ? 'disabled' : loading ? 'loading' : 'default'} data-cta={dataCta ? 'true' : undefined} aria-busy={ariaBusy} disabled={stateDisabled} style={`${common} ${variantStyle}`}>
+    <slot />
+    {loading && (
+      <svg width="16" height="16" viewBox="0 0 50 50" aria-hidden="true">
+        <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.3" />
+        <path d="M25 5 a20 20 0 0 1 0 40" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+      </svg>
+    )}
+  </button>
+)}
+<style>
+  [data-variant]:hover { box-shadow: var(--shadow-sm); }
+  [data-variant]:active { transform: scale(0.98); }
+</style>

@@ -1,0 +1,12 @@
+---
+interface Props { tone?: 'neutral' | 'accent' | 'success' | 'danger'; size?: 'sm' | 'md' | 'lg' }
+const { tone = 'neutral', size = 'md' } = Astro.props as Props;
+let bg = 'var(--surface-2)';
+if (tone === 'accent') bg = 'var(--accent-1)';
+else if (tone === 'success') bg = 'var(--success)';
+else if (tone === 'danger') bg = 'var(--danger)';
+const dim = size === 'sm' ? 'var(--space-4)' : size === 'lg' ? 'var(--space-7)' : 'var(--space-5)';
+---
+<div data-intent="icon" data-state={tone} style={`display:inline-flex; align-items:center; justify-content:center; width: ${dim}; height: ${dim}; border-radius: var(--radius-full); background: ${bg}; box-shadow: var(--elevation-1)`}>
+  <slot />
+</div>

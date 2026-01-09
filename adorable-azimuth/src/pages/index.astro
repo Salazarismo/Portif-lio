@@ -1,0 +1,250 @@
+---
+import "../styles/global.css";
+ 
+import BaseLayout from "../components/BaseLayout.astro";
+import AppStateBar from "../components/ui/AppStateBar.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ContactForm from "../islands/ContactForm.island";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
+import Button from "../components/ui/Button.astro";
+import P from "../components/typography/P.astro";
+import Highlight from "../components/typography/Highlight.astro";
+import List from "../components/typography/List.astro";
+import SkeletonContactForm from "../components/ui/SkeletonContactForm.astro";
+import StateBanner from "../components/ui/StateBanner.astro";
+import CardInfo from "../components/cards/CardInfo.astro";
+import CardAction from "../components/cards/CardAction.astro";
+import CardPreview from "../components/cards/CardPreview.astro";
+import CardStat from "../components/cards/CardStat.astro";
+import Badge from "../components/ui/Badge.astro";
+import Divider from "../components/ui/Divider.astro";
+import Icon from "../components/ui/Icon.astro";
+import ListSimple from "../components/data/ListSimple.astro";
+import FilterableList from "../components/data/FilterableList.astro";
+import TableBasic from "../components/data/TableBasic.astro";
+import Carousel from "../components/ui/Carousel.astro";
+import CardInteractive from "../components/cards/CardInteractive.astro";
+import PortfolioGrid from "../islands/PortfolioGrid.island";
+---
+<BaseLayout title="Página Base" description="Estrutura semântica inicial">
+  <Fragment slot="nav"><Header /><AppStateBar /></Fragment>
+  <Hero
+    title="Se sua landing demora mais de 2s, você já está perdendo clientes todos os dias."
+    subtitle="Eu entrego páginas que carregam em ≤ 1s, validadas por Core Web Vitals."
+    imageAlt="Hero visual"
+    proofMetrics={[
+      { label: "LCP 0.95s → usuário vê antes de desistir", value: "≤ 1s" },
+      { label: "CLS 0 → nada se mexe", value: "0" },
+      { label: "JS Budget 24.86KB → interação sem bloqueios", value: "24.86KB" },
+    ]}
+    ctaLabel="Descobrir gargalos de conversão agora"
+    ctaHref="#contact"
+  />
+  <Section id="portfolio" title="Portfólio" type="demonstracao" objective="Mostrar projetos realizados" action="Explorar projetos" completion="Grid renderizado" tone="default">
+    <PortfolioGrid
+      client:load
+      items={[
+        { id: "p1", title: "App de Entregas", description: "Aplicativo mobile com rastreamento em tempo real e otimização de rotas.", imageUrl: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fm=jpg&w=1200&q=80", technologies: ["React Native", "TypeScript", "GSAP"], category: "App Mobile" },
+        { id: "p2", title: "Website de SaaS", description: "Landing de alto desempenho com métricas de produção e SEO técnico.", imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=jpg&w=1200&q=80", technologies: ["Astro", "Preact", "Tailwind"], category: "Websites", caseLabel: "Ver Case de LCP", caseTarget: "#projects" },
+        { id: "p3", title: "Dashboard Analítico", description: "Interface web responsiva com gráficos interativos e filtros.", imageUrl: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fm=jpg&w=1200&q=80", technologies: ["React", "D3", "Zod"], category: "Websites" },
+        { id: "p4", title: "Sistema de Design", description: "Biblioteca de componentes com tokens e gates de CSS.", imageUrl: "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fm=jpg&w=1200&q=80", technologies: ["CSS Tokens", "Tailwind", "Astro"], category: "Design" },
+        { id: "p5", title: "E-commerce Headless", description: "Catálogo com checkout otimizado e carregamento instantâneo.", imageUrl: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fm=jpg&w=1200&q=80", technologies: ["Next.js", "Stripe", "GSAP"], category: "Design" },
+        { id: "p6", title: "Protótipo Mobile", description: "Padrões de navegação com microinterações e acessibilidade.", imageUrl: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fm=jpg&w=1200&q=80", technologies: ["Expo", "ARIA", "Motion"], category: "App Mobile" }
+      ]}
+    />
+  </Section>
+  <Section id="data" title="Interfaces que reduzem tempo de decisão" type="informacional" objective="Acelerar decisão com informação organizada" action="Explorar exemplos" completion="Tabela renderizada" tone="alt" metaLine="">
+    <div class="grid gap-token-3" style="margin-top: var(--space-2)">
+      <div>
+        <div style="max-width: 65ch"><P>Filtros em tempo real e tabelas responsivas para encontrar respostas em segundos.</P></div>
+        <FilterableList items={["Landing LCP", "Gate Tokens", "Islands Hygiene", "Skeletons", "Responsive Table"]} />
+      </div>
+      <div>
+        <div style="max-width: 65ch"><P>Visualização orientada à decisão</P></div>
+        <TableBasic headers={["Projeto", "Status", "Métrica"]} rows={[["Landing LCP", "Concluído", "0.95s"],["Gate Tokens", "Estável", "0 violações"],["Tabela", "Pendente", "N/A"]]} />
+      </div>
+    </div>
+  </Section>
+  <Section id="projects" title="Estudos de Caso Reais" type="demonstracao" objective="Provar competência com resultados" action="Agendar conversa" completion="Cards renderizados" tone="default">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-token-4">
+      <ProjectCard
+        title="LCP de 3.2s → 0.95s em landing com imagem hero"
+        problem="LCP acima de 3s por imagem hero pesada e fontes bloqueantes."
+        decision="Uso de <picture> com AVIF/WebP, fetchpriority=high, loading=eager e fontes com font-display: swap."
+        metricLabel="LCP"
+        metricValue="0.95s em 4G simulado"
+        metricContext="em 4G simulado"
+        impact="Isso resultou em melhora estimada de 8–12% na taxa de conversão, alinhada a estudos sobre impacto de velocidade."
+        codeSnippet={`<picture>\n  <source type=\"image/avif\" ... />\n  <img loading=\"eager\" fetchpriority=\"high\" />\n</picture>`}
+      />
+      <ProjectCard
+        title="Sistema de tokens CSS com validação automática (0 violações em 30 dias)"
+        problem="Valores arbitrários de CSS causando inconsistência visual."
+        decision="Sistema de tokens via @theme e gate que bloqueia px/rem/#/hsl fora de tokens.css."
+        metricLabel="Incidência de violações"
+        metricValue="0 violações em CI por 30 dias"
+        docHref="/docs"
+        codeSnippet={`/* scripts/token-gate.cjs */\npatterns = [/px/, /rem/, /#/, /hsl\(/];`}
+      />
+      <div class="col-span-1 md:col-span-2">
+        <div style="max-width: 65ch">
+          <P data-text="ui-label">Princípios que guiam meus projetos</P>
+        </div>
+        <List>
+          <li>Performance mensurável</li>
+          <li>Sistemas auditáveis</li>
+          <li>JS mínimo e intencional</li>
+          <li>Tokens e consistência visual</li>
+        </List>
+      </div>
+      <details class="col-span-1 md:col-span-2">
+        <summary data-text="ui-label" style="cursor:pointer">Ver sistema de componentes usado nos estudos de caso</summary>
+        <Carousel>
+          <div class="min-w-[80%] snap-start">
+            <CardInfo title="Card Informativo" description="Texto e contexto para orientar sem ação direta.">
+              <P>Use para comunicar estado ou instrução.</P>
+              <div style="display:flex; align-items:center; gap: var(--space-2)">
+                <Badge type="status" tone="success">Sucesso</Badge>
+                <Badge type="status" tone="danger">Erro</Badge>
+                <Badge type="metric">12%</Badge>
+              </div>
+              <Divider />
+            </CardInfo>
+          </div>
+          <div class="min-w-[80%] snap-start">
+            <CardAction title="Card com Ação" description="Convite para executar uma tarefa." href="#contact" />
+          </div>
+          <div class="min-w-[80%] snap-start">
+            <CardPreview title="Card Preview" imageUrl="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fm=jpg&w=1200&q=80">
+              <P>Pré-visualização de conteúdo multimídia.</P>
+              <div style="display:flex; gap: var(--space-2)">
+                <Icon tone="neutral">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8" fill="currentColor" opacity="0.6" />
+                  </svg>
+                </Icon>
+                <Icon tone="accent">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6" y="6" width="12" height="12" fill="currentColor" opacity="0.6" />
+                  </svg>
+                </Icon>
+              </div>
+            </CardPreview>
+          </div>
+          <div class="min-w-[80%] snap-start">
+            <CardStat label="Projetos" value="12" />
+          </div>
+          <div class="min-w-[80%] snap-start">
+            <CardInteractive title="Workflow Ajustável" description="Interface simples e responsiva com feedback visual consistente." href="#docs" tone="accent">
+              <div style="display:flex; gap: var(--space-2); align-items:center">
+                <Badge type="status" tone="success">Estável</Badge>
+                <Badge type="metric">95</Badge>
+              </div>
+            </CardInteractive>
+          </div>
+        </Carousel>
+      </details>
+    </div>
+    <Fragment slot="cta"><div class="w-full sm:w-auto sm:inline-block"><Button dataCta as="a" href="#contact" variant="primary">Fale comigo</Button></div></Fragment>
+  </Section>
+  <Section id="commitment" title="Compromisso de produção" type="informacional" objective="Elevar confiança" action="Avançar para contato" completion="Compromisso exibido" tone="alt">
+    <div class="grid gap-token-3">
+      <div data-cell data-z="1" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+        <div style="display:flex; align-items:center; gap: var(--space-2)">
+          <Icon tone="accent">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5L9 16.2z" fill="currentColor"/>
+            </svg>
+          </Icon>
+          <span data-text="heading-lg">Compromisso de Engenharia</span>
+        </div>
+        <P data-text="body-muted" style="font-style: italic">Sem mágica. Métricas reais. Produção real.</P>
+        <div style="display:grid; gap: var(--space-1)">
+          <P data-text="ui-label">Transparência Radical</P>
+          <P data-text="body-muted">Se uma métrica não for atingida, você recebe um post-mortem técnico explicando o porquê e o plano de correção.</P>
+        </div>
+      </div>
+      <Fragment slot="cta"><div class="w-full sm:w-auto sm:inline-block"><Button as="a" href="#contact" variant="primary">Validar sua performance agora</Button></div></Fragment>
+    </div>
+  </Section>
+  <Divider />
+  <Section id="contact" title="Vamos construir algo que funcione em produção" type="conversao" objective="Iniciar projeto real" action="Agendar conversa" completion="Mensagem enviada" tone="default">
+    <style is:inline>
+      #contact-skeleton.fade { opacity: 0; transition: opacity var(--duration-fast) var(--ease-standard); }
+      #contact-form.show { opacity: 1; transition: opacity var(--duration-fast) var(--ease-standard); }
+    </style>
+    <div id="contact-skeleton">
+      <SkeletonContactForm />
+    </div>
+    <div data-cell data-z="1" style="margin-top: var(--space-3); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-token-4">
+        <div>
+          <p data-text="ui-label">Iniciar Projeto</p>
+          <div style="display:flex; flex-wrap:wrap; gap: var(--space-2); margin-top: var(--space-2)">
+            <Button as="a" href="mailto:victor.de.alcantara.bueno@gmail.com" variant="primary">Email</Button>
+            <Button as="a" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer" variant="secondary">WhatsApp</Button>
+          </div>
+          <p class="mt-2" data-text="body-muted">Tem um projeto de alta performance? Respondo em até 24h.</p>
+        </div>
+        <div>
+          <p data-text="ui-label">Redes</p>
+          <ul style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+            <li><a href="https://www.linkedin.com/in/victor-de-alcantara/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap: var(--space-2); padding: var(--space-1) var(--space-2); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)" data-text="ui-label"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor" opacity="0.6"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/Salazarismo" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap: var(--space-2); padding: var(--space-1) var(--space-2); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)" data-text="ui-label"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="currentColor" opacity="0.6"/></svg>GitHub</a></li>
+            <li><a href="https://www.reddit.com/user/Salazarismo/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap: var(--space-2); padding: var(--space-1) var(--space-2); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)" data-text="ui-label"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z" fill="currentColor" opacity="0.6"/></svg>Reddit</a></li>
+          </ul>
+        </div>
+        <div>
+          <p data-text="ui-label">Próximos passos</p>
+          <ul style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+            <li data-text="body-normal">1. Briefing rápido</li>
+            <li data-text="body-normal">2. Análise de gargalos</li>
+            <li data-text="body-normal">3. Proposta técnica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="contact-form" style="opacity: 0">
+      <ContactForm client:visible />
+    </div>
+    <script is:inline>
+      const sect = document.getElementById('contact');
+      const sk = document.getElementById('contact-skeleton');
+      const form = document.getElementById('contact-form');
+      if (sect && sk && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              sk.classList.add('fade');
+              sk.addEventListener('transitionend', () => { sk.style.display = 'none'; }, { once: true });
+              form.classList.add('show');
+              io.disconnect();
+            }
+          }
+        }, { rootMargin: '0% 0% -20% 0%' });
+        io.observe(sect);
+      }
+    </script>
+  </Section>
+  <Fragment slot="footer"><Footer /></Fragment>
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Projetos", item: "/#projects" }
+    ]
+  })}</script>
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Portfolio",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Redução de LCP em landing" },
+      { "@type": "ListItem", position: 2, name: "Gate de tokens CSS" }
+    ]
+  })}</script>
+</BaseLayout>

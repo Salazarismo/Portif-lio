@@ -1,0 +1,6 @@
+---
+interface Props { subtle?: boolean }
+const { subtle = true } = Astro.props as Props;
+const color = subtle ? 'var(--color-border)' : 'var(--ink-2)';
+---
+<hr role="separator" aria-orientation="horizontal" data-intent="divider" data-state={subtle ? 'subtle' : 'strong'} style={`border: none; border-top-style: solid; border-top-width: var(--border-width-1); border-top-color: ${color}; margin-block: var(--space-3)`} />

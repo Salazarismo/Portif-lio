@@ -1,0 +1,19 @@
+---
+import Button from "../ui/Button.astro";
+interface Props { title: string; description: string; href: string }
+const { title, description, href } = Astro.props as Props;
+---
+<article aria-labelledby="card-action-title" class="card-interactive" data-cell data-z="2" style="background: var(--color-bg); border-style: solid; border-color: var(--color-border); border-width: var(--border-width-1); border-radius: var(--radius-md); box-shadow: var(--elevation-2); padding: var(--spacing-4); display:grid; gap: var(--spacing-2)">
+  <header>
+    <h3 id="card-action-title" data-text="heading-lg">{title}</h3>
+  </header>
+  <p data-text="body-normal">{description}</p>
+  <Button as="a" href={href} variant="secondary">Acessar</Button>
+  <div data-reveal style="opacity: 0; max-height: 0; overflow: hidden">
+    <p data-text="ui-helper">Esta ação abre a seção de contato.</p>
+  </div>
+  <style>
+    article[data-z][data-cell] [data-reveal] { transition: opacity var(--duration-fast) var(--ease-standard), max-height var(--duration-fast) var(--ease-standard); }
+    article[data-z][data-cell]:hover [data-reveal], article[data-z][data-cell]:focus-within [data-reveal] { opacity: 1; max-height: var(--space-7); }
+  </style>
+</article>

@@ -1,0 +1,10 @@
+---
+interface Props { ordered?: boolean }
+const { ordered = false } = Astro.props as Props;
+---
+{ordered ? (
+  <ol style="margin-top: var(--spacing-2); display:grid; gap: var(--spacing-2)"><slot /></ol>
+) : (
+  <ul style="margin-top: var(--spacing-2); display:grid; gap: var(--spacing-2)"><slot /></ul>
+)}
+

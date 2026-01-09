@@ -1,0 +1,31 @@
+---
+interface Props { title: string; imageAlt?: string; imageUrl: string }
+const { title, imageAlt = 'Prévia', imageUrl } = Astro.props as Props;
+let avif = '';
+let webp = '';
+try {
+  const u = new URL(imageUrl);
+  if (u.hostname.includes('images.unsplash.com')) {
+    avif = imageUrl.replace(/fm=[^&]*/i, 'fm=avif');
+    webp = imageUrl.replace(/fm=[^&]*/i, 'fm=webp');
+  }
+} catch {}
+---
+<article aria-labelledby="card-preview-title" class="card-interactive" data-cell data-z="2" style="background: var(--color-bg); border-style: solid; border-color: var(--color-border); border-width: var(--border-width-1); border-radius: var(--radius-md); box-shadow: var(--elevation-2); overflow:hidden; position: relative">
+  <picture>
+    {avif && <source type="image/avif" srcset={`${avif} 1200w`} sizes="100vw" />}
+    {webp && <source type="image/webp" srcset={`${webp} 1200w`} sizes="100vw" />}
+    <img src={imageUrl} alt={imageAlt} width="640" height="360" loading="lazy" decoding="async" style="display:block; width:100%; height:auto" />
+  </picture>
+  <div style="padding: var(--spacing-3)">
+    <h3 id="card-preview-title" data-text="heading-lg">{title}</h3>
+    <slot />
+  </div>
+  <div data-reveal style="position: absolute; inset: var(--space-2); background: rgba(0,0,0,0.35); color: var(--accent-ink); display:flex; align-items:center; justify-content:center; border-radius: var(--radius-md); opacity: 0;">
+    <p data-text="ui-label">Prévia detalhada</p>
+  </div>
+  <style>
+    article[data-z][data-cell] [data-reveal] { transition: opacity var(--duration-fast) var(--ease-standard); }
+    article[data-z][data-cell]:hover [data-reveal], article[data-z][data-cell]:focus-within [data-reveal] { opacity: 1; }
+  </style>
+</article>

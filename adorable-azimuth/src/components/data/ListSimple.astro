@@ -1,0 +1,8 @@
+---
+interface Props { items: string[] }
+const { items } = Astro.props as Props;
+---
+<ul style="display:grid; gap: var(--spacing-2)">
+  {items.map((it) => <li>{it}</li>)}
+</ul>
+

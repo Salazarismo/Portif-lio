@@ -1,0 +1,31 @@
+--- 
+interface Props { type?: 'info' | 'success' | 'error'; message: string; inkHex?: string }
+const { type = 'info', message, inkHex } = Astro.props as Props;
+let bg = 'var(--surface-2)';
+let fg = 'var(--ink-1)';
+if (type === 'success') { bg = 'var(--success)'; fg = 'var(--ink-1)'; }
+if (type === 'error') { bg = 'var(--danger)'; fg = 'var(--danger-ink)'; }
+if (inkHex) { fg = inkHex; }
+---
+<div role="status" aria-live="polite" data-type={type} style={`background:${bg}; color:${fg}; border-radius: var(--radius-md); padding: var(--space-2) var(--space-3); transition: box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard); border: var(--border-width-1) solid var(--color-border); position: relative; z-index: 1; box-shadow: var(--elevation-1)`}>
+  <span data-text="ui-helper">{message}</span>
+  <style>
+    [role="status"][data-type="success"] { outline: 2px solid transparent; }
+    @media (hover: hover) and (pointer: fine) {
+      [role="status"][data-type="success"]:hover {
+        box-shadow: var(--elevation-2);
+        transform: translateY(-1px);
+      }
+    }
+    [role="status"][data-type="success"]:focus-within {
+      box-shadow: var(--elevation-3);
+      transform: translateY(-1px);
+    }
+    @media (prefers-color-scheme: dark) {
+      [role="status"][data-type="success"] { color: #000000; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [role="status"][data-type="success"] { transition: none; transform: none; }
+    }
+  </style>
+</div>

@@ -1,0 +1,47 @@
+---
+interface Props { items: string[] }
+const { items } = Astro.props as Props;
+---
+<div>
+  <label for="filter" class="sr-only">Filtrar</label>
+  <input id="filter" class="ui-input" type="text" placeholder="Filtrar..." />
+  <div id="counter" aria-live="polite" data-text="ui-label" style="margin-top: var(--space-1)"></div>
+  <ul id="list" style="display:grid; gap: var(--spacing-2); margin-top: var(--spacing-2)">
+    {items.map((it) => <li>{it}</li>)}
+  </ul>
+  <div id="empty" style="display:none; margin-top: var(--space-2)" data-text="ui-helper">Nenhum item corresponde ao termo.</div>
+  <script is:inline>
+    const input = document.getElementById('filter');
+    const list = document.getElementById('list');
+    const counter = document.getElementById('counter');
+    const empty = document.getElementById('empty');
+    function highlight(text, query) {
+      if (!query) return text;
+      const i = text.toLowerCase().indexOf(query.toLowerCase());
+      if (i === -1) return text;
+      const before = text.slice(0, i);
+      const match = text.slice(i, i + query.length);
+      const after = text.slice(i + query.length);
+      return `${before}<mark style="background: var(--surface-2); color: inherit; border-radius: var(--radius-sm)">${match}</mark>${after}`;
+    }
+    function update() {
+      const s = input.value.trim().toLowerCase();
+      let visible = 0;
+      for (const li of list.querySelectorAll('li')) {
+        const text = li.textContent || '';
+        const show = !s || text.toLowerCase().includes(s);
+        if (li instanceof HTMLElement) {
+          li.style.display = show ? '' : 'none';
+          li.innerHTML = highlight(text, s);
+        }
+        if (show) visible++;
+      }
+      if (counter) counter.textContent = s ? `${visible} resultados` : `${list.children.length} itens`;
+      if (empty) empty.style.display = visible === 0 ? '' : 'none';
+    }
+    if (input && list) {
+      input.addEventListener('input', update);
+      update();
+    }
+  </script>
+</div>

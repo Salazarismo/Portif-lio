@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  href?: string;
+  tone?: 'default' | 'accent';
+}
+const { title, description = '', href, tone = 'default' } = Astro.props as Props;
+const bg = tone === 'accent' ? 'var(--surface-2)' : 'var(--surface-1)';
+const border = tone === 'accent' ? 'var(--accent-1)' : 'var(--color-border)';
+const shadowBase = tone === 'accent' ? 'var(--elevation-2)' : 'var(--elevation-1)';
+---
+{href ? (
+  <a aria-labelledby="card-interactive-title" href={href} class="card-interactive" data-cell data-z="2" style={`background:${bg}; border-color:${border}; box-shadow:${shadowBase}`}>
+    <div class="card-body">
+      <h3 id="card-interactive-title" data-text="heading-lg">{title}</h3>
+      {description && <p data-text="body-normal">{description}</p>}
+      <slot />
+    </div>
+  </a>
+) : (
+  <article aria-labelledby="card-interactive-title" class="card-interactive" data-cell data-z="2" style={`background:${bg}; border-color:${border}; box-shadow:${shadowBase}`}>
+    <div class="card-body">
+      <h3 id="card-interactive-title" data-text="heading-lg">{title}</h3>
+      {description && <p data-text="body-normal">{description}</p>}
+      <slot />
+    </div>
+  </article>
+)}

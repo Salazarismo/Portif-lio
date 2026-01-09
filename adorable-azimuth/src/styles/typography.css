@@ -1,0 +1,13 @@
+/* Tipografia Sistêmica M0.2 */
+[data-text="heading-3xl"] { font-size: var(--font-size-3xl); line-height: var(--line-height-3xl); font-weight: var(--font-weight-bold); }
+[data-text="heading-2xl"] { font-size: var(--font-size-2xl); line-height: var(--line-height-2xl); font-weight: var(--font-weight-bold); }
+[data-text="heading-xl"] { font-size: var(--font-size-xl); line-height: var(--line-height-xl); font-weight: var(--font-weight-bold); }
+[data-text="heading-lg"] { font-size: var(--font-size-lg); line-height: var(--line-height-lg); font-weight: var(--font-weight-medium); }
+
+[data-text="body-normal"] { font-size: var(--font-size-base); line-height: var(--line-height-base); color: var(--ink-1); }
+[data-text="body-muted"] { font-size: var(--font-size-base); line-height: var(--line-height-base); color: var(--ink-2); }
+
+[data-text="ui-label"] { font-size: var(--font-size-sm); line-height: var(--line-height-sm); font-weight: var(--font-weight-medium); color: var(--ink-1); }
+[data-text="ui-helper"] { font-size: var(--font-size-sm); line-height: var(--line-height-sm); color: var(--ink-2); }
+[data-text="ui-meta"] { font-size: var(--font-size-sm); line-height: var(--line-height-sm); color: var(--ink-2); opacity: 0.9; }
+

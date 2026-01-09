@@ -1,0 +1,50 @@
+---
+---
+<div id="app-state-bar" aria-live="polite" role="status" data-z="3" style="display:none; position: sticky; top: 0; z-index: 50; padding: var(--space-2) var(--space-3); border-bottom-style: solid; border-bottom-width: var(--border-width-1);">
+  <span id="app-state-text" data-text="ui-label"></span>
+</div>
+<script is:inline>
+  (function() {
+    const bar = document.getElementById('app-state-bar');
+    const text = document.getElementById('app-state-text');
+    if (!bar || !text) return;
+    const setBar = (state, message) => {
+      if (!state) { bar.style.display = 'none'; return; }
+      bar.style.display = '';
+      bar.dataset.state = state;
+      const styles = {
+        loading: { bg: getComputedStyle(document.documentElement).getPropertyValue('--surface-2'), ink: getComputedStyle(document.documentElement).getPropertyValue('--ink-1') },
+        empty: { bg: getComputedStyle(document.documentElement).getPropertyValue('--surface-2'), ink: getComputedStyle(document.documentElement).getPropertyValue('--ink-1') },
+        success: { bg: getComputedStyle(document.documentElement).getPropertyValue('--success'), ink: getComputedStyle(document.documentElement).getPropertyValue('--success-ink') },
+        error: { bg: getComputedStyle(document.documentElement).getPropertyValue('--danger'), ink: getComputedStyle(document.documentElement).getPropertyValue('--danger-ink') },
+      };
+      const s = styles[state] || styles.loading;
+      bar.style.background = s.bg;
+      bar.style.color = s.ink;
+      text.textContent = message || (state === 'loading' ? 'Carregando…' : state === 'empty' ? 'Sem dados' : state === 'success' ? 'Operação concluída' : 'Erro');
+    };
+    const applyFromBody = () => {
+      const ds = document.body?.dataset || {};
+      setBar(ds.appState, ds.appMessage);
+    };
+    window.addEventListener('appstate:set', (ev) => {
+      const detail = ev.detail || {};
+      document.body.dataset.appState = detail.state || '';
+      document.body.dataset.appMessage = detail.message || '';
+      applyFromBody();
+    });
+    applyFromBody();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) bar.style.transition = 'background var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)';
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const t = e.target;
+        if (!(t instanceof HTMLElement)) continue;
+        if (t.hasAttribute('data-global-loading')) setBar('loading');
+        if (t.hasAttribute('data-global-empty')) setBar('empty');
+      }
+    }, { rootMargin: '0% 0% -10% 0%' });
+    document.querySelectorAll('[data-global-loading],[data-global-empty]').forEach((el) => io.observe(el));
+  })();
+  </script>

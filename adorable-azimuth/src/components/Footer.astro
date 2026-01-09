@@ -1,0 +1,32 @@
+---
+const year = new Date().getFullYear();
+const owner = "Victor Alcântara";
+const email = "victor.de.alcantara.bueno@gmail.com";
+---
+<footer style="background: var(--surface-1)">
+  <div class="container" style="padding-block: var(--spacing-6)">
+    <div class="grid-12 gap-token-6" style="grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr)); align-items: start">
+      <section aria-labelledby="ft-sitemap">
+        <h2 id="ft-sitemap" data-text="ui-label">Sitemap</h2>
+        <ul style="margin-top: var(--space-2); display:grid; gap: var(--space-2)">
+          <li><a href="/" data-text="ui-label">Home</a></li>
+          <li><a href="#projects" data-text="ui-label">Projetos</a></li>
+          <li><a href="#contact" data-text="ui-label">Contato</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="ft-contact">
+        <h2 id="ft-contact" data-text="ui-label">Contato</h2>
+        <ul style="margin-top: var(--space-2); display:grid; gap: var(--space-2)">
+          <li><a href={`mailto:${email}`} data-text="ui-label">{email}</a></li>
+          <li><a href="https://github.com/Salazarismo" target="_blank" rel="noopener noreferrer" data-text="ui-label">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/victor-de-alcantara/" target="_blank" rel="noopener noreferrer" data-text="ui-label">LinkedIn</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="ft-rights">
+        <h2 id="ft-rights" data-text="ui-label">Direitos</h2>
+        <p data-text="body-muted" style="margin-top: var(--space-2)">© {year} {owner}. Todos os direitos reservados.</p>
+        <p data-text="body-muted" style="margin-top: var(--space-2)"><a href="https://astro.build/" target="_blank" rel="noopener noreferrer" data-text="ui-label">Astro</a> • <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" data-text="ui-label">Vercel</a></p>
+      </section>
+    </div>
+  </div>
+</footer>

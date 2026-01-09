@@ -1,0 +1,15 @@
+---
+interface Props { label?: string }
+const { label = 'Carregando' } = Astro.props as Props;
+---
+<div role="status" aria-live="polite" style="display:inline-flex; align-items:center; gap: var(--spacing-2); color: var(--color-text)">
+  <svg width="20" height="20" viewBox="0 0 50 50" aria-hidden="true" style="animation: spin var(--duration-normal) linear infinite">
+    <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.3" />
+    <path d="M25 5 a20 20 0 0 1 0 40" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+  </svg>
+  <span>{label}</span>
+  <style>
+    @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+  </style>
+</div>
+

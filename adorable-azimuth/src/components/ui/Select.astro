@@ -1,0 +1,12 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  disabled?: boolean;
+  state?: 'default' | 'error' | 'success';
+}
+const { id, name, disabled = false, state = 'default' } = Astro.props as Props;
+---
+<select id={id} name={name} disabled={disabled} aria-disabled={disabled ? 'true' : 'false'} aria-invalid={state === 'error' ? 'true' : 'false'} data-state={state} class="ui-select">
+  <slot />
+  </select>

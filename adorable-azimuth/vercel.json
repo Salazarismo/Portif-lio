@@ -1,9 +1,5 @@
 {
   "framework": "astro",
   "buildCommand": "pnpm build",
-  "outputDirectory": ".vercel/output",
-  "functions": {
-    "api/**": { "runtime": "nodejs22.x" },
-    "ssr": { "runtime": "nodejs22.x" }
-  }
+  "outputDirectory": ".vercel/output"
 }

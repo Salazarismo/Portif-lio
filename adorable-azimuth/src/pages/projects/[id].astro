@@ -4,5 +4,118 @@ const { id } = Astro.params;
 export const prerender = false;
 ---
 <BaseLayout title={`Projeto ${id}`} description="">
-  <div class="container"></div>
+  <div class="container" style="display:grid; gap: var(--spacing-6)">
+    {id === 'p3' ? (
+      <>
+        <section aria-labelledby="title" style="display:grid; gap: var(--space-2)">
+          <h1 id="title" data-text="heading-2xl">Habit Analyzer</h1>
+          <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com analytics e relatórios.</p>
+          <p data-text="ui-label">Pré‑agregação e cache reduziram em até 40% o custo de leitura de analytics em janelas grandes.</p>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Full‑stack solo</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Next.js + FastAPI</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Testes E2E + benchmarks</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Dockerized</span>
+          </div>
+        </section>
+
+        <section aria-labelledby="problem" style="display:grid; gap: var(--space-2)">
+          <h2 id="problem" data-text="heading-xl">Por que isso existe?</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Sem visibilidade diária/aggregada, consistência cai e revisão é difícil.</li>
+            <li data-text="body-normal">Decisões de ajuste ficam imprecisas sem métricas claras.</li>
+            <li data-text="body-normal">Sem registros consolidados, análise semanal/mensal se torna onerosa.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="arch" style="display:grid; gap: var(--space-2)">
+          <h2 id="arch" data-text="heading-xl">Arquitetura</h2>
+          <figure aria-label="Fluxo arquitetural" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+            <svg role="img" aria-label="Next.js para FastAPI para PostgreSQL com Cache de Analytics" viewBox="0 0 800 220" width="100%" height="220">
+              <rect x="40" y="60" width="160" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="120" y="95" text-anchor="middle" fill="var(--ink-1)" font-size="14">Next.js</text>
+
+              <rect x="300" y="60" width="160" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="380" y="95" text-anchor="middle" fill="var(--ink-1)" font-size="14">FastAPI</text>
+
+              <rect x="560" y="60" width="160" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="640" y="95" text-anchor="middle" fill="var(--ink-1)" font-size="14">PostgreSQL</text>
+
+              <rect x="300" y="140" width="160" height="40" rx="8" fill="var(--success)" opacity="0.2"></rect>
+              <text x="380" y="165" text-anchor="middle" fill="var(--ink-1)" font-size="12">Cache Analytics</text>
+
+              <line x1="200" y1="90" x2="300" y2="90" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#arrow)"></line>
+              <line x1="460" y1="90" x2="560" y2="90" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#arrow)"></line>
+              <line x1="380" y1="120" x2="380" y2="140" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#arrow)"></line>
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ink-1)"></path>
+                </marker>
+              </defs>
+            </svg>
+          </figure>
+        </section>
+
+        <section aria-labelledby="decisions" style="display:grid; gap: var(--space-2)">
+          <h2 id="decisions" data-text="heading-xl">Decisões Técnicas‑Chave</h2>
+          <div style="display:grid; gap: var(--space-2)">
+            <div>
+              <p data-text="ui-label">Pré‑agregação</p>
+              <p data-text="body-normal">Motivo: reduzir custo de leitura em janelas grandes. Trade‑off: complexidade adicional e sincronização.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Cache por versão</p>
+              <p data-text="body-normal">Motivo: evitar dados obsoletos após updates. Trade‑off: invalidação precisa e controle de versões.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">JWT vs cookies</p>
+              <p data-text="body-normal">Motivo: rapidez no MVP. Trade‑off: menor segurança que httpOnly; expiração curta adotada.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Zustand vs Redux</p>
+              <p data-text="body-normal">Motivo: menor boilerplate e simplicidade. Trade‑off: menos tooling pronto para grandes times.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">SSR opcional</p>
+              <p data-text="body-normal">Motivo: flexibilidade e performance em páginas críticas. Trade‑off: complexidade de hidratação.</p>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="results" style="display:grid; gap: var(--space-2)">
+          <h2 id="results" data-text="heading-xl">Resultados</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Até 40% menos latência em analytics agregados.</li>
+            <li data-text="body-normal">Fluxo crítico 100% coberto por E2E.</li>
+            <li data-text="body-normal">Contratos de API estáveis via snapshot OpenAPI.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="quality" style="display:grid; gap: var(--space-2)">
+          <h2 id="quality" data-text="heading-xl">Qualidade e Engenharia</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Clean Architecture leve (domain/application/infrastructure).</li>
+            <li data-text="body-normal">Segurança: Argon2, JWT, blacklist, validações rígidas.</li>
+            <li data-text="body-normal">Analytics: resumos e séries com equivalência validada e testes.</li>
+            <li data-text="body-normal">Frontend: estado e gráficos encapsulados; interceptores Axios.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="next" style="display:grid; gap: var(--space-2)">
+          <h2 id="next" data-text="heading-xl">Próximos passos</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Formalizar migrations Alembic e provisionamento de pré‑agregação.</li>
+            <li data-text="body-normal">Ampliar E2E para expiração/renovação de token.</li>
+            <li data-text="body-normal">Automatizar snapshot OpenAPI no CI; lint/format unificados.</li>
+            <li data-text="body-normal">Consolidar documentação do stack atual.</li>
+          </ul>
+        </section>
+      </>
+    ) : (
+      <section style="display:grid; gap: var(--space-2)">
+        <h1 data-text="heading-2xl">Projeto {id}</h1>
+        <p data-text="body-muted">Conteúdo não encontrado. Volte ao <a href="/#portfolio">Portfólio</a>.</p>
+      </section>
+    )}
+  </div>
 </BaseLayout>

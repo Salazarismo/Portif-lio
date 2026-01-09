@@ -3,8 +3,8 @@ import ProofStrip from "./ux/ProofStrip.astro";
 import Button from "./ui/Button.astro";
 import StateBanner from "./ui/StateBanner.astro";
 interface Metric { label: string; value: string }
-interface Props { title: string; subtitle?: string; imageAlt?: string; proofMetrics?: Metric[]; ctaLabel?: string; ctaHref?: string; ctaSecondaryLabel?: string; ctaSecondaryHref?: string }
-const { title, subtitle, imageAlt = 'Hero visual', proofMetrics = [], ctaLabel = 'Diagnosticar sua landing', ctaHref = '#contact', ctaSecondaryLabel = '', ctaSecondaryHref = '' } = Astro.props as Props;
+interface Props { title: string; subtitle?: string; imageAlt?: string; proofMetrics?: Metric[]; ctaLabel?: string; ctaHref?: string; ctaSecondaryLabel?: string; ctaSecondaryHref?: string; microcopy?: string }
+const { title, subtitle, imageAlt = 'Hero visual', proofMetrics = [], ctaLabel = 'Diagnosticar sua landing', ctaHref = '#contact', ctaSecondaryLabel = '', ctaSecondaryHref = '', microcopy = '' } = Astro.props as Props;
 ---
 <section aria-labelledby="hero-title" class="px-4 py-8" data-objective="Apresentar valor de forma clara" data-action="Explorar projetos ou contatar" data-completion="Imagem hero carregada" data-anim="hero">
   <div class="container">
@@ -26,6 +26,7 @@ const { title, subtitle, imageAlt = 'Hero visual', proofMetrics = [], ctaLabel =
             <Button as="a" href={ctaSecondaryHref} variant="secondary">{ctaSecondaryLabel}</Button>
           )}
         </div>
+        {microcopy && <p class="mt-1" data-text="ui-helper">{microcopy}</p>}
         <p class="mt-1" data-text="ui-helper">Garantia de melhoria de pontuação no Google</p>
         <div class="mt-2" style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center">
           <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--success); color: #000000">PageSpeed 100</span>

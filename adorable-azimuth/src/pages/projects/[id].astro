@@ -198,6 +198,186 @@ use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS<
           </ul>
         </section>
       </>
+    ) : id === 'p5' ? (
+      <>
+        <section aria-labelledby="title-p5" style="display:grid; gap: var(--space-2)">
+          <h1 id="title-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
+          <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades, reduzindo o tempo de lançamento em 45–60%.</p>
+          <p data-text="ui-label">Para pequenos e médios produtores e técnicos agronômicos que precisam registrar atividades no campo com rapidez e consistência.</p>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Full‑stack Flutter solo</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Flutter/Dart</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Riverpod + go_router</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Drift/SQLite • Web/Desktop/Mobile</span>
+          </div>
+          <div style="margin-top: var(--space-3)">
+            <picture>
+              <source type="image/avif" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=avif&w=800&q=60 800w" sizes="100vw" />
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&w=800&q=60 800w" sizes="100vw" />
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="UI e programação — atalhos de atividade" width="800" height="400" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <span data-text="body-muted">Este software é privado em produção e pertence a uma empresa; demo e código não estão disponíveis.</span>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="problem-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="problem-p5" data-text="heading-xl">Por que isso existe?</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Quem: produtores e equipes técnicas com baixo tempo e conectividade intermitente.</li>
+            <li data-text="body-normal">Por que importa: registros lentos e inconsistentes geram divergências em custos, planejamentos e conformidade.</li>
+            <li data-text="body-normal">Se não resolver: perda de dados de campo, retrabalho em auditorias e decisões com base em registros incompletos.</li>
+          </ul>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="context-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="context-p5" data-text="heading-xl">Contexto e Restrições</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Técnicas: Android/iOS/Web/Windows; offline‑first; performance em dispositivos modestos; a11y e semântica; persistência local confiável; navegação estável.</li>
+            <li data-text="body-normal">Negócio: minimizar atrito no registro, reduzir tempo de onboarding e manter consistência entre módulos.</li>
+            <li data-text="body-normal">Cenário: evitar dependências pesadas e priorizar UI acessível e rápida; rotas nomeadas e fluxos curtos para “Nova atividade”.</li>
+          </ul>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="arch-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="arch-p5" data-text="heading-xl">Arquitetura</h2>
+          <figure aria-label="Camadas e fluxos" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+            <svg role="img" aria-label="Flutter camadas core/features; Riverpod; go_router; Drift/SQLite; IndexedDB no Web" viewBox="0 0 800 260" width="100%" height="260">
+              <rect x="40" y="40" width="200" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="140" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">Flutter Core</text>
+
+              <rect x="300" y="40" width="200" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="400" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">Features</text>
+
+              <rect x="560" y="40" width="200" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="660" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">Riverpod</text>
+
+              <rect x="300" y="120" width="200" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="400" y="155" text-anchor="middle" fill="var(--ink-1)" font-size="14">go_router</text>
+
+              <rect x="560" y="120" width="200" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="660" y="155" text-anchor="middle" fill="var(--ink-1)" font-size="14">Drift/SQLite</text>
+
+              <rect x="560" y="200" width="200" height="40" rx="8" fill="var(--success)" opacity="0.2"></rect>
+              <text x="660" y="225" text-anchor="middle" fill="var(--ink-1)" font-size="12">IndexedDB (Web)</text>
+
+              <line x1="240" y1="70" x2="300" y2="70" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#a2)"></line>
+              <line x1="500" y1="70" x2="560" y2="70" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#a2)"></line>
+              <line x1="500" y1="150" x2="560" y2="150" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#a2)"></line>
+              <defs>
+                <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ink-1)"></path>
+                </marker>
+              </defs>
+            </svg>
+          </figure>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="decisions-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="decisions-p5" data-text="heading-xl">Decisões Técnicas‑Chave</h2>
+          <div style="display:grid; gap: var(--space-2)">
+            <div>
+              <p data-text="ui-label">Flutter multiplataforma</p>
+              <p data-text="body-normal">Motivo: UI nativa e forte ecossistema. Trade‑off: tamanho do binário e atenção a performance.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Riverpod</p>
+              <p data-text="body-normal">Motivo: previsibilidade e composição. Trade‑off: curva inicial de providers e refatoração.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">go_router</p>
+              <p data-text="body-normal">Motivo: rotas declarativas e deep‑linking. Trade‑off: estrutura nominal exige disciplina.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Drift/SQLite</p>
+              <p data-text="body-normal">Motivo: offline confiável e tipagem forte; IndexedDB no Web. Trade‑off: sincronização posterior.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">QuickActionButton com Semantics</p>
+              <p data-text="body-normal">Motivo: acessibilidade e reuso; props mínimas e Tooltips. Trade‑off: padronização de rótulos/atalhos.</p>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-2)"><span data-text="body-muted">Opções de demonstração e repositório não disponíveis por confidencialidade e propriedade empresarial.</span></div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="results-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="results-p5" data-text="heading-xl">Resultados</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Tempo de registro “Nova atividade”: de ~45s para ~20–25s.</li>
+            <li data-text="body-normal">Redução de cliques por ação: −40–55% em atalhos do dashboard.</li>
+            <li data-text="body-normal">Render do dashboard estável após const/keys; Semantics consistentes.</li>
+          </ul>
+          <div style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">
+            <table role="table" style="width:100%; border-collapse: collapse">
+              <thead>
+                <tr>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Fluxo</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Tempo</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Cliques</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Nova atividade (atalho)</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">20–25s</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">−40–55%</td>
+                </tr>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Fluxo antigo</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">~45s</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">baseline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="quality-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="quality-p5" data-text="heading-xl">Qualidade e Engenharia</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Camadas core/features; Riverpod providers; rotas declarativas; widgets com Semantics.</li>
+            <li data-text="body-normal">Persistência local confiável (Drift/SQLite, IndexedDB no Web).</li>
+            <li data-text="body-normal">Testes de widget para a11y e interação do botão de ação rápida.</li>
+          </ul>
+          <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+            <p data-text="ui-label">Artefato de UI/roteamento</p>
+            <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+<code data-text="body-normal">Semantics(
+  label: 'Atalho: Nova atividade',
+  button: true,
+  child: Tooltip(
+    message: 'Nova atividade',
+    child: QuickActionButton(onPressed: () =&gt; context.goNamed('nova_atividade'))
+  ),
+)</code>
+            </pre>
+            <ul style="display:grid; gap: var(--space-2)">
+              <li data-text="body-normal">Semantics/Tooltip garantem a11y e reconhecibilidade.</li>
+              <li data-text="body-normal">Rotas nomeadas com go_router facilitam deep‑linking e previsibilidade.</li>
+              <li data-text="body-normal">const/keys reduzem re‑renders no dashboard.</li>
+            </ul>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="next-p5" style="display:grid; gap: var(--space-2)">
+          <h2 id="next-p5" data-text="heading-xl">Próximos passos</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Atalhos contextuais (baseados em última atividade/local).</li>
+            <li data-text="body-normal">Telemetria leve para medir tempo/cliques por atalho e otimizar UX.</li>
+            <li data-text="body-normal">Fila de sincronização offline com resolução de conflitos.</li>
+            <li data-text="body-normal">Melhorias de a11y com foco/outline e leitores no Web/Desktop.</li>
+            <li data-text="body-normal">Testes de integração para fluxos completos de registro a partir do dashboard.</li>
+          </ul>
+        </section>
+      </>
     ) : (
       <section style="display:grid; gap: var(--space-2)">
         <h1 data-text="heading-2xl">Projeto {id}</h1>

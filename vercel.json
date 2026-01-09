@@ -1,6 +1,0 @@
-{
-  "builds": [
-    { "src": "adorable-azimuth/package.json", "use": "@vercel/astro" }
-  ],
-  "outputDirectory": "adorable-azimuth/.vercel/output"
-}

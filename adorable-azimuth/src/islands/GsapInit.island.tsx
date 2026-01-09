@@ -3,8 +3,7 @@ import initGsapReveal from '../lib/gsap-reveal';
 
 export default function GsapInit() {
   useEffect(() => {
-    initGsapReveal();
+    void initGsapReveal();
   }, []);
   return null;
 }
-

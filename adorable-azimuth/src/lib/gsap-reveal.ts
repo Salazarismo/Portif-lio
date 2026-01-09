@@ -1,7 +1,7 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-export default function initGsapReveal() {
+export default async function initGsapReveal() {
+  const { gsap } = await import('gsap');
+  const mod = await import('gsap/ScrollTrigger');
+  const ScrollTrigger = (mod as any).ScrollTrigger ?? (mod as any).default;
   gsap.registerPlugin(ScrollTrigger);
   const mm = gsap.matchMedia();
   mm.add({ reduce: '(prefers-reduced-motion: reduce)' }, (ctx) => {

@@ -1,6 +1,6 @@
 import { e as createComponent, r as renderTemplate, m as maybeRenderHead, f as createAstro, h as addAttribute, k as renderComponent, n as renderSlot, u as unescapeHTML, l as Fragment } from '../chunks/astro/server_DnANCFlh.mjs';
 /* empty css                                   */
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_CeMzL_Gb.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_BMZ-2Rnj.mjs';
 import { b as $$Button, $ as $$Header, a as $$Footer } from '../chunks/Footer_B_qeGUGU.mjs';
 /* empty css                                 */
 import 'preact';

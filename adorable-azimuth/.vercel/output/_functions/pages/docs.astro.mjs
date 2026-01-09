@@ -1,8 +1,8 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, l as Fragment, m as maybeRenderHead } from '../chunks/astro/server_DnANCFlh.mjs';
 /* empty css                                   */
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_CeMzL_Gb.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_BMZ-2Rnj.mjs';
 import { $ as $$Header, a as $$Footer } from '../chunks/Footer_B_qeGUGU.mjs';
-import { C as Content } from '../chunks/content_-XqoecU5.mjs';
+import { C as Content } from '../chunks/content_Z73eTa1n.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {

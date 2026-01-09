@@ -17,6 +17,16 @@ export const prerender = false;
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Testes E2E + benchmarks</span>
             <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Dockerized</span>
           </div>
+          <div style="margin-top: var(--space-3)">
+            <picture>
+              <source type="image/avif" srcset="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fm=avif&w=1200&q=60 1200w" sizes="100vw" />
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fm=webp&w=1200&q=60 1200w" sizes="100vw" />
+              <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fm=jpg&w=1200&q=80" alt="Screenshot do Habit Analyzer" width="1200" height="600" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" />
+            </picture>
+          </div>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label" style="padding:6px 12px; border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">Código</a>
+          </div>
         </section>
 
         <section aria-labelledby="problem" style="display:grid; gap: var(--space-2)">
@@ -89,6 +99,29 @@ export const prerender = false;
             <li data-text="body-normal">Fluxo crítico 100% coberto por E2E.</li>
             <li data-text="body-normal">Contratos de API estáveis via snapshot OpenAPI.</li>
           </ul>
+          <div style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">
+            <table role="table" style="width:100%; border-collapse: collapse">
+              <thead>
+                <tr>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Abordagem</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Janela</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Latência relativa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Pré‑agregação diária</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">30 dias</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">−40% vs agregação direta</td>
+                </tr>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Agregação direta</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">30 dias</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">baseline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section aria-labelledby="quality" style="display:grid; gap: var(--space-2)">
@@ -99,6 +132,31 @@ export const prerender = false;
             <li data-text="body-normal">Analytics: resumos e séries com equivalência validada e testes.</li>
             <li data-text="body-normal">Frontend: estado e gráficos encapsulados; interceptores Axios.</li>
           </ul>
+          <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+            <p data-text="ui-label">Estratégia de analytics (artefato)</p>
+            <p data-text="body-normal">O trecho abaixo exemplifica cache versionado e fallback entre agregação direta e pré‑agregada.</p>
+            <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+<code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
+use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS</code>
+            </pre>
+            <ul style="display:grid; gap: var(--space-2)">
+              <li data-text="body-normal">Cache versionado evita dados stale após updates.</li>
+              <li data-text="body-normal">Pré‑agregação reduz custo em janelas longas.</li>
+              <li data-text="body-normal">Fallback garante consistência funcional.</li>
+              <li data-text="body-normal">Contratos equivalentes permitem testes de equivalência.</li>
+            </ul>
+            <div>
+              <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Implementação completa disponível no repositório</a>
+            </div>
+            <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
+              <p data-text="body-muted">Observações de engenharia:</p>
+              <ul style="display:grid; gap: var(--space-1)">
+                <li data-text="body-normal">Função de serviço agrega cache, estratégia e formatação — aceitável em domínio; refatorável por camadas.</li>
+                <li data-text="body-normal">Cache in‑memory implica instância única; invalidação em múltiplos workers exige camada externa.</li>
+                <li data-text="body-normal">Legibilidade: tipagem do retorno de repositórios evita hasattr em produção.</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section aria-labelledby="next" style="display:grid; gap: var(--space-2)">

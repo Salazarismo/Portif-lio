@@ -4,11 +4,11 @@ import Divider from "../../components/ui/Divider.astro";
 export const prerender = false;
 ---
 <BaseLayout title="Projeto p7" description="">
-  <div class="container" style="display:grid; gap: var(--spacing-6)">
-    <section aria-labelledby="title-p7" style="display:grid; gap: var(--space-2)">
+  <div class="container">
+    <section aria-labelledby="title-p7">
       <h1 id="title-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
       <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline, simplificando operação e aumentando conversão.</p>
-      <section aria-labelledby="tldr-p7" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+      <section aria-labelledby="tldr-p7">
         <h2 id="tldr-p7" data-text="heading-lg">TL;DR</h2>
         <p data-text="body-normal">Engenheiro full‑stack — aumentei conversão com venda pelo WhatsApp e garanti operação com check‑in offline.</p>
         <ul style="display:grid; gap: var(--space-1)">
@@ -20,18 +20,18 @@ export const prerender = false;
           <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
         </div>
       </section>
-      <div style="margin-top: var(--space-3)">
+      <div>
         <picture>
           <source type="image/avif" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=avif&w=1000&q=60 1000w" sizes="100vw" />
           <source type="image/webp" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=webp&w=1000&q=60 1000w" sizes="100vw" />
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=jpg&w=1000&q=80" alt="Operação de evento e check‑in" width="1000" height="600" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=jpg&w=1000&q=80" alt="Operação de evento e check‑in" width="1000" height="600" loading="lazy" decoding="async" />
         </picture>
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="quality-p7" style="display:grid; gap: var(--space-2)">
+    <section aria-labelledby="quality-p7">
       <h2 id="quality-p7" data-text="heading-xl">Qualidade e Engenharia</h2>
-      <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+      <pre>
 <code data-text="body-normal">const queue = new LocalQueue('checkin');
 queue.push({ code, ts: Date.now(), status: 'pending' });
 syncPeriodically(() =&gt; queue.flushToServer(), { backoff: true });</code>

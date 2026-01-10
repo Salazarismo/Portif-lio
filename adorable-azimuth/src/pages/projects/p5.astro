@@ -4,11 +4,11 @@ import Divider from "../../components/ui/Divider.astro";
 export const prerender = false;
 ---
 <BaseLayout title="Projeto p5" description="">
-  <div class="container" style="display:grid; gap: var(--spacing-6)">
-    <section aria-labelledby="title-p5" style="display:grid; gap: var(--space-2)">
+  <div class="container">
+    <section aria-labelledby="title-p5">
       <h1 id="title-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
       <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades, reduzindo o tempo de lançamento em 45–60%.</p>
-      <section aria-labelledby="tldr-p5" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+      <section aria-labelledby="tldr-p5">
         <h2 id="tldr-p5" data-text="heading-lg">TL;DR</h2>
         <p data-text="body-normal">Full‑stack Flutter — reduzi tempo de registro em 45–60% com atalhos.</p>
         <ul style="display:grid; gap: var(--space-1)">
@@ -20,18 +20,18 @@ export const prerender = false;
           <span data-text="body-muted">Software privado em produção; demo e código indisponíveis.</span>
         </div>
       </section>
-      <div style="margin-top: var(--space-3)">
+      <div>
         <picture>
           <source type="image/avif" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=avif&w=800&q=60 800w" sizes="100vw" />
           <source type="image/webp" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&w=800&q=60 800w" sizes="100vw" />
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="UI e programação — atalhos de atividade" width="800" height="400" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="UI e programação — atalhos de atividade" width="800" height="400" loading="lazy" decoding="async" />
         </picture>
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="quality-p5" style="display:grid; gap: var(--space-2)">
+    <section aria-labelledby="quality-p5">
       <h2 id="quality-p5" data-text="heading-xl">Qualidade e Engenharia</h2>
-      <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+      <pre>
 <code data-text="body-normal">Semantics(
   label: 'Atalho: Nova atividade',
   button: true,

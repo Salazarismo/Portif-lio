@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b1320"/>
+    </linearGradient>
+    <style>
+      .title { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #e2e8f0; font-size: 32px; }
+      .label { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #94a3b8; font-size: 16px; }
+      .box { fill: #1f2937; stroke: #334155; stroke-width: 2; }
+      .accent { fill: #22c55e; }
+      .accent2 { fill: #3b82f6; }
+      .line { stroke: #64748b; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1000" height="600" fill="url(#bg)"/>
+  <text x="40" y="60" class="title">Operação de evento e check‑in offline</text>
+  <text x="40" y="90" class="label">WhatsApp → Compra | PWA Portaria → Check‑in offline com sincronização</text>
+
+  <!-- WhatsApp -->
+  <rect x="60" y="140" width="240" height="120" rx="12" class="box"/>
+  <circle cx="90" cy="200" r="18" class="accent"/>
+  <text x="120" y="175" class="label">WhatsApp Business</text>
+  <text x="120" y="205" class="label">Mensagens / Links de pagamento</text>
+
+  <!-- Admin SPA -->
+  <rect x="380" y="140" width="260" height="120" rx="12" class="box"/>
+  <rect x="410" y="165" width="200" height="16" rx="4" class="accent2"/>
+  <text x="395" y="155" class="label">Admin (SPA)</text>
+  <text x="395" y="205" class="label">Eventos, convidados, relatórios</text>
+
+  <!-- Backend -->
+  <rect x="720" y="140" width="220" height="120" rx="12" class="box"/>
+  <text x="735" y="175" class="label">Backend (NestJS)</text>
+  <text x="735" y="205" class="label">Payments, Messaging, Admin</text>
+
+  <!-- Lines -->
+  <line x1="300" y1="200" x2="380" y2="200" class="line"/>
+  <line x1="640" y1="200" x2="720" y2="200" class="line"/>
+
+  <!-- PWA Portaria -->
+  <rect x="60" y="320" width="280" height="160" rx="12" class="box"/>
+  <text x="75" y="355" class="label">PWA Portaria (Offline)</text>
+  <rect x="80" y="370" width="120" height="36" rx="6" class="accent"/>
+  <text x="88" y="394" class="label" fill="#0b1320">Check‑in</text>
+  <rect x="210" y="370" width="110" height="36" rx="6" class="accent2"/>
+  <text x="218" y="394" class="label">Fila local</text>
+  <text x="80" y="430" class="label">Sincronização periódica → Backend</text>
+
+  <!-- Storage / DB -->
+  <rect x="400" y="320" width="220" height="80" rx="12" class="box"/>
+  <text x="415" y="350" class="label">Postgres / SQLite</text>
+  <rect x="650" y="320" width="160" height="80" rx="12" class="box"/>
+  <text x="665" y="350" class="label">Redis (locks / rate‑limit)</text>
+
+  <line x1="340" y1="360" x2="400" y2="360" class="line"/>
+  <line x1="620" y1="360" x2="650" y2="360" class="line"/>
+</svg>

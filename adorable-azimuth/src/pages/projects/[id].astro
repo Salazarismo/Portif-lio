@@ -237,7 +237,7 @@ export const prerender = false;
             <p data-text="body-normal">O trecho abaixo exemplifica cache versionado e fallback entre agregação direta e pré‑agregada.</p>
             <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
 <code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
-use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS</code>
+use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DAYS</code>
             </pre>
             <ul style="display:grid; gap: var(--space-2)">
               <li data-text="body-normal">Cache versionado evita dados stale após updates.</li>

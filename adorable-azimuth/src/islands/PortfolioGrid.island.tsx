@@ -156,14 +156,7 @@ export default function PortfolioGrid({ items }: Props) {
                     fetchpriority={eager ? 'high' as any : 'auto' as any}
                     data-pid={item.id}
                     onLoad={() => setLoaded((s) => ({ ...s, [item.id]: true }))}
-                    onError={(e) => {
-                      const img = e.currentTarget as HTMLImageElement;
-                      const fallback = item.imageUrl.replace(/\.png$/i, '.svg');
-                      if (fallback !== item.imageUrl) {
-                        img.src = fallback;
-                      }
-                      setLoaded((s) => ({ ...s, [item.id]: true }));
-                    }}
+                    onError={() => setLoaded((s) => ({ ...s, [item.id]: true }))}
                     style="display:block; width:100%; height:auto; aspect-ratio: 16/9; border-radius: var(--radius-md)"
                   />
                 </picture>

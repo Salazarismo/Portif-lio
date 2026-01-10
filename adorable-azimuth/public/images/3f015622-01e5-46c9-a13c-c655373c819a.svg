@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b1320"/>
+    </linearGradient>
+    <style>
+      .title { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #e2e8f0; font-size: 28px; }
+      .label { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #94a3b8; font-size: 16px; }
+      .layer { fill: #111827; stroke: #334155; stroke-width: 2; }
+      .badge { fill: #1f2937; stroke: #475569; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <text x="40" y="60" class="title">Arquitetura Plataforma‑Ingressos‑WhatsApp</text>
+  <rect x="120" y="120" width="960" height="80" rx="12" class="layer"/>
+  <text x="140" y="168" class="label">Frontend Web SPA & PWA</text>
+  <rect x="160" y="230" width="880" height="80" rx="12" class="layer"/>
+  <text x="180" y="278" class="label">Backend API (NestJS)</text>
+  <rect x="200" y="340" width="800" height="80" rx="12" class="layer"/>
+  <text x="220" y="388" class="label">Database & Cache (Postgres/SQLite, Redis)</text>
+  <rect x="240" y="450" width="720" height="80" rx="12" class="layer"/>
+  <text x="260" y="498" class="label">External Integrations</text>
+  <rect x="260" y="560" width="200" height="60" rx="10" class="badge"/>
+  <text x="270" y="595" class="label">WhatsApp Business API</text>
+  <rect x="480" y="560" width="160" height="60" rx="10" class="badge"/>
+  <text x="490" y="595" class="label">Online Payments</text>
+  <rect x="660" y="560" width="160" height="60" rx="10" class="badge"/>
+  <text x="670" y="595" class="label">Offline Check‑In</text>
+  <rect x="840" y="560" width="160" height="60" rx="10" class="badge"/>
+  <text x="850" y="595" class="label">3rd Party Services</text>
+</svg>

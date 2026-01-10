@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../components/BaseLayout.astro";
+import Divider from "../../components/ui/Divider.astro";
+export const prerender = false;
+---
+<BaseLayout title="Projeto p3" description="">
+  <div class="container" style="display:grid; gap: var(--spacing-6)">
+    <section aria-labelledby="title" style="display:grid; gap: var(--space-2)">
+      <h1 id="title" data-text="heading-2xl">Habit Analyzer</h1>
+      <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com analytics e relatórios.</p>
+      <p data-text="ui-label">Pré‑agregação e cache reduziram em até 40% o custo de leitura de analytics em janelas grandes.</p>
+      <section aria-labelledby="tldr-p3" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+        <h2 id="tldr-p3" data-text="heading-lg">TL;DR</h2>
+        <p data-text="body-normal">Engenheiro full‑stack — reduzi custo de leitura de analytics em até 40%.</p>
+        <ul style="display:grid; gap: var(--space-1)">
+          <li data-text="body-normal">Problema: analytics lentos em janelas grandes.</li>
+          <li data-text="body-normal">Solução: pré‑agregação diária + cache versionado.</li>
+          <li data-text="body-normal">Impacto: −40% latência, fluxo crítico coberto por E2E.</li>
+        </ul>
+        <div style="margin-top: var(--space-2)">
+          <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Código / README</a>
+        </div>
+      </section>
+      <div style="margin-top: var(--space-3)">
+        <picture>
+          <source type="image/avif" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=avif&w=800&q=60 800w" sizes="100vw" />
+          <source type="image/webp" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&w=800&q=60 800w" sizes="100vw" />
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="Imagem ilustrativa de programação e tecnologia" width="800" height="400" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="problem" style="display:grid; gap: var(--space-2)">
+      <h2 id="problem" data-text="heading-xl">Por que isso existe?</h2>
+      <p data-text="body-normal">Sem visibilidade diária/aggregada, consistência cai e revisão é difícil.</p>
+      <p data-text="body-normal">Decisões de ajuste ficam imprecisas sem métricas claras.</p>
+      <p data-text="body-normal">Sem registros consolidados, análise semanal/mensal se torna onerosa.</p>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3)">
+        <figure style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+          <picture>
+            <img src="/images/analytics-code.svg" alt="Visual de analytics: trecho de código de resumo e cache" width="600" height="300" style="width:100%; height:auto; border-radius: var(--radius-sm)" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Visual de analytics</figcaption>
+        </figure>
+        <figure style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+          <div style="height:140px; border-radius: var(--radius-sm); background: var(--surface-2); overflow:hidden">
+            <div style="width:85%; height:100%; background: var(--success)"></div>
+          </div>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Tendência de melhoria</figcaption>
+        </figure>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="quality" style="display:grid; gap: var(--space-2)">
+      <h2 id="quality" data-text="heading-xl">Qualidade e Engenharia</h2>
+      <p data-text="body-normal">O trecho abaixo exemplifica cache versionado e fallback entre agregação direta e pré‑agregada.</p>
+      <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+<code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
+use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DAYS</code>
+      </pre>
+    </section>
+  </div>
+</BaseLayout>

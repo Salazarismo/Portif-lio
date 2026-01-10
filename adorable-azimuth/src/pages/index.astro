@@ -91,6 +91,14 @@ import PortfolioGrid from "../islands/PortfolioGrid.island";
       ]}
     />
   </Section>
+  <Section id="new-projects" title="WhatsApp Ingressos" type="demonstracao" objective="Apresentar case de vendas pelo WhatsApp" action="Ver case" completion="Card exibido" tone="default">
+    <PortfolioGrid
+      client:load
+      items={[
+        { id: "p7", title: "Plataforma‑Ingressos‑WhatsApp", description: "Venda de ingressos pelo WhatsApp com check‑in offline e Admin SPA.", imageUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=jpg&w=1200&q=80", technologies: ["React", "NestJS", "Redis"], category: "Websites", caseLabel: "Ver Case de WhatsApp", caseTarget: "/projects/p7" }
+      ]}
+    />
+  </Section>
   <Section id="data" title="Interfaces que reduzem tempo de decisão" type="informacional" objective="Acelerar decisão com informação organizada" action="Explorar exemplos" completion="Tabela renderizada" tone="alt" metaLine="">
     <div class="grid gap-token-3" style="margin-top: var(--space-2)">
       <div>

@@ -462,6 +462,198 @@ use_daily = settings.USE_SUMMARY_DAILY and days <= settings.SUMMARY_WINDOW_DAYS<
           </ul>
         </section>
       </>
+    ) : id === 'p7' ? (
+      <>
+        <section aria-labelledby="title-p7" style="display:grid; gap: var(--space-2)">
+          <h1 id="title-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
+          <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline, simplificando operação e aumentando conversão.</p>
+          <p data-text="ui-label">Para organizadores de eventos e casas noturnas; resolve compra fragmentada, gestão confusa e portaria sem conectividade.</p>
+          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center; margin-top: var(--space-2)">
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Full‑stack principal</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">React + NestJS</span>
+            <span data-text="ui-label" style="padding:6px 12px; border-radius: var(--radius-md); background: var(--surface-2)">Postgres/SQLite • Redis • PWA</span>
+          </div>
+          <section aria-labelledby="tldr-p7" style="display:grid; gap: var(--space-2); padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1); margin-top: var(--space-2)">
+            <h2 id="tldr-p7" data-text="heading-lg">TL;DR</h2>
+            <p data-text="body-normal">Engenheiro full‑stack — aumentei conversão com venda pelo WhatsApp e garanti operação com check‑in offline.</p>
+            <ul style="display:grid; gap: var(--space-1)">
+              <li data-text="body-normal">Problema: compra com muitos passos e portaria sem internet.</li>
+              <li data-text="body-normal">Solução: WhatsApp como canal de venda + PWA de check‑in offline.</li>
+              <li data-text="body-normal">Impacto: menos fricção e operação estável; redução de erros e suporte.</li>
+            </ul>
+            <div style="margin-top: var(--space-2)">
+              <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
+            </div>
+          </section>
+          <div style="margin-top: var(--space-3)">
+            <picture>
+              <source type="image/avif" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=avif&w=1000&q=60 1000w" sizes="100vw" />
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=webp&w=1000&q=60 1000w" sizes="100vw" />
+              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff34?auto=format&fm=jpg&w=1000&q=80" alt="Operação de evento e check‑in" width="1000" height="600" style="width:100%; height:auto; border-radius: var(--radius-md); box-shadow: var(--elevation-2)" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="problem-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="problem-p7" data-text="heading-xl">Por que isso existe?</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Fricção na venda (muitos passos) e operações de portaria sem rede estável.</li>
+            <li data-text="body-normal">Queda de conversão, erros em gestão de convidados/PII, tempo perdido e suporte recorrente.</li>
+            <li data-text="body-normal">Ex.: validação sem rede e UI exigindo digitar eventId em relatórios.</li>
+          </ul>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="context-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="context-p7" data-text="heading-xl">Contexto e Restrições</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Equipe em tablets/celulares; check‑in offline; tempo curto para MVP; segurança de PII; multi‑tenant; integrações Mercado Pago/WhatsApp.</li>
+            <li data-text="body-normal">Modelo de negócio com comissão pós‑limite gratuito; identidade por organização; reduzir suporte e tempo de tarefas.</li>
+            <li data-text="body-normal">Admin SPA hash‑router; backend NestJS modular; métricas, rate‑limit e auditoria de ações sensíveis.</li>
+          </ul>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="arch-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="arch-p7" data-text="heading-xl">Arquitetura</h2>
+          <figure aria-label="Camadas e integrações" style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); background: var(--surface-1)">
+            <svg role="img" aria-label="SPA Admin, NestJS módulos, DB, Redis, integrações, PWA offline" viewBox="0 0 800 300" width="100%" height="300">
+              <rect x="40" y="40" width="180" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="130" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">SPA Admin (React)</text>
+
+              <rect x="260" y="40" width="280" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="400" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">NestJS (events/payments/messaging/admin)</text>
+
+              <rect x="560" y="40" width="180" height="60" rx="8" fill="var(--surface-2)"></rect>
+              <text x="650" y="75" text-anchor="middle" fill="var(--ink-1)" font-size="14">TypeORM (Postgres/SQLite)</text>
+
+              <rect x="260" y="120" width="180" height="50" rx="8" fill="var(--surface-2)"></rect>
+              <text x="350" y="150" text-anchor="middle" fill="var(--ink-1)" font-size="14">Redis (locks/rate‑limit)</text>
+
+              <rect x="40" y="200" width="220" height="50" rx="8" fill="var(--success)" opacity="0.2"></rect>
+              <text x="150" y="230" text-anchor="middle" fill="var(--ink-1)" font-size="12">PWA check‑in offline</text>
+
+              <rect x="300" y="200" width="220" height="50" rx="8" fill="var(--success)" opacity="0.2"></rect>
+              <text x="410" y="230" text-anchor="middle" fill="var(--ink-1)" font-size="12">Mercado Pago</text>
+
+              <rect x="560" y="200" width="180" height="50" rx="8" fill="var(--success)" opacity="0.2"></rect>
+              <text x="650" y="230" text-anchor="middle" fill="var(--ink-1)" font-size="12">WhatsApp Business API</text>
+
+              <line x1="220" y1="70" x2="260" y2="70" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#aw)"></line>
+              <line x1="540" y1="70" x2="560" y2="70" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#aw)"></line>
+              <line x1="400" y1="100" x2="350" y2="120" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#aw)"></line>
+              <line x1="130" y1="90" x2="150" y2="200" stroke="var(--ink-1)" stroke-width="2" marker-end="url(#aw)"></line>
+              <defs>
+                <marker id="aw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ink-1)"></path>
+                </marker>
+              </defs>
+            </svg>
+          </figure>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="decisions-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="decisions-p7" data-text="heading-xl">Decisões Técnicas‑Chave</h2>
+          <div style="display:grid; gap: var(--space-2)">
+            <div>
+              <p data-text="ui-label">WhatsApp como canal</p>
+              <p data-text="body-normal">Motivo: reduzir passos de compra e aumentar conversão. Trade‑off: dependência de API e compliance.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Check‑in offline</p>
+              <p data-text="body-normal">Motivo: operação sem rede com fila local e sincronização. Trade‑off: reconciliação e conflitos eventuais.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Seletores de evento</p>
+              <p data-text="body-normal">Motivo: evitar erros em páginas críticas; substitui digitação de eventId. Trade‑off: manutenção de estados e filtros.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Validações server‑side de PII</p>
+              <p data-text="body-normal">Motivo: segurança e conformidade. Trade‑off: regras de negócio mais rígidas e mensagens claras.</p>
+            </div>
+            <div>
+              <p data-text="ui-label">Redis para rate‑limit/locks</p>
+              <p data-text="body-normal">Motivo: evitar duplicidades em webhooks e fila de mensagens. Trade‑off: gestão de infra adicional.</p>
+            </div>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="results-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="results-p7" data-text="heading-xl">Resultados</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Redução de erros em relatórios e convidados (remoção de eventId manual).</li>
+            <li data-text="body-normal">Produtividade na portaria com sticky actions e campos maiores em tablets.</li>
+            <li data-text="body-normal">Filtros avançados e exportação filtrada agilizam conciliação.</li>
+          </ul>
+          <div style="padding: var(--space-3); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md)">
+            <table role="table" style="width:100%; border-collapse: collapse">
+              <thead>
+                <tr>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Fluxo</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Erro/Tempo</th>
+                  <th scope="col" data-text="ui-label" style="text-align:left; padding: var(--space-2)">Efeito</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Relatórios/Convidados</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Sem digitar eventId</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Menos erros</td>
+                </tr>
+                <tr>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Portaria (offline)</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Ações fixas + feedback</td>
+                  <td data-text="body-normal" style="padding: var(--space-2)">Operação estável</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="quality-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="quality-p7" data-text="heading-xl">Qualidade e Engenharia</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">Módulos por domínio, guards de roles, tenant middleware, endpoints auditados, rate‑limit.</li>
+            <li data-text="body-normal">UI com componentes reutilizáveis (Card, Button, Input); tokens visuais.</li>
+          </ul>
+          <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+            <p data-text="ui-label">Artefato de check‑in offline</p>
+            <pre style="padding: var(--space-3); border-radius: var(--radius-md); background: var(--surface-2); overflow:auto">
+<code data-text="body-normal">const queue = new LocalQueue('checkin');
+queue.push({ code, ts: Date.now(), status: 'pending' });
+syncPeriodically(() =&gt; queue.flushToServer(), { backoff: true });</code>
+            </pre>
+            <ul style="display:grid; gap: var(--space-2)">
+              <li data-text="body-normal">Fila local + sincronização periódica e backoff.</li>
+              <li data-text="body-normal">Operação robusta sem rede, reconciliação posterior.</li>
+            </ul>
+            <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
+              <p data-text="body-muted">Referências técnicas (ambiente local):</p>
+              <ul style="display:grid; gap: var(--space-1)">
+                <li data-text="body-normal"><a href="file:///c:/Users/ADMIN/Documents/Plataforma-Ingressos-WhatsApp/admin/src/pwa/Checkin.tsx">Checkin.tsx</a></li>
+                <li data-text="body-normal"><a href="file:///c:/Users/ADMIN/Documents/Plataforma-Ingressos-WhatsApp/backend/src/messaging/whatsapp.service.ts">whatsapp.service.ts</a></li>
+                <li data-text="body-normal"><a href="file:///c:/Users/ADMIN/Documents/Plataforma-Ingressos-WhatsApp/backend/src/payments/mercadopago.service.ts">mercadopago.service.ts</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <Divider />
+
+        <section aria-labelledby="next-p7" style="display:grid; gap: var(--space-2)">
+          <h2 id="next-p7" data-text="heading-xl">Próximos passos</h2>
+          <ul style="display:grid; gap: var(--space-2)">
+            <li data-text="body-normal">OAuth Mercado Pago completo com status e webhooks no Admin.</li>
+            <li data-text="body-normal">Branding dinâmico na UI por organização (tokens).</li>
+            <li data-text="body-normal">Paginação/busca server‑side para grandes listas.</li>
+            <li data-text="body-normal">Job de retenção automática de PII conforme política.</li>
+            <li data-text="body-normal">Telemetria de UX (tempo e cliques) para metas de 30%/40%.</li>
+          </ul>
+        </section>
+      </>
     ) : (
       <section style="display:grid; gap: var(--space-2)">
         <h1 data-text="heading-2xl">Projeto {id}</h1>

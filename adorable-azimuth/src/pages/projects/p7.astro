@@ -33,8 +33,8 @@ export const prerender = false;
       <h2 id="quality-p7" data-text="heading-xl">Qualidade e Engenharia</h2>
       <pre>
 <code data-text="body-normal">const queue = new LocalQueue('checkin');
-queue.push({ code, ts: Date.now(), status: 'pending' });
-syncPeriodically(() =&gt; queue.flushToServer(), { backoff: true });</code>
+queue.push(&#123; code, ts: Date.now(), status: 'pending' &#125;);
+syncPeriodically(() =&gt; queue.flushToServer(), &#123; backoff: true &#125;);</code>
       </pre>
     </section>
   </div>

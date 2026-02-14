@@ -6,3 +6,8 @@ dist
 .trae
 .log
 .figma
+
+!/.vercel/output/functions/**/node_modules
+!/.vercel/output/functions/**/node_modules/**
+!/.vercel/output/_functions/**/node_modules
+!/.vercel/output/_functions/**/node_modules/**

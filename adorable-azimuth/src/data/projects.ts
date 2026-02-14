@@ -3,6 +3,7 @@ export type FeaturedProject = {
   name: string;
   description: string;
   impactLine: string;
+  ladder: "Receita" | "Custo" | "Risco" | "Tempo" | "Qualidade" | "Experiência do usuário";
   role: string;
   metric: { label: string; value: string };
   year: string;
@@ -17,6 +18,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Venda de ingressos pelo WhatsApp com check‑in offline e painel admin, reduzindo fricção e falhas em dias de evento.",
     impactLine: "100% check‑in offline na portaria (PWA + fila local).",
+    ladder: "Risco",
     role: "Full‑stack",
     metric: { label: "Offline", value: "100%" },
     year: "2024",
@@ -34,6 +36,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "App web com analytics e relatórios; pré‑agregação e cache reduziram custo de leitura em janelas grandes.",
     impactLine: "−40% custo de leitura de analytics em janelas grandes.",
+    ladder: "Custo",
     role: "Arquitetura + Full‑stack",
     metric: { label: "Latência", value: "−40%" },
     year: "2023",
@@ -51,6 +54,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Aplicativo multiplataforma para gestão rural com atalhos rápidos; redução de tempo de lançamento em 45–60%.",
     impactLine: "45s → 20–25s no registro (−40–55% cliques).",
+    ladder: "Tempo",
     role: "Mobile + UX",
     metric: { label: "Tempo", value: "45–60%" },
     year: "2023",

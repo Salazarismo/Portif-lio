@@ -51,7 +51,10 @@ import { featuredProjects } from "../data/projects";
               </div>
               <div class="nl-project-meta">
                 <div class="nl-project-meta-top">
-                  <span class="nl-project-name">{p.name}</span>
+                  <div class="nl-project-meta-title">
+                    <span class="nl-project-name">{p.name}</span>
+                    <span class="nl-badge" data-variant="secondary" data-ladder={p.ladder}>{p.ladder}</span>
+                  </div>
                   <span class="nl-project-year">{p.year}</span>
                 </div>
                 <div class="nl-project-impact">{p.impactLine}</div>

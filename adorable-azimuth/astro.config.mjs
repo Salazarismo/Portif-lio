@@ -17,6 +17,9 @@ export default defineConfig({
   integrations: [preact()],
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['preact', 'preact-render-to-string']
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))

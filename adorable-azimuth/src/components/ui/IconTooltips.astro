@@ -1,10 +1,7 @@
 ---
-import { readFileSync } from "node:fs";
+import iconsMd from "../../../../New Landing/icons.md?raw";
 
 type Item = { label: string; marker: string; svg: string };
-
-const iconsMdPath = new URL("../../../../New Landing/icons.md", import.meta.url);
-const iconsMd = readFileSync(iconsMdPath, "utf8");
 
 function extractSvg(marker: string) {
   const markerIdx = iconsMd.indexOf(marker);

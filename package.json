@@ -3,8 +3,8 @@
   "private": true,
   "packageManager": "pnpm@10.15.0",
   "scripts": {
-    "dev": "pnpm -C adorable-azimuth dev",
-    "build": "pnpm -C adorable-azimuth install --no-frozen-lockfile && pnpm -C adorable-azimuth build && node scripts/copy-vercel-output.mjs",
-    "preview": "pnpm -C adorable-azimuth preview"
+    "dev": "corepack pnpm -C adorable-azimuth dev",
+    "build": "corepack enable && corepack pnpm -C adorable-azimuth install --no-frozen-lockfile && corepack pnpm -C adorable-azimuth build && node scripts/copy-vercel-output.mjs",
+    "preview": "corepack pnpm -C adorable-azimuth preview"
   }
 }

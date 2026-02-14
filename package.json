@@ -1,0 +1,13 @@
+{
+  "name": "portif-lio",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "dev": "pnpm -C adorable-azimuth dev",
+    "build": "pnpm -C adorable-azimuth build",
+    "preview": "pnpm -C adorable-azimuth preview"
+  },
+  "workspaces": [
+    "adorable-azimuth"
+  ]
+}

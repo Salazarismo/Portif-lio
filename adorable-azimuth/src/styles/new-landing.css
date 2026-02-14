@@ -323,6 +323,93 @@
   transform: translateX(-50%) translateY(0);
 }
 
+.case-psr {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  padding-left: var(--space-3);
+}
+
+.case-psr li strong {
+  color: rgba(248, 250, 252, 0.92);
+  font-weight: 700;
+}
+
+.case-stack {
+  margin-top: var(--space-2);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.case-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.case-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(248, 250, 252, 0.82);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.case-diagram {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.18);
+  overflow: auto;
+}
+
+.case-conversion {
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.case-cta,
+.case-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.case-cta {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0b1220;
+}
+
+.case-cta-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(248, 250, 252, 0.92);
+}
+
+.case-cta:hover {
+  transform: translateY(-1px);
+}
+
+.case-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-1px);
+}
+
 .nl-section {
   padding: 120px 0;
   scroll-margin-top: var(--anchor-offset);
@@ -403,32 +490,82 @@
 
 .nl-project-meta {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "name year"
-    "desc year";
-  column-gap: 24px;
-  row-gap: 6px;
-  margin-top: 24px;
-  font-size: 14px;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.nl-project-meta-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .nl-project-name {
-  font-weight: 500;
-  grid-area: name;
-}
-
-.nl-project-desc {
-  color: rgba(248, 250, 252, 0.70);
-  font-weight: 400;
-  grid-area: desc;
-  max-width: 60ch;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .nl-project-year {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.70);
+  white-space: nowrap;
+}
+
+.nl-project-impact {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.90);
+}
+
+.nl-project-sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nl-project-role {
+  font-size: 13px;
   font-weight: 500;
-  grid-area: year;
-  color: var(--ink-1);
+  color: rgba(248, 250, 252, 0.72);
+}
+
+.nl-project-metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.78);
+}
+
+.nl-project-metric-value {
+  font-weight: 700;
+  color: rgba(248, 250, 252, 0.92);
+}
+
+.nl-project-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(248, 250, 252, 0.92);
+  font-size: 13px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.nl-project-card:hover .nl-project-cta {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .nl-footer {

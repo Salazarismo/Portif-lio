@@ -50,9 +50,19 @@ import { featuredProjects } from "../data/projects";
                 />
               </div>
               <div class="nl-project-meta">
-                <span class="nl-project-name">{p.name}</span>
-                <span class="nl-project-desc">{p.description}</span>
-                <span class="nl-project-year">({p.year})</span>
+                <div class="nl-project-meta-top">
+                  <span class="nl-project-name">{p.name}</span>
+                  <span class="nl-project-year">{p.year}</span>
+                </div>
+                <div class="nl-project-impact">{p.impactLine}</div>
+                <div class="nl-project-sub">
+                  <span class="nl-project-role">{p.role}</span>
+                  <span class="nl-project-metric">
+                    <span class="nl-project-metric-label">{p.metric.label}</span>
+                    <span class="nl-project-metric-value">{p.metric.value}</span>
+                  </span>
+                </div>
+                <span class="nl-project-cta">Ver case →</span>
               </div>
             </a>
           ))}

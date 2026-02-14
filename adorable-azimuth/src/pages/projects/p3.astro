@@ -12,11 +12,20 @@ export const prerender = false;
       <section aria-labelledby="tldr-p3">
         <h2 id="tldr-p3" data-text="heading-lg">TL;DR</h2>
         <p data-text="body-normal">Engenheiro full‑stack — reduzi custo de leitura de analytics em até 40%.</p>
-        <ul style="display:grid; gap: var(--space-1)">
-          <li data-text="body-normal">Problema: analytics lentos em janelas grandes.</li>
-          <li data-text="body-normal">Solução: pré‑agregação diária + cache versionado.</li>
-          <li data-text="body-normal">Impacto: −40% latência, fluxo crítico coberto por E2E.</li>
+        <ul class="case-psr">
+          <li data-text="body-normal"><strong>Problema:</strong> analytics lentos em janelas grandes.</li>
+          <li data-text="body-normal"><strong>Solução:</strong> pré‑agregação diária + cache versionado.</li>
+          <li data-text="body-normal"><strong>Resultado:</strong> −40% latência e fluxo crítico coberto por E2E.</li>
         </ul>
+        <div class="case-stack">
+          <div data-text="ui-label">Stack</div>
+          <div class="case-chips">
+            <span class="case-chip">Pré‑agregação</span>
+            <span class="case-chip">Cache versionado</span>
+            <span class="case-chip">E2E</span>
+            <span class="case-chip">Analytics</span>
+          </div>
+        </div>
         <div style="margin-top: var(--space-2)">
           <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Código / README</a>
         </div>
@@ -43,20 +52,32 @@ export const prerender = false;
           <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Visual de analytics</figcaption>
         </figure>
         <figure>
-          <div>
-            <div></div>
-          </div>
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Tendência de melhoria</figcaption>
+          <pre class="case-diagram" data-text="body-normal">Evento (habit) → resumo diário (pré‑agregado)
+Resumo + janela (days) + versão → cache_key
+cache hit → resposta rápida
+cache miss → calcula → grava cache</pre>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Diagrama simples: por que o cache versionado evita recomputação.</figcaption>
         </figure>
       </div>
     </section>
     <Divider />
     <section aria-labelledby="quality">
       <h2 id="quality" data-text="heading-xl">Qualidade e Engenharia</h2>
+      <p data-text="body-normal">A chave do cache inclui janela e versão para invalidar com segurança quando a regra de resumo muda.</p>
       <pre>
 <code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
 use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DAYS</code>
       </pre>
+    </section>
+    <Divider />
+    <section aria-labelledby="conversion-p3">
+      <h2 id="conversion-p3" data-text="heading-xl">Se você tem esse tipo de problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir custo/latência de analytics sem perder consistência, eu projeto pré‑agregação + cache versionado e testo o fluxo crítico.</p>
+      <div class="case-conversion">
+        <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <a class="case-cta-secondary" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Ver repo</a>
+        <span data-text="ui-helper">Disponível para projetos em 2026.</span>
+      </div>
     </section>
   </div>
 </BaseLayout>

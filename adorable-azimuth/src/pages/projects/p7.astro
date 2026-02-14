@@ -8,30 +8,53 @@ export const prerender = false;
     <section aria-labelledby="title-p7">
       <h1 id="title-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
       <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline, simplificando operação e aumentando conversão.</p>
+      <p data-text="ui-label">100% check‑in offline na portaria (PWA + fila local).</p>
       <section aria-labelledby="tldr-p7">
         <h2 id="tldr-p7" data-text="heading-lg">TL;DR</h2>
-        <p data-text="body-normal">Engenheiro full‑stack — aumentei conversão com venda pelo WhatsApp e garanti operação com check‑in offline.</p>
-        <ul style="display:grid; gap: var(--space-1)">
-          <li data-text="body-normal">Problema: compra com muitos passos e portaria sem internet.</li>
-          <li data-text="body-normal">Solução: WhatsApp como canal de venda + PWA de check‑in offline.</li>
-          <li data-text="body-normal">Impacto: menos fricção e operação estável; redução de erros e suporte.</li>
+        <p data-text="body-normal">Full‑stack — funil de compra simplificado e check‑in offline para operação sem rede.</p>
+        <ul class="case-psr">
+          <li data-text="body-normal"><strong>Problema:</strong> compra com muitos passos e portaria sem internet.</li>
+          <li data-text="body-normal"><strong>Solução:</strong> WhatsApp como canal de venda + PWA com fila local e sync com backoff.</li>
+          <li data-text="body-normal"><strong>Resultado:</strong> check‑in 100% offline e menos fricção no pagamento/compra.</li>
         </ul>
+        <div class="case-stack">
+          <div data-text="ui-label">Stack</div>
+          <div class="case-chips">
+            <span class="case-chip">WhatsApp</span>
+            <span class="case-chip">PWA</span>
+            <span class="case-chip">Offline queue</span>
+            <span class="case-chip">Sync + backoff</span>
+          </div>
+        </div>
         <div style="margin-top: var(--space-2)">
           <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
         </div>
       </section>
       <div>
-        <img src="/images/98f5ae2c-0f91-4fda-9e44-1fd81a607417.png" alt="Fluxo de compra no WhatsApp e painel admin" width="1200" height="800" loading="lazy" decoding="async" />
+        <figure>
+          <img src="/images/98f5ae2c-0f91-4fda-9e44-1fd81a607417.png" alt="Fluxo de compra no WhatsApp e painel admin" width="1200" height="800" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius: var(--radius-sm)" />
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Print real: fluxo de compra e visão administrativa.</figcaption>
+        </figure>
       </div>
     </section>
     <Divider />
     <section aria-labelledby="quality-p7">
       <h2 id="quality-p7" data-text="heading-xl">Qualidade e Engenharia</h2>
+      <p data-text="body-normal">O check‑in é resiliente: eventos entram em uma fila local e sincronizam quando houver rede, com backoff para evitar estouros.</p>
       <pre>
 <code data-text="body-normal">const queue = new LocalQueue('checkin');
 queue.push(&#123; code, ts: Date.now(), status: 'pending' &#125;);
 syncPeriodically(() =&gt; queue.flushToServer(), &#123; backoff: true &#125;);</code>
       </pre>
+    </section>
+    <Divider />
+    <section aria-labelledby="conversion-p7">
+      <h2 id="conversion-p7" data-text="heading-xl">Se você tem esse tipo de problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir fricção de compra e garantir operação mesmo sem internet (portaria, campo, eventos), eu desenho e implemento um fluxo offline‑first com sincronização segura.</p>
+      <div class="case-conversion">
+        <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <span data-text="ui-helper">Disponível para projetos em 2026.</span>
+      </div>
     </section>
   </div>
 </BaseLayout>

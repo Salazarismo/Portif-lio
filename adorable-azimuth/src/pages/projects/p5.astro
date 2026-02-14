@@ -8,14 +8,24 @@ export const prerender = false;
     <section aria-labelledby="title-p5">
       <h1 id="title-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
       <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades, reduzindo o tempo de lançamento em 45–60%.</p>
+      <p data-text="ui-label">45s → 20–25s no registro (−40–55% cliques).</p>
       <section aria-labelledby="tldr-p5">
         <h2 id="tldr-p5" data-text="heading-lg">TL;DR</h2>
-        <p data-text="body-normal">Full‑stack Flutter — reduzi tempo de registro em 45–60% com atalhos.</p>
-        <ul style="display:grid; gap: var(--space-1)">
-          <li data-text="body-normal">Problema: registros lentos em campo e baixa conectividade.</li>
-          <li data-text="body-normal">Solução: QuickActionButton com Semantics + rotas nomeadas.</li>
-          <li data-text="body-normal">Impacto: 45s → 20–25s; −40–55% cliques.</li>
+        <p data-text="body-normal">Mobile + UX — reduzi o tempo de registro com atalhos e acessibilidade nativa.</p>
+        <ul class="case-psr">
+          <li data-text="body-normal"><strong>Problema:</strong> registros lentos em campo e baixa conectividade.</li>
+          <li data-text="body-normal"><strong>Solução:</strong> QuickActionButton com Semantics + rotas nomeadas e feedback imediato.</li>
+          <li data-text="body-normal"><strong>Resultado:</strong> 45s → 20–25s e −40–55% cliques para concluir.</li>
         </ul>
+        <div class="case-stack">
+          <div data-text="ui-label">Stack</div>
+          <div class="case-chips">
+            <span class="case-chip">Flutter</span>
+            <span class="case-chip">Semantics</span>
+            <span class="case-chip">Tooltip</span>
+            <span class="case-chip">Rotas nomeadas</span>
+          </div>
+        </div>
         <div style="margin-top: var(--space-2)">
           <span data-text="body-muted">Software privado em produção; demo e código indisponíveis.</span>
         </div>
@@ -31,6 +41,7 @@ export const prerender = false;
     <Divider />
     <section aria-labelledby="quality-p5">
       <h2 id="quality-p5" data-text="heading-xl">Qualidade e Engenharia</h2>
+      <p data-text="body-normal">O atalho é acessível e previsível: Semantics define o papel do botão, Tooltip dá contexto e a navegação usa rotas nomeadas.</p>
       <pre>
 <code data-text="body-normal">Semantics(
   label: 'Atalho: Nova atividade',
@@ -41,6 +52,15 @@ export const prerender = false;
   ),
 )</code>
       </pre>
+    </section>
+    <Divider />
+    <section aria-labelledby="conversion-p5">
+      <h2 id="conversion-p5" data-text="heading-xl">Se você tem esse tipo de problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir tempo operacional em apps (principalmente em campo) sem quebrar acessibilidade, eu redesenho fluxos e implemento atalhos guiados por métricas.</p>
+      <div class="case-conversion">
+        <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <span data-text="ui-helper">Disponível para projetos em 2026.</span>
+      </div>
     </section>
   </div>
 </BaseLayout>

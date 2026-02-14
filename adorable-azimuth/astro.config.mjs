@@ -18,7 +18,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     ssr: {
-      noExternal: ['preact', 'preact-render-to-string']
+      noExternal: true
     },
     resolve: {
       alias: {

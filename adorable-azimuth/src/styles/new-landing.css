@@ -241,6 +241,88 @@
   color: var(--ink-1);
 }
 
+.nl-icon-strip {
+  flex: 1 1 auto;
+  max-width: 520px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.nl-icon-tooltip {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: default;
+  outline: none;
+  transition: transform 220ms var(--ease-standard), background 220ms var(--ease-standard), border-color 220ms var(--ease-standard);
+}
+
+.nl-icon-tooltip:hover,
+.nl-icon-tooltip:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.nl-icon-svg {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nl-icon-svg svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  color: rgba(173, 173, 173, 0.92);
+}
+
+.nl-icon-svg svg * {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.nl-icon-svg svg [fill="none"],
+.nl-icon-svg svg [stroke="none"] {
+  fill: none !important;
+  stroke: none !important;
+}
+
+.nl-icon-tooltip-text {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(6px);
+  opacity: 0;
+  pointer-events: none;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 32, 39, 0.86);
+  backdrop-filter: blur(10px);
+  color: rgba(248, 250, 252, 0.92);
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: opacity 160ms var(--ease-standard), transform 160ms var(--ease-standard);
+}
+
+.nl-icon-tooltip:hover .nl-icon-tooltip-text,
+.nl-icon-tooltip:focus-visible .nl-icon-tooltip-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .nl-section {
   padding: 120px 0;
   scroll-margin-top: var(--anchor-offset);
@@ -287,6 +369,10 @@
 
 .nl-project-card--featured {
   grid-column: span 12;
+}
+
+.nl-project-card--featured .nl-project-image-wrap {
+  aspect-ratio: 16 / 5;
 }
 
 .nl-project-card:hover {
@@ -442,6 +528,9 @@
   }
   .nl-project-card {
     grid-column: span 12;
+  }
+  .nl-project-card--featured .nl-project-image-wrap {
+    aspect-ratio: 16 / 10;
   }
 }
 

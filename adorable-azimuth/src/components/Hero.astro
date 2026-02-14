@@ -1,5 +1,6 @@
 ---
 import MorphingText from "../islands/MorphingText.island";
+import IconTooltips from "./ui/IconTooltips.astro";
 interface Metric { label: string; value: string }
 interface Props {
   title: string;
@@ -65,7 +66,7 @@ const titleLines = title.split("\n").map((s) => s.trim()).filter(Boolean);
     </div>
     {microcopy && <p data-text="ui-helper" style="margin-top: 12px">{microcopy}</p>}
     <div class="nl-hero-scroll">
-      <span>{scrollLeft}</span>
+      <IconTooltips />
       <a class="nl-nav-link" href={scrollHref}>{scrollRight}</a>
     </div>
   </div>

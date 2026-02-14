@@ -1,0 +1,37 @@
+---
+import { readFileSync } from "node:fs";
+
+type Item = { label: string; marker: string; svg: string };
+
+const iconsMdPath = new URL("../../../../New Landing/icons.md", import.meta.url);
+const iconsMd = readFileSync(iconsMdPath, "utf8");
+
+function extractSvg(marker: string) {
+  const markerIdx = iconsMd.indexOf(marker);
+  if (markerIdx === -1) return "";
+  const svgStart = iconsMd.indexOf("<svg", markerIdx);
+  if (svgStart === -1) return "";
+  const svgEnd = iconsMd.indexOf("</svg>", svgStart);
+  if (svgEnd === -1) return "";
+  const raw = iconsMd.slice(svgStart, svgEnd + 6);
+  return raw.replace("<svg", '<svg aria-hidden="true" focusable="false"');
+}
+
+const items: Item[] = [
+  { label: "Redis", marker: "Redis Icon:", svg: extractSvg("Redis Icon:") },
+  { label: "Next.js", marker: "Next.js Icon:", svg: extractSvg("Next.js Icon:") },
+  { label: "NestJS", marker: "NestJS Icon:", svg: extractSvg("NestJS Icon:") },
+  { label: "PostgreSQL", marker: "PostgreSQL Icon:", svg: extractSvg("PostgreSQL Icon:") },
+  { label: "Mercado Pago", marker: "Mercado Pago Icon:", svg: extractSvg("Mercado Pago Icon:") },
+  { label: "Prometheus", marker: "Prometheus Icon:", svg: extractSvg("Prometheus Icon:") },
+].filter((it) => Boolean(it.svg));
+---
+
+<div class="nl-icon-strip" aria-label="Tecnologias">
+  {items.map((it) => (
+    <span class="nl-icon-tooltip" tabindex="0" aria-label={it.label}>
+      <span class="nl-icon-svg" aria-hidden="true" set:html={it.svg} />
+      <span class="nl-icon-tooltip-text" role="tooltip">{it.label}</span>
+    </span>
+  ))}
+</div>

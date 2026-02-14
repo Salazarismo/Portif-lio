@@ -34,30 +34,30 @@
       radial-gradient(900px 700px at 82% 18%, rgba(44, 83, 100, 0.85) 0%, rgba(44, 83, 100, 0) 60%),
       radial-gradient(900px 700px at 45% 85%, rgba(214, 90, 82, 0.42) 0%, rgba(214, 90, 82, 0) 62%),
       linear-gradient(15deg, #0f2027 0%, #203a43 45%, #2c5364 70%, #f05f57 100%);
-    filter: saturate(1.05) contrast(1.06);
+    filter: saturate(1.12) contrast(1.10);
     transform: translate3d(0, 0, 0);
     will-change: transform, filter;
     backdrop-filter: none;
     animation:
-      mesh-drift 28s ease-in-out infinite,
-      mesh-breathe 14s ease-in-out infinite;
+      mesh-drift 16s ease-in-out infinite,
+      mesh-breathe 9s ease-in-out infinite;
   }
 
   @keyframes mesh-drift {
-    0% { transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(-0.2deg); }
-    50% { transform: translate3d(2%, 1.5%, 0) scale(1.06) rotate(0.2deg); }
-    100% { transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(-0.2deg); }
+    0% { transform: translate3d(-6%, -3%, 0) scale(1.06) rotate(-0.8deg); }
+    50% { transform: translate3d(6%, 4%, 0) scale(1.12) rotate(0.8deg); }
+    100% { transform: translate3d(-6%, -3%, 0) scale(1.06) rotate(-0.8deg); }
   }
 
   @keyframes mesh-breathe {
-    0%, 100% { filter: saturate(1.04) contrast(1.05); }
-    50% { filter: saturate(1.08) contrast(1.08); }
+    0%, 100% { filter: saturate(1.10) contrast(1.08); }
+    50% { filter: saturate(1.22) contrast(1.16); }
   }
 
   .mesh-grain {
     position: absolute;
     inset: 0;
-    opacity: 0.10;
+    opacity: 0.14;
     mix-blend-mode: overlay;
     background-image:
       repeating-linear-gradient(
@@ -76,16 +76,16 @@
       );
     transform: translate3d(0, 0, 0);
     will-change: opacity, transform;
-    animation: grain-flicker 6s steps(6) infinite;
+    animation: grain-flicker 3.5s steps(8) infinite;
   }
 
   @keyframes grain-flicker {
-    0% { opacity: 0.08; transform: translate3d(0, 0, 0); }
-    20% { opacity: 0.10; transform: translate3d(-0.5%, 0.4%, 0); }
-    40% { opacity: 0.09; transform: translate3d(0.6%, -0.3%, 0); }
-    60% { opacity: 0.11; transform: translate3d(-0.3%, -0.6%, 0); }
-    80% { opacity: 0.10; transform: translate3d(0.4%, 0.5%, 0); }
-    100% { opacity: 0.08; transform: translate3d(0, 0, 0); }
+    0% { opacity: 0.10; transform: translate3d(0, 0, 0); }
+    15% { opacity: 0.13; transform: translate3d(-1.2%, 0.9%, 0); }
+    35% { opacity: 0.11; transform: translate3d(1.1%, -0.7%, 0); }
+    55% { opacity: 0.15; transform: translate3d(-0.9%, -1.2%, 0); }
+    75% { opacity: 0.12; transform: translate3d(1.0%, 1.0%, 0); }
+    100% { opacity: 0.10; transform: translate3d(0, 0, 0); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -108,4 +108,3 @@
     );
   }
 </style>
-

@@ -48,7 +48,7 @@ export default function HeaderNavSegmented() {
       const root = getComputedStyle(document.documentElement);
       const headerH = Number.parseFloat(root.getPropertyValue("--header-h")) || 80;
       const anchorOffset =
-        Number.parseFloat(root.getPropertyValue("--anchor-offset")) || headerH + 16;
+        Number.parseFloat(root.getPropertyValue("--anchor-offset")) || headerH + 400;
 
       let bestId = els[0].id;
       let bestTop = Number.NEGATIVE_INFINITY;

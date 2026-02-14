@@ -1,5 +1,6 @@
 @import "./tokens.css";
 @import "tailwindcss";
+@import "./new-landing.css";
 @import "./layout.css";
 @import "./forms.css";
 @import "./z.css";
@@ -7,6 +8,10 @@
 @import "./cards.css";
 @import "./portfolio.css";
 @import "./transitions.css";
+
+html, body { min-height: 100%; }
+body { background: transparent; color: var(--ink-1); }
+:root { --header-h: 80px; --anchor-offset: calc(var(--header-h) + 16px); }
 
 :where(a, button, [role="button"], input, textarea, select):focus-visible {
   outline: var(--border-width-1) solid var(--accent-1);

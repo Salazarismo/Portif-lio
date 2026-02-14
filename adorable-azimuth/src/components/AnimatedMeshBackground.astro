@@ -1,0 +1,111 @@
+---
+/**
+ * Animated Mesh Background (premium SaaS)
+ * - Mesh gradient (radial blobs)
+ * - Slow drift animation
+ * - Grain overlay
+ * - Respects prefers-reduced-motion
+ *
+ * Usage:
+ * <AnimatedMeshBackground />
+ */
+---
+
+<div class="mesh-bg" aria-hidden="true">
+  <div class="mesh-layer"></div>
+  <div class="mesh-grain"></div>
+</div>
+
+<style>
+  .mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background: #0f2027;
+  }
+
+  .mesh-layer {
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(900px 700px at 18% 25%, rgba(32, 58, 67, 0.85) 0%, rgba(32, 58, 67, 0) 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(44, 83, 100, 0.85) 0%, rgba(44, 83, 100, 0) 60%),
+      radial-gradient(900px 700px at 45% 85%, rgba(214, 90, 82, 0.42) 0%, rgba(214, 90, 82, 0) 62%),
+      linear-gradient(15deg, #0f2027 0%, #203a43 45%, #2c5364 70%, #f05f57 100%);
+    filter: saturate(1.05) contrast(1.06);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, filter;
+    backdrop-filter: none;
+    animation:
+      mesh-drift 28s ease-in-out infinite,
+      mesh-breathe 14s ease-in-out infinite;
+  }
+
+  @keyframes mesh-drift {
+    0% { transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(-0.2deg); }
+    50% { transform: translate3d(2%, 1.5%, 0) scale(1.06) rotate(0.2deg); }
+    100% { transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(-0.2deg); }
+  }
+
+  @keyframes mesh-breathe {
+    0%, 100% { filter: saturate(1.04) contrast(1.05); }
+    50% { filter: saturate(1.08) contrast(1.08); }
+  }
+
+  .mesh-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.10;
+    mix-blend-mode: overlay;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        rgba(0, 0, 0, 0.00) 2px,
+        rgba(0, 0, 0, 0.00) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.04) 0px,
+        rgba(0, 0, 0, 0.04) 1px,
+        rgba(0, 0, 0, 0.00) 2px,
+        rgba(0, 0, 0, 0.00) 6px
+      );
+    transform: translate3d(0, 0, 0);
+    will-change: opacity, transform;
+    animation: grain-flicker 6s steps(6) infinite;
+  }
+
+  @keyframes grain-flicker {
+    0% { opacity: 0.08; transform: translate3d(0, 0, 0); }
+    20% { opacity: 0.10; transform: translate3d(-0.5%, 0.4%, 0); }
+    40% { opacity: 0.09; transform: translate3d(0.6%, -0.3%, 0); }
+    60% { opacity: 0.11; transform: translate3d(-0.3%, -0.6%, 0); }
+    80% { opacity: 0.10; transform: translate3d(0.4%, 0.5%, 0); }
+    100% { opacity: 0.08; transform: translate3d(0, 0, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mesh-layer,
+    .mesh-grain {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+
+  .mesh-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      1200px 900px at 50% 20%,
+      rgba(0, 0, 0, 0.00) 0%,
+      rgba(0, 0, 0, 0.18) 55%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+  }
+</style>
+

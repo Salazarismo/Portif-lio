@@ -1,83 +1,72 @@
 ---
-import ProofStrip from "./ux/ProofStrip.astro";
-import Button from "./ui/Button.astro";
-import StateBanner from "./ui/StateBanner.astro";
+import MorphingText from "../islands/MorphingText.island";
 interface Metric { label: string; value: string }
-interface Props { title: string; subtitle?: string; imageAlt?: string; proofMetrics?: Metric[]; ctaLabel?: string; ctaHref?: string; ctaSecondaryLabel?: string; ctaSecondaryHref?: string; microcopy?: string }
-const { title, subtitle, imageAlt = 'Hero visual', proofMetrics = [], ctaLabel = 'Diagnosticar sua landing', ctaHref = '#contact', ctaSecondaryLabel = '', ctaSecondaryHref = '', microcopy = '' } = Astro.props as Props;
+interface Props {
+  title: string;
+  subtitle?: string;
+  subtitlePrefix?: string;
+  subtitleMorphWords?: string[];
+  subtitleSuffix?: string;
+  imageAlt?: string;
+  proofMetrics?: Metric[];
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaSecondaryLabel?: string;
+  ctaSecondaryHref?: string;
+  microcopy?: string;
+  scrollLeft?: string;
+  scrollRight?: string;
+  scrollHref?: string;
+}
+const {
+  title,
+  subtitle,
+  subtitlePrefix = "",
+  subtitleMorphWords = [],
+  subtitleSuffix = "",
+  ctaLabel = 'Entrar em contato',
+  ctaHref = '#contact',
+  ctaSecondaryLabel = '',
+  ctaSecondaryHref = '',
+  microcopy = '',
+  scrollLeft = '(Trabalhos selecionados)',
+  scrollRight = 'Descobrir ↓',
+  scrollHref = '#projects'
+} = Astro.props as Props;
+
+const titleLines = title.split("\n").map((s) => s.trim()).filter(Boolean);
 ---
-<section aria-labelledby="hero-title" class="px-4 py-8" data-objective="Apresentar valor de forma clara" data-action="Explorar projetos ou contatar" data-completion="Imagem hero carregada" data-anim="hero">
-  <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-token-6 items-center">
-      <div data-cell class="md:col-span-6">
-        <h1 id="hero-title" data-text="heading-3xl" style="font-family: var(--font-family-sans)">{title}</h1>
-        {subtitle && <p class="mt-2" data-text="body-muted">{subtitle}</p>}
-        <style is:inline>
-          #hero-title { font-family: var(--font-family-sans); }
-        </style>
-        {proofMetrics.length > 0 && (
-          <div class="mt-3">
-            <ProofStrip items={proofMetrics} />
-          </div>
+<section aria-labelledby="hero-title" class="nl-hero" data-anim="hero">
+  <div class="nl-hero-inner">
+    <h1 id="hero-title" class="nl-hero-title">
+      {titleLines.map((line, idx) => (
+        <Fragment>
+          {line}
+          {idx < titleLines.length - 1 && <br />}
+        </Fragment>
+      ))}
+    </h1>
+    {(subtitle || subtitleMorphWords.length > 0) && (
+      <p class="nl-hero-subtitle" data-hero-subtitle>
+        {subtitleMorphWords.length > 0 ? (
+          <Fragment>
+            {subtitlePrefix}<MorphingText client:load words={subtitleMorphWords} />{subtitleSuffix}
+          </Fragment>
+        ) : (
+          subtitle
         )}
-        <div class="mt-3" style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center">
-          <Button as="a" href={ctaHref} variant="primary" data-cta>{ctaLabel}</Button>
-          {ctaSecondaryLabel && ctaSecondaryHref && (
-            <Button as="a" href={ctaSecondaryHref} variant="secondary">{ctaSecondaryLabel}</Button>
-          )}
-        </div>
-        {microcopy && <p class="mt-1" data-text="ui-helper">{microcopy}</p>}
-        <p class="mt-1" data-text="ui-helper">Garantia de melhoria de pontuação no Google</p>
-        <div class="mt-2" style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center">
-          <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--success); color: #000000">PageSpeed 100</span>
-          <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--success); color: #000000">Mobile 100</span>
-          <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Next.js</span>
-          <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Astro</span>
-          <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Vercel</span>
-        </div>
-      </div>
-      <div data-cell class="md:col-span-6">
-        <figure aria-label="Impacto na experiência do usuário: site lento x site rápido" style="display:grid; gap: var(--space-3); padding: var(--space-3); background: var(--surface-1); border: var(--border-width-1) solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--elevation-2)">
-          <div style="display:flex; align-items:center; justify-content:space-between">
-            <span data-text="ui-label">Impacto na Experiência do Usuário</span>
-            <span data-text="ui-helper">Média de melhoria em projetos reais</span>
-          </div>
-          <style is:inline>
-            @keyframes fillRed { from { width:0% } to { width:75% } }
-            @keyframes fillGreen { from { width:0% } to { width:25% } }
-            .bar-red { animation: fillRed 800ms var(--ease-standard) forwards; animation-delay: 200ms }
-            .bar-green { animation: fillGreen 800ms var(--ease-standard) forwards; animation-delay: 300ms }
-            @media (prefers-reduced-motion: reduce) {
-              .bar-red, .bar-green { animation: none }
-            }
-          </style>
-          <div style="display:grid; gap: var(--space-2)">
-            <div style="display:grid; gap: var(--space-1)">
-              <div style="display:flex; align-items:center; justify-content:space-between">
-                <span data-text="ui-label">Site Lento (Cliente desiste)</span>
-                <span data-text="ui-helper">3.2s</span>
-              </div>
-              <div style="height: 10px; border-radius: var(--radius-md); background: var(--surface-2); overflow:hidden">
-                <div class="bar-red" style="width:0%; height:100%; background: var(--danger);"></div>
-              </div>
-            </div>
-            <div style="display:grid; gap: var(--space-1)">
-              <div style="display:flex; align-items:center; justify-content:space-between">
-                <span data-text="ui-label">Seu Novo Site (Cliente compra)</span>
-                <span data-text="ui-helper">0.9s</span>
-              </div>
-              <div style="height: 10px; border-radius: var(--radius-md); background: var(--surface-2); overflow:hidden">
-                <div class="bar-green" style="width:0%; height:100%; background: var(--success);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; gap: var(--space-2); flex-wrap:wrap; align-items:center">
-            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Mais Conversão</span>
-            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Melhor Rankeamento</span>
-            <span data-text="ui-label" style="padding: 4px 10px; border-radius: var(--radius-md); background: var(--surface-2)">Retenção Alta</span>
-          </div>
-        </figure>
-      </div>
+      </p>
+    )}
+    <div class="nl-hero-actions">
+      <a class="nl-btn" href={ctaHref} data-cta>{ctaLabel}</a>
+      {ctaSecondaryLabel && ctaSecondaryHref && (
+        <a class="nl-btn" href={ctaSecondaryHref}>{ctaSecondaryLabel}</a>
+      )}
+    </div>
+    {microcopy && <p data-text="ui-helper" style="margin-top: 12px">{microcopy}</p>}
+    <div class="nl-hero-scroll">
+      <span>{scrollLeft}</span>
+      <a class="nl-nav-link" href={scrollHref}>{scrollRight}</a>
     </div>
   </div>
 </section>

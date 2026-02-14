@@ -3,6 +3,7 @@ const { title = "Astro", description = "", lang = "pt-BR" } = Astro.props;
 import "../styles/global.css";
 import GsapInit from "../islands/GsapInit.island";
 import NavTransitions from "../islands/NavTransitions.island";
+import AnimatedMeshBackground from "@/components/AnimatedMeshBackground.astro";
 ---
 <html lang={lang}>
   <head>
@@ -11,11 +12,15 @@ import NavTransitions from "../islands/NavTransitions.island";
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fm=jpg&w=1200&q=80" />
     
   </head>
   <body>
+    <AnimatedMeshBackground />
     <nav aria-label="Principal"><slot name="nav" /></nav>
     <main id="main">
       <slot />

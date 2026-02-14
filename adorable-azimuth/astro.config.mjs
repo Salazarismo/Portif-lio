@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import preact from '@astrojs/preact';
+import { fileURLToPath } from 'node:url';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -15,6 +16,11 @@ export default defineConfig({
 
   integrations: [preact()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    }
   }
 });

@@ -147,16 +147,15 @@ import Textarea from '../components/ui/Textarea.astro';
 Não recebe props - componente estático.
 
 ### Estrutura
-- Logo/Título "Portfólio" (link para home)
-- Navegação desktop: links para #projects e #contact
-- Botão CTA "Fale comigo" (visível apenas em desktop)
-- Menu hamburger para mobile (dropdown com mesmas opções)
+- Logo/Marca "Victor®" (link para home)
+- Texto de disponibilidade no centro (ex.: “Disponível para projetos em 2026”)
+- Navegação: Projetos, Sobre, Contato (âncoras)
+- Email como link sublinhado
 
 ### Comportamento
-- Sticky positioning (fixo no topo ao scrollar)
+- Cabeçalho fixo com fundo transparente e estado “scrolled” com blur
 - Layout responsivo (mobile/desktop)
-- Menu mobile com dropdown através de `<details>`
-- Acessibilidade com `aria-label` e `aria-controls`
+- Acessibilidade com `aria-label`
 
 ## 6. Hero (Componente Astro)
 
@@ -176,9 +175,8 @@ import Hero from '../components/Hero.astro';
 ---
 
 <Hero 
-  title="Olá, sou João Silva"
-  subtitle="Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis"
-  imageAlt="Foto de perfil de João Silva"
+  title={`VICTOR DE ALCÂNTARA BUENO\nENGENHEIRO DE SOFTWARE`}
+  subtitle="Construo produtos web e mobile com foco em performance, UX e engenharia pragmática."
 />
 ```
 

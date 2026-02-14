@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../components/BaseLayout.astro";
 import Divider from "../../components/ui/Divider.astro";
+import { AspectRatioImage } from "@/components/ui/AspectRatioImage";
 export const prerender = false;
 ---
 <BaseLayout title="Habit Analyzer — Victor de Alcântara Bueno" description="Aplicativo web de acompanhamento de hábitos com analytics e relatórios.">
@@ -32,11 +33,13 @@ export const prerender = false;
         </div>
       </section>
       <div>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=avif&w=800&q=60 800w" sizes="100vw" />
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&w=800&q=60 800w" sizes="100vw" />
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="Imagem ilustrativa de programação e tecnologia" width="800" height="400" loading="lazy" decoding="async" />
-        </picture>
+        <AspectRatioImage
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=1200&q=80"
+          alt="Imagem ilustrativa de programação e tecnologia"
+          ratio={16 / 9}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
     <Divider />
@@ -47,9 +50,13 @@ export const prerender = false;
       <p data-text="body-normal">Sem registros consolidados, análise semanal/mensal se torna onerosa.</p>
       <div>
         <figure>
-          <picture>
-            <img src="/images/analytics-code.svg" alt="Visual de analytics: trecho de código de resumo e cache" width="600" height="300" style="width:100%; height:auto; border-radius: var(--radius-sm)" loading="lazy" decoding="async" />
-          </picture>
+          <AspectRatioImage
+            src="/images/analytics-code.svg"
+            alt="Visual de analytics: trecho de código de resumo e cache"
+            ratio={2 / 1}
+            loading="lazy"
+            decoding="async"
+          />
           <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Visual de analytics</figcaption>
         </figure>
         <figure>

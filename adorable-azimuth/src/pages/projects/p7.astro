@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../components/BaseLayout.astro";
 import Divider from "../../components/ui/Divider.astro";
+import { AspectRatioImage } from "@/components/ui/AspectRatioImage";
 export const prerender = false;
 ---
 <BaseLayout title="Plataforma‑Ingressos‑WhatsApp — Victor de Alcântara Bueno" description="Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.">
@@ -33,7 +34,13 @@ export const prerender = false;
       </section>
       <div>
         <figure>
-          <img src="/images/98f5ae2c-0f91-4fda-9e44-1fd81a607417.png" alt="Fluxo de compra no WhatsApp e painel admin" width="1200" height="800" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius: var(--radius-sm)" />
+          <AspectRatioImage
+            src="/images/98f5ae2c-0f91-4fda-9e44-1fd81a607417.png"
+            alt="Fluxo de compra no WhatsApp e painel admin"
+            ratio={3 / 2}
+            loading="lazy"
+            decoding="async"
+          />
           <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Print real: fluxo de compra e visão administrativa.</figcaption>
         </figure>
       </div>

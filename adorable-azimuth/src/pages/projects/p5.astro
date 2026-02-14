@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../components/BaseLayout.astro";
 import Divider from "../../components/ui/Divider.astro";
+import { AspectRatioImage } from "@/components/ui/AspectRatioImage";
 export const prerender = false;
 ---
 <BaseLayout title="Relatório Rural — Quick Activity Button — Victor de Alcântara Bueno" description="Aplicativo multiplataforma para gestão rural com atalhos rápidos; redução de tempo de lançamento em 45–60%.">
@@ -32,11 +33,13 @@ export const prerender = false;
         </div>
       </section>
       <div>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=avif&w=800&q=60 800w" sizes="100vw" />
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=webp&w=800&q=60 800w" sizes="100vw" />
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=800&q=80" alt="UI e programação — atalhos de atividade" width="800" height="400" loading="lazy" decoding="async" />
-        </picture>
+        <AspectRatioImage
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=1200&q=80"
+          alt="UI e programação — atalhos de atividade"
+          ratio={16 / 9}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
     <Divider />

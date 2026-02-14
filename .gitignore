@@ -16,3 +16,5 @@ pnpm-debug.log*
 **/.astro/
 **/.vercel/
 
+adorable-azimuth/components/
+pnpm-lock.yaml

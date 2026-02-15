@@ -21,4 +21,3 @@ export function AspectRatio({ ratio = 16 / 9, style, children, ...props }: Props
     </div>
   );
 }
-

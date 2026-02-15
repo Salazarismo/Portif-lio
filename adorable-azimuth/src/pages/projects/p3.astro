@@ -6,33 +6,16 @@ export const prerender = false;
 ---
 <BaseLayout title="Habit Analyzer — Victor de Alcântara Bueno" description="Aplicativo web de acompanhamento de hábitos com analytics e relatórios.">
   <div class="container">
-    <section aria-labelledby="title">
-      <h1 id="title" data-text="heading-2xl">Habit Analyzer</h1>
+    <section aria-labelledby="hero-p3">
+      <h1 id="hero-p3" data-text="heading-2xl">Habit Analyzer</h1>
       <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com analytics e relatórios.</p>
-      <p data-text="ui-label">Pré‑agregação e cache reduziram em até 40% o custo de leitura de analytics em janelas grandes.</p>
+      <p data-text="ui-label">KPI principal: −40% custo de leitura de analytics em janelas grandes.</p>
       <p style="margin-top: var(--space-1)"><span class="nl-badge" data-variant="secondary" data-ladder="Custo">Custo</span></p>
-      <section aria-labelledby="tldr-p3">
-        <h2 id="tldr-p3" data-text="heading-lg">TL;DR</h2>
-        <p data-text="body-normal">Engenheiro full‑stack — reduzi custo de leitura de analytics em até 40%.</p>
-        <ul class="case-psr">
-          <li data-text="body-normal"><strong>Problema:</strong> analytics lentos em janelas grandes.</li>
-          <li data-text="body-normal"><strong>Solução:</strong> pré‑agregação diária + cache versionado.</li>
-          <li data-text="body-normal"><strong>Resultado:</strong> −40% latência e fluxo crítico coberto por E2E.</li>
-        </ul>
-        <div class="case-stack">
-          <div data-text="ui-label">Stack</div>
-          <div class="case-chips">
-            <span class="case-chip">Pré‑agregação</span>
-            <span class="case-chip">Cache versionado</span>
-            <span class="case-chip">E2E</span>
-            <span class="case-chip">Analytics</span>
-          </div>
-        </div>
-        <div style="margin-top: var(--space-2)">
-          <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Código / README</a>
-        </div>
-      </section>
-      <div>
+      <div class="nl-hero-actions" style="margin-top: var(--space-2)">
+        <a class="nl-btn" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Repo</a>
+        <a class="nl-btn" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Contato</a>
+      </div>
+      <div style="margin-top: var(--space-3)">
         <AspectRatioImage
           src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=1200&q=80"
           alt="Imagem ilustrativa de programação e tecnologia"
@@ -43,12 +26,51 @@ export const prerender = false;
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="problem">
-      <h2 id="problem" data-text="heading-xl">Por que isso existe?</h2>
-      <p data-text="body-normal">Sem visibilidade diária/aggregada, consistência cai e revisão é difícil.</p>
-      <p data-text="body-normal">Decisões de ajuste ficam imprecisas sem métricas claras.</p>
-      <p data-text="body-normal">Sem registros consolidados, análise semanal/mensal se torna onerosa.</p>
-      <div>
+    <section aria-labelledby="tldr-p3">
+      <h2 id="tldr-p3" data-text="heading-xl">TL;DR (1 minuto)</h2>
+      <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Problema:</strong> analytics ficavam lentos e caros quando o usuário pedia janelas maiores.</p>
+        <p data-text="body-normal"><strong>Solução:</strong> pré‑agregação diária + cache versionado para reuso e invalidação segura.</p>
+        <p data-text="body-normal"><strong>Resultado:</strong> KPI principal: −40% custo/latência em janelas grandes; suporte: fluxo crítico coberto por E2E.</p>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="snapshot-p3">
+      <h2 id="snapshot-p3" data-text="heading-xl">Snapshot (contexto rápido)</h2>
+      <div class="grid-12 gap-token-4" style="margin-top: var(--space-2)">
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Papel / escopo / tempo</div>
+          <p data-text="body-normal">Arquitetura + Full‑stack. Ano: 2023.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Escala (o mínimo)</div>
+          <p data-text="body-normal">Consultas em janelas grandes com necessidade de resposta consistente.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Restrições (o mínimo)</div>
+          <p data-text="body-normal">Custo de leitura alto sem agregação; invalidação precisa para evitar inconsistência.</p>
+        </div>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="problem-impact-p3">
+      <h2 id="problem-impact-p3" data-text="heading-xl">Problema &amp; Impacto</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal"><strong>Sintomas:</strong> lentidão e custo crescente quando a janela de análise aumenta.</li>
+        <li data-text="body-normal"><strong>Causa:</strong> recomputação de agregados a cada consulta e pouca reutilização de resultados.</li>
+        <li data-text="body-normal"><strong>Impacto:</strong> pior experiência no fluxo de analytics e menos previsibilidade de custo.</li>
+      </ul>
+    </section>
+    <Divider />
+    <section aria-labelledby="approach-p3">
+      <h2 id="approach-p3" data-text="heading-xl">Abordagem</h2>
+      <p data-text="body-normal">Como resolve (3 passos):</p>
+      <ol class="case-psr">
+        <li data-text="body-normal"><strong>Pré‑agregar</strong> por dia para transformar consultas grandes em somas simples.</li>
+        <li data-text="body-normal"><strong>Cachear</strong> por usuário/hábito/janela com chave versionada.</li>
+        <li data-text="body-normal"><strong>Invalidar</strong> com segurança ao mudar regra de resumo (versionamento).</li>
+      </ol>
+      <div style="display:grid; gap: var(--space-3); margin-top: var(--space-3)">
         <figure>
           <AspectRatioImage
             src="/images/analytics-code.svg"
@@ -57,33 +79,51 @@ export const prerender = false;
             loading="lazy"
             decoding="async"
           />
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Visual de analytics</figcaption>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Snapshot: trecho que materializa o cache versionado.</figcaption>
         </figure>
         <figure>
-          <pre class="case-diagram" data-text="body-normal">Evento (habit) → resumo diário (pré‑agregado)
+          <pre class="case-diagram" data-text="body-normal">Evento → resumo diário (pré‑agregado)
 Resumo + janela (days) + versão → cache_key
 cache hit → resposta rápida
 cache miss → calcula → grava cache</pre>
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Diagrama simples: por que o cache versionado evita recomputação.</figcaption>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Diagrama: por que a recomputação cai e a invalidação fica explícita.</figcaption>
         </figure>
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="quality">
-      <h2 id="quality" data-text="heading-xl">Qualidade e Engenharia</h2>
-      <p data-text="body-normal">A chave do cache inclui janela e versão para invalidar com segurança quando a regra de resumo muda.</p>
-      <pre>
+    <section aria-labelledby="reliability-p3">
+      <h2 id="reliability-p3" data-text="heading-xl">Confiabilidade</h2>
+      <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Riscos:</strong> cache incorreto (stale), invalidação agressiva (perde ganho), regressão no fluxo de analytics.</p>
+        <p data-text="body-normal"><strong>Garantias:</strong> chave inclui janela e versão para invalidar quando a regra muda; fluxo crítico coberto por E2E.</p>
+        <p data-text="body-normal"><strong>Evidência:</strong> README e código no repositório.</p>
+      </div>
+      <pre style="margin-top: var(--space-2)">
 <code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
 use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DAYS</code>
       </pre>
+      <div style="margin-top: var(--space-2)">
+        <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Ver repo</a>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="next-p3">
+      <h2 id="next-p3" data-text="heading-xl">Extensões / Próximos passos</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal">Adicionar alertas de regressão de custo/latência com limites por janela.</li>
+        <li data-text="body-normal">Introduzir métricas de cache hit-rate e invalidação para ajuste fino.</li>
+        <li data-text="body-normal">Explorar agregação incremental por evento para reduzir ainda mais recomputação.</li>
+      </ul>
     </section>
     <Divider />
     <section aria-labelledby="conversion-p3">
-      <h2 id="conversion-p3" data-text="heading-xl">Se você tem esse tipo de problema</h2>
-      <p data-text="body-normal">Se você precisa reduzir custo/latência de analytics sem perder consistência, eu projeto pré‑agregação + cache versionado e testo o fluxo crítico.</p>
+      <h2 id="conversion-p3" data-text="heading-xl">Se você tem esse problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir custo/latência de analytics sem perder consistência, eu desenho pré‑agregação + cache versionado e valido o fluxo crítico.</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
-        <a class="case-cta-secondary" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Ver repo</a>
+        <a class="case-cta-secondary" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Repo</a>
+        <a class="case-cta-secondary" href="/#projects">Voltar</a>
+        <a class="case-cta-secondary" href="/projects/p5">Próximo case</a>
         <span data-text="ui-helper">Disponível para projetos em 2026.</span>
       </div>
     </section>

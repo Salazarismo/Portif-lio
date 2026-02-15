@@ -6,61 +6,118 @@ export const prerender = false;
 ---
 <BaseLayout title="Plataforma‑Ingressos‑WhatsApp — Victor de Alcântara Bueno" description="Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.">
   <div class="container">
-    <section aria-labelledby="title-p7">
-      <h1 id="title-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
-      <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline, simplificando operação e aumentando conversão.</p>
-      <p data-text="ui-label">100% check‑in offline na portaria (PWA + fila local).</p>
+    <section aria-labelledby="hero-p7">
+      <h1 id="hero-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
+      <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.</p>
+      <p data-text="ui-label">KPI principal: 100% check‑in offline na portaria (PWA + fila local).</p>
       <p style="margin-top: var(--space-1)"><span class="nl-badge" data-variant="secondary" data-ladder="Risco">Risco</span></p>
-      <section aria-labelledby="tldr-p7">
-        <h2 id="tldr-p7" data-text="heading-lg">TL;DR</h2>
-        <p data-text="body-normal">Full‑stack — funil de compra simplificado e check‑in offline para operação sem rede.</p>
-        <ul class="case-psr">
-          <li data-text="body-normal"><strong>Problema:</strong> compra com muitos passos e portaria sem internet.</li>
-          <li data-text="body-normal"><strong>Solução:</strong> WhatsApp como canal de venda + PWA com fila local e sync com backoff.</li>
-          <li data-text="body-normal"><strong>Resultado:</strong> check‑in 100% offline e menos fricção no pagamento/compra.</li>
-        </ul>
-        <div class="case-stack">
-          <div data-text="ui-label">Stack</div>
-          <div class="case-chips">
-            <span class="case-chip">WhatsApp</span>
-            <span class="case-chip">PWA</span>
-            <span class="case-chip">Offline queue</span>
-            <span class="case-chip">Sync + backoff</span>
-          </div>
-        </div>
-        <div style="margin-top: var(--space-2)">
-          <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
-        </div>
-      </section>
-      <div>
+      <div class="nl-hero-actions" style="margin-top: var(--space-2)">
+        <a class="nl-btn" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">Repo</a>
+        <a class="nl-btn" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Contato</a>
+      </div>
+      <div style="margin-top: var(--space-3)">
         <figure>
           <AspectRatioImage
             src="/images/98f5ae2c-0f91-4fda-9e44-1fd81a607417.png"
             alt="Fluxo de compra no WhatsApp e painel admin"
-            ratio={3 / 2}
+            ratio={16 / 3}
             loading="lazy"
             decoding="async"
           />
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Print real: fluxo de compra e visão administrativa.</figcaption>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Snapshot: print real do fluxo e visão administrativa.</figcaption>
         </figure>
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="quality-p7">
-      <h2 id="quality-p7" data-text="heading-xl">Qualidade e Engenharia</h2>
-      <p data-text="body-normal">O check‑in é resiliente: eventos entram em uma fila local e sincronizam quando houver rede, com backoff para evitar estouros.</p>
-      <pre>
+    <section aria-labelledby="tldr-p7">
+      <h2 id="tldr-p7" data-text="heading-xl">TL;DR (1 minuto)</h2>
+      <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Problema:</strong> compra com muitos passos e portaria sem internet.</p>
+        <p data-text="body-normal"><strong>Solução:</strong> WhatsApp como canal de venda + PWA de check‑in offline com fila local.</p>
+        <p data-text="body-normal"><strong>Resultado:</strong> KPI principal: check‑in 100% offline; suporte: menos fricção na compra e menos instabilidade na operação.</p>
+      </div>
+      <div style="margin-top: var(--space-2)">
+        <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="snapshot-p7">
+      <h2 id="snapshot-p7" data-text="heading-xl">Snapshot (contexto rápido)</h2>
+      <div class="grid-12 gap-token-4" style="margin-top: var(--space-2)">
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Papel / escopo / tempo</div>
+          <p data-text="body-normal">Full‑stack. Ano: 2024.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Escala (o mínimo)</div>
+          <p data-text="body-normal">Operação em eventos: portaria precisa funcionar sem rede e sem travar fila.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Restrições (o mínimo)</div>
+          <p data-text="body-normal">Sem internet na portaria e alto custo operacional se o check‑in falha.</p>
+        </div>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="problem-impact-p7">
+      <h2 id="problem-impact-p7" data-text="heading-xl">Problema &amp; Impacto</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal"><strong>Sintomas:</strong> compra travada por etapas demais; check‑in parava quando a rede caía.</li>
+        <li data-text="body-normal"><strong>Causa:</strong> fluxo dependente de conectividade e operação sem fallback offline.</li>
+        <li data-text="body-normal"><strong>Impacto:</strong> risco operacional alto na portaria e aumento de suporte/erros em dia de evento.</li>
+      </ul>
+    </section>
+    <Divider />
+    <section aria-labelledby="approach-p7">
+      <h2 id="approach-p7" data-text="heading-xl">Abordagem</h2>
+      <p data-text="body-normal">Como resolve (3 passos):</p>
+      <ol class="case-psr">
+        <li data-text="body-normal"><strong>Canal único</strong> de compra via WhatsApp para reduzir etapas.</li>
+        <li data-text="body-normal"><strong>Check‑in offline‑first</strong> em PWA com fila local.</li>
+        <li data-text="body-normal"><strong>Sincronização</strong> periódica com backoff para evitar picos e falhas em cascata.</li>
+      </ol>
+      <div class="case-stack" style="margin-top: var(--space-2)">
+        <div data-text="ui-label">Stack</div>
+        <div class="case-chips">
+          <span class="case-chip">WhatsApp</span>
+          <span class="case-chip">PWA</span>
+          <span class="case-chip">Offline queue</span>
+          <span class="case-chip">Sync + backoff</span>
+        </div>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="reliability-p7">
+      <h2 id="reliability-p7" data-text="heading-xl">Confiabilidade</h2>
+      <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Riscos:</strong> fila explodir em reconexão, travar UI na portaria, perda de eventos pendentes.</p>
+        <p data-text="body-normal"><strong>Garantias:</strong> fila local e backoff para reduzir rajadas; sincronização contínua quando houver rede.</p>
+        <p data-text="body-normal"><strong>Evidência:</strong> snippet do mecanismo de fila/sync (sanitizado).</p>
+      </div>
+      <pre style="margin-top: var(--space-2)">
 <code data-text="body-normal">const queue = new LocalQueue('checkin');
 queue.push(&#123; code, ts: Date.now(), status: 'pending' &#125;);
 syncPeriodically(() =&gt; queue.flushToServer(), &#123; backoff: true &#125;);</code>
       </pre>
     </section>
     <Divider />
+    <section aria-labelledby="next-p7">
+      <h2 id="next-p7" data-text="heading-xl">Extensões / Próximos passos</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal">Adicionar observabilidade de fila (pendentes, idade, taxa de flush) para antecipar falhas.</li>
+        <li data-text="body-normal">Criar modo de “auditoria” para reprocessar eventos e reduzir suporte.</li>
+        <li data-text="body-normal">Instrumentar métricas do funil de compra para identificar gargalos por etapa.</li>
+      </ul>
+    </section>
+    <Divider />
     <section aria-labelledby="conversion-p7">
-      <h2 id="conversion-p7" data-text="heading-xl">Se você tem esse tipo de problema</h2>
-      <p data-text="body-normal">Se você precisa reduzir fricção de compra e garantir operação mesmo sem internet (portaria, campo, eventos), eu desenho e implemento um fluxo offline‑first com sincronização segura.</p>
+      <h2 id="conversion-p7" data-text="heading-xl">Se você tem esse problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir fricção de compra e garantir operação mesmo sem internet (portaria, campo, eventos), eu desenho um fluxo offline‑first com sincronização segura.</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <a class="case-cta-secondary" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">Repo</a>
+        <a class="case-cta-secondary" href="/#projects">Voltar</a>
+        <a class="case-cta-secondary" href="/projects/p3">Próximo case</a>
         <span data-text="ui-helper">Disponível para projetos em 2026.</span>
       </div>
     </section>

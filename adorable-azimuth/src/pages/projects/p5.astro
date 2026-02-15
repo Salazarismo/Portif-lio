@@ -6,33 +6,16 @@ export const prerender = false;
 ---
 <BaseLayout title="Relatório Rural — Quick Activity Button — Victor de Alcântara Bueno" description="Aplicativo multiplataforma para gestão rural com atalhos rápidos; redução de tempo de lançamento em 45–60%.">
   <div class="container">
-    <section aria-labelledby="title-p5">
-      <h1 id="title-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
-      <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades, reduzindo o tempo de lançamento em 45–60%.</p>
-      <p data-text="ui-label">45s → 20–25s no registro (−40–55% cliques).</p>
+    <section aria-labelledby="hero-p5">
+      <h1 id="hero-p5" data-text="heading-2xl">Relatório Rural — UI Quick Activity Button</h1>
+      <p data-text="body-muted">Aplicativo multiplataforma para gestão rural com atalhos rápidos para registrar atividades.</p>
+      <p data-text="ui-label">KPI principal: 45s → 20–25s no registro (−40–55% cliques).</p>
       <p style="margin-top: var(--space-1)"><span class="nl-badge" data-variant="secondary" data-ladder="Tempo">Tempo</span></p>
-      <section aria-labelledby="tldr-p5">
-        <h2 id="tldr-p5" data-text="heading-lg">TL;DR</h2>
-        <p data-text="body-normal">Mobile + UX — reduzi o tempo de registro com atalhos e acessibilidade nativa.</p>
-        <ul class="case-psr">
-          <li data-text="body-normal"><strong>Problema:</strong> registros lentos em campo e baixa conectividade.</li>
-          <li data-text="body-normal"><strong>Solução:</strong> QuickActionButton com Semantics + rotas nomeadas e feedback imediato.</li>
-          <li data-text="body-normal"><strong>Resultado:</strong> 45s → 20–25s e −40–55% cliques para concluir.</li>
-        </ul>
-        <div class="case-stack">
-          <div data-text="ui-label">Stack</div>
-          <div class="case-chips">
-            <span class="case-chip">Flutter</span>
-            <span class="case-chip">Semantics</span>
-            <span class="case-chip">Tooltip</span>
-            <span class="case-chip">Rotas nomeadas</span>
-          </div>
-        </div>
-        <div style="margin-top: var(--space-2)">
-          <span data-text="body-muted">Software privado em produção; demo e código indisponíveis.</span>
-        </div>
-      </section>
-      <div>
+      <div class="nl-hero-actions" style="margin-top: var(--space-2)">
+        <a class="nl-btn" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20demo%20(Relat%C3%B3rio%20Rural)" rel="noopener noreferrer">Repo</a>
+        <a class="nl-btn" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Contato</a>
+      </div>
+      <div style="margin-top: var(--space-3)">
         <AspectRatioImage
           src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fm=jpg&w=1200&q=80"
           alt="UI e programação — atalhos de atividade"
@@ -43,10 +26,63 @@ export const prerender = false;
       </div>
     </section>
     <Divider />
-    <section aria-labelledby="quality-p5">
-      <h2 id="quality-p5" data-text="heading-xl">Qualidade e Engenharia</h2>
-      <p data-text="body-normal">O atalho é acessível e previsível: Semantics define o papel do botão, Tooltip dá contexto e a navegação usa rotas nomeadas.</p>
-      <pre>
+    <section aria-labelledby="tldr-p5">
+      <h2 id="tldr-p5" data-text="heading-xl">TL;DR (1 minuto)</h2>
+      <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Problema:</strong> registrar atividades em campo era lento e exigia muitos cliques.</p>
+        <p data-text="body-normal"><strong>Solução:</strong> atalhos com QuickActionButton + Semantics para acesso rápido e acessível.</p>
+        <p data-text="body-normal"><strong>Resultado:</strong> KPI principal: 45s → 20–25s; suporte: −40–55% cliques no fluxo.</p>
+      </div>
+      <div style="margin-top: var(--space-2)">
+        <span data-text="body-muted">Software privado em produção; demo e código indisponíveis.</span>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="snapshot-p5">
+      <h2 id="snapshot-p5" data-text="heading-xl">Snapshot (contexto rápido)</h2>
+      <div class="grid-12 gap-token-4" style="margin-top: var(--space-2)">
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Papel / escopo / tempo</div>
+          <p data-text="body-normal">Mobile + UX. Ano: 2023.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Escala (o mínimo)</div>
+          <p data-text="body-normal">Fluxo repetido muitas vezes no dia; cada segundo economizado soma.</p>
+        </div>
+        <div style="grid-column: span 4">
+          <div data-text="ui-label">Restrições (o mínimo)</div>
+          <p data-text="body-normal">Acessibilidade e previsibilidade do clique em ambientes de baixa conectividade.</p>
+        </div>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="problem-impact-p5">
+      <h2 id="problem-impact-p5" data-text="heading-xl">Problema &amp; Impacto</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal"><strong>Sintomas:</strong> registro demorado, muitos cliques e maior chance de erro em campo.</li>
+        <li data-text="body-normal"><strong>Causa:</strong> fluxo sem atalhos e navegação que exigia mais passos do que o necessário.</li>
+        <li data-text="body-normal"><strong>Impacto:</strong> menor produtividade e maior fricção na rotina do usuário.</li>
+      </ul>
+    </section>
+    <Divider />
+    <section aria-labelledby="approach-p5">
+      <h2 id="approach-p5" data-text="heading-xl">Abordagem</h2>
+      <p data-text="body-normal">Como resolve (3 passos):</p>
+      <ol class="case-psr">
+        <li data-text="body-normal"><strong>Identificar</strong> as ações mais frequentes no fluxo.</li>
+        <li data-text="body-normal"><strong>Encapsular</strong> em um QuickActionButton com Semantics e Tooltip.</li>
+        <li data-text="body-normal"><strong>Navegar</strong> por rotas nomeadas para reduzir ambiguidade e manter previsibilidade.</li>
+      </ol>
+    </section>
+    <Divider />
+    <section aria-labelledby="reliability-p5">
+      <h2 id="reliability-p5" data-text="heading-xl">Confiabilidade</h2>
+      <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
+        <p data-text="body-normal"><strong>Riscos:</strong> atalhos “invisíveis” para acessibilidade, navegação inconsistente, regressão no fluxo.</p>
+        <p data-text="body-normal"><strong>Garantias:</strong> Semantics define papel e rótulo; Tooltip dá contexto; rotas nomeadas reduzem desvios.</p>
+        <p data-text="body-normal"><strong>Evidência:</strong> snippet do componente e medições de tempo/cliques (interno).</p>
+      </div>
+      <pre style="margin-top: var(--space-2)">
 <code data-text="body-normal">Semantics(
   label: 'Atalho: Nova atividade',
   button: true,
@@ -56,13 +92,34 @@ export const prerender = false;
   ),
 )</code>
       </pre>
+      <div class="case-stack" style="margin-top: var(--space-2)">
+        <div data-text="ui-label">Stack</div>
+        <div class="case-chips">
+          <span class="case-chip">Flutter</span>
+          <span class="case-chip">Semantics</span>
+          <span class="case-chip">Tooltip</span>
+          <span class="case-chip">Rotas nomeadas</span>
+        </div>
+      </div>
+    </section>
+    <Divider />
+    <section aria-labelledby="next-p5">
+      <h2 id="next-p5" data-text="heading-xl">Extensões / Próximos passos</h2>
+      <ul class="case-psr">
+        <li data-text="body-normal">Adicionar telemetria de tempo por etapa para encontrar novos gargalos.</li>
+        <li data-text="body-normal">Criar presets por perfil de usuário (tarefas mais usadas por função).</li>
+        <li data-text="body-normal">Validar com testes de acessibilidade automatizados quando possível.</li>
+      </ul>
     </section>
     <Divider />
     <section aria-labelledby="conversion-p5">
-      <h2 id="conversion-p5" data-text="heading-xl">Se você tem esse tipo de problema</h2>
-      <p data-text="body-normal">Se você precisa reduzir tempo operacional em apps (principalmente em campo) sem quebrar acessibilidade, eu redesenho fluxos e implemento atalhos guiados por métricas.</p>
+      <h2 id="conversion-p5" data-text="heading-xl">Se você tem esse problema</h2>
+      <p data-text="body-normal">Se você precisa reduzir tempo operacional em apps sem quebrar acessibilidade, eu redesenho fluxos e implemento atalhos guiados por métricas.</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <a class="case-cta-secondary" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20demo%20(Relat%C3%B3rio%20Rural)" rel="noopener noreferrer">Repo</a>
+        <a class="case-cta-secondary" href="/#projects">Voltar</a>
+        <a class="case-cta-secondary" href="/projects/p7">Próximo case</a>
         <span data-text="ui-helper">Disponível para projetos em 2026.</span>
       </div>
     </section>

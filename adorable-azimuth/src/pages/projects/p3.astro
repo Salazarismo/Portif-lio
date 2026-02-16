@@ -8,8 +8,8 @@ export const prerender = false;
   <div class="container">
     <section aria-labelledby="hero-p3">
       <h1 id="hero-p3" data-text="heading-2xl">Habit Analyzer</h1>
-      <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com analytics e relatórios.</p>
-      <p data-text="ui-label">KPI principal: −40% custo de leitura de analytics em janelas grandes.</p>
+      <p data-text="body-muted">Aplicativo web de acompanhamento de hábitos com API e dashboard.</p>
+      <p data-text="ui-label">Entrega: API REST (FastAPI) + frontend (Next.js) com autenticação e gráficos.</p>
       <p style="margin-top: var(--space-1)"><span class="nl-badge" data-variant="secondary" data-ladder="Custo">Custo</span></p>
       <div class="nl-hero-actions" style="margin-top: var(--space-2)">
         <a class="nl-btn" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Repo</a>
@@ -29,9 +29,9 @@ export const prerender = false;
     <section aria-labelledby="tldr-p3">
       <h2 id="tldr-p3" data-text="heading-xl">TL;DR (1 minuto)</h2>
       <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
-        <p data-text="body-normal"><strong>Problema:</strong> analytics ficavam lentos e caros quando o usuário pedia janelas maiores.</p>
-        <p data-text="body-normal"><strong>Solução:</strong> pré‑agregação diária + cache versionado para reuso e invalidação segura.</p>
-        <p data-text="body-normal"><strong>Resultado:</strong> KPI principal: −40% custo/latência em janelas grandes; suporte: fluxo crítico coberto por E2E.</p>
+        <p data-text="body-normal"><strong>Problema:</strong> registrar hábitos e acompanhar evolução tende a virar planilha/notas, com pouco insight e baixa consistência.</p>
+        <p data-text="body-normal"><strong>Solução:</strong> app com backend FastAPI (JWT) e frontend Next.js/TypeScript com fluxo de registro e gráficos por hábito.</p>
+        <p data-text="body-normal"><strong>Resultado:</strong> MVP funcional com Docker Compose, documentação via Swagger/OpenAPI e testes (pytest + Playwright E2E).</p>
       </div>
     </section>
     <Divider />
@@ -40,15 +40,15 @@ export const prerender = false;
       <div class="grid-12 gap-token-4" style="margin-top: var(--space-2)">
         <div style="grid-column: span 4">
           <div data-text="ui-label">Papel / escopo / tempo</div>
-          <p data-text="body-normal">Arquitetura + Full‑stack. Ano: 2023.</p>
+          <p data-text="body-normal">Arquitetura + Full‑stack. Ano: 2025.</p>
         </div>
         <div style="grid-column: span 4">
           <div data-text="ui-label">Escala (o mínimo)</div>
-          <p data-text="body-normal">Consultas em janelas grandes com necessidade de resposta consistente.</p>
+          <p data-text="body-normal">Múltiplos hábitos por usuário, registros diários e histórico suficiente para gráficos e tendências.</p>
         </div>
         <div style="grid-column: span 4">
           <div data-text="ui-label">Restrições (o mínimo)</div>
-          <p data-text="body-normal">Custo de leitura alto sem agregação; invalidação precisa para evitar inconsistência.</p>
+          <p data-text="body-normal">Dados consistentes (datas/valores), autenticação e evolução segura do schema com migrações.</p>
         </div>
       </div>
     </section>
@@ -56,9 +56,9 @@ export const prerender = false;
     <section aria-labelledby="problem-impact-p3">
       <h2 id="problem-impact-p3" data-text="heading-xl">Problema &amp; Impacto</h2>
       <ul class="case-psr">
-        <li data-text="body-normal"><strong>Sintomas:</strong> lentidão e custo crescente quando a janela de análise aumenta.</li>
-        <li data-text="body-normal"><strong>Causa:</strong> recomputação de agregados a cada consulta e pouca reutilização de resultados.</li>
-        <li data-text="body-normal"><strong>Impacto:</strong> pior experiência no fluxo de analytics e menos previsibilidade de custo.</li>
+        <li data-text="body-normal"><strong>Sintomas:</strong> registro manual disperso e pouca visibilidade de consistência/progresso.</li>
+        <li data-text="body-normal"><strong>Causa:</strong> dados sem modelo único e sem uma visualização agregada do histórico por hábito.</li>
+        <li data-text="body-normal"><strong>Impacto:</strong> baixa aderência ao acompanhamento e decisões piores sobre rotina por falta de sinal.</li>
       </ul>
     </section>
     <Divider />
@@ -66,9 +66,9 @@ export const prerender = false;
       <h2 id="approach-p3" data-text="heading-xl">Abordagem</h2>
       <p data-text="body-normal">Como resolve (3 passos):</p>
       <ol class="case-psr">
-        <li data-text="body-normal"><strong>Pré‑agregar</strong> por dia para transformar consultas grandes em somas simples.</li>
-        <li data-text="body-normal"><strong>Cachear</strong> por usuário/hábito/janela com chave versionada.</li>
-        <li data-text="body-normal"><strong>Invalidar</strong> com segurança ao mudar regra de resumo (versionamento).</li>
+        <li data-text="body-normal"><strong>Modelar</strong> hábitos e registros (domínio) e persistir no Postgres.</li>
+        <li data-text="body-normal"><strong>Expor</strong> uma API REST com FastAPI e autenticação JWT.</li>
+        <li data-text="body-normal"><strong>Visualizar</strong> no dashboard web (Next.js) com fluxo de registro e gráficos por hábito.</li>
       </ol>
       <div style="display:grid; gap: var(--space-3); margin-top: var(--space-3)">
         <figure>
@@ -79,14 +79,14 @@ export const prerender = false;
             loading="lazy"
             decoding="async"
           />
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Snapshot: trecho que materializa o cache versionado.</figcaption>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Snapshot: UI de gráfico consumindo um resumo da API.</figcaption>
         </figure>
         <figure>
-          <pre class="case-diagram" data-text="body-normal">Evento → resumo diário (pré‑agregado)
-Resumo + janela (days) + versão → cache_key
-cache hit → resposta rápida
-cache miss → calcula → grava cache</pre>
-          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Diagrama: por que a recomputação cai e a invalidação fica explícita.</figcaption>
+          <pre class="case-diagram" data-text="body-normal">Ação → POST /api/v1/records (registra)
+Persistência → Postgres + migrações
+GET /api/v1/records/habit/'habit_id'/summary → série temporal
+Frontend → Chart.js renderiza progresso</pre>
+          <figcaption data-text="ui-helper" style="margin-top: var(--space-1)">Diagrama: do registro ao resumo que alimenta os gráficos.</figcaption>
         </figure>
       </div>
     </section>
@@ -94,13 +94,13 @@ cache miss → calcula → grava cache</pre>
     <section aria-labelledby="reliability-p3">
       <h2 id="reliability-p3" data-text="heading-xl">Confiabilidade</h2>
       <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
-        <p data-text="body-normal"><strong>Riscos:</strong> cache incorreto (stale), invalidação agressiva (perde ganho), regressão no fluxo de analytics.</p>
-        <p data-text="body-normal"><strong>Garantias:</strong> chave inclui janela e versão para invalidar quando a regra muda; fluxo crítico coberto por E2E.</p>
-        <p data-text="body-normal"><strong>Evidência:</strong> README e código no repositório.</p>
+        <p data-text="body-normal"><strong>Riscos:</strong> dados inconsistentes (datas/valores), regressão de autenticação e divergência entre resumo e série temporal.</p>
+        <p data-text="body-normal"><strong>Garantias:</strong> validação com Pydantic, migrações com Alembic e testes (unitários + E2E com Playwright no fluxo crítico).</p>
+        <p data-text="body-normal"><strong>Evidência:</strong> README, OpenAPI snapshot e suíte de testes no repositório.</p>
       </div>
       <pre style="margin-top: var(--space-2)">
-<code data-text="body-normal">cache_key = (str(user_id), str(habit_id), int(days), int(habit.summary_version or 0))
-use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DAYS</code>
+<code data-text="body-normal">encoded_jwt = jwt.encode(&#123;**data, "exp": expire&#125;, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])</code>
       </pre>
       <div style="margin-top: var(--space-2)">
         <a href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer" data-text="ui-label">Ver repo</a>
@@ -110,15 +110,15 @@ use_daily = settings.USE_SUMMARY_DAILY and days &lt;= settings.SUMMARY_WINDOW_DA
     <section aria-labelledby="next-p3">
       <h2 id="next-p3" data-text="heading-xl">Extensões / Próximos passos</h2>
       <ul class="case-psr">
-        <li data-text="body-normal">Adicionar alertas de regressão de custo/latência com limites por janela.</li>
-        <li data-text="body-normal">Introduzir métricas de cache hit-rate e invalidação para ajuste fino.</li>
-        <li data-text="body-normal">Explorar agregação incremental por evento para reduzir ainda mais recomputação.</li>
+        <li data-text="body-normal">Adicionar metas, streaks e lembretes para reforçar aderência.</li>
+        <li data-text="body-normal">Expandir relatórios (semanal/mensal) e filtros por hábito.</li>
+        <li data-text="body-normal">Observabilidade: métricas de API e erros para evolução segura.</li>
       </ul>
     </section>
     <Divider />
     <section aria-labelledby="conversion-p3">
       <h2 id="conversion-p3" data-text="heading-xl">Se você tem esse problema</h2>
-      <p data-text="body-normal">Se você precisa reduzir custo/latência de analytics sem perder consistência, eu desenho pré‑agregação + cache versionado e valido o fluxo crítico.</p>
+      <p data-text="body-normal">Se você precisa de um MVP de acompanhamento de hábitos com API e dashboard (auth + gráficos), eu desenho a arquitetura, implemento o fluxo crítico e valido com testes.</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
         <a class="case-cta-secondary" href="https://github.com/Salazarismo/habit_analyzer" target="_blank" rel="noopener noreferrer">Repo</a>

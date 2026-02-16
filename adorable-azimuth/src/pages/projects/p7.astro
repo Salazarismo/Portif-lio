@@ -4,12 +4,12 @@ import Divider from "../../components/ui/Divider.astro";
 import { AspectRatioImage } from "@/components/ui/AspectRatioImage";
 export const prerender = false;
 ---
-<BaseLayout title="Plataforma‑Ingressos‑WhatsApp — Victor de Alcântara Bueno" description="Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.">
+<BaseLayout title="Plataforma Nexus — Victor de Alcântara Bueno" description="Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.">
   <div class="container">
     <section aria-labelledby="hero-p7">
-      <h1 id="hero-p7" data-text="heading-2xl">Plataforma‑Ingressos‑WhatsApp</h1>
-      <p data-text="body-muted">Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.</p>
-      <p data-text="ui-label">KPI principal: 100% check‑in offline na portaria (PWA + fila local).</p>
+      <h1 id="hero-p7" data-text="heading-2xl">Plataforma Nexus</h1>
+      <p data-text="body-muted">Plataforma de ingressos com vendas via WhatsApp, pagamentos integrados e operação de check‑in resiliente em eventos.</p>
+      <p data-text="ui-label">KPI principal: check‑in operável sem internet na portaria (offline-first + sincronização).</p>
       <p style="margin-top: var(--space-1)"><span class="nl-badge" data-variant="secondary" data-ladder="Risco">Risco</span></p>
       <div class="nl-hero-actions" style="margin-top: var(--space-2)">
         <a class="nl-btn" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">Repo</a>
@@ -32,12 +32,12 @@ export const prerender = false;
     <section aria-labelledby="tldr-p7">
       <h2 id="tldr-p7" data-text="heading-xl">TL;DR (1 minuto)</h2>
       <div style="display:grid; gap: var(--space-1); margin-top: var(--space-2)">
-        <p data-text="body-normal"><strong>Problema:</strong> compra com muitos passos e portaria sem internet.</p>
-        <p data-text="body-normal"><strong>Solução:</strong> WhatsApp como canal de venda + PWA de check‑in offline com fila local.</p>
-        <p data-text="body-normal"><strong>Resultado:</strong> KPI principal: check‑in 100% offline; suporte: menos fricção na compra e menos instabilidade na operação.</p>
+        <p data-text="body-normal"><strong>Problema:</strong> venda e atendimento dependentes de canais fragmentados e check‑in que falha quando a rede cai na portaria.</p>
+        <p data-text="body-normal"><strong>Solução:</strong> fluxo de venda via WhatsApp + backend multi-tenant com integrações (WhatsApp Cloud API e Mercado Pago) + check‑in offline-first com fila local e sincronização.</p>
+        <p data-text="body-normal"><strong>Resultado:</strong> operação de portaria sem internet com sincronização segura; menos incidência operacional em dia de evento e mais previsibilidade no fluxo de venda.</p>
       </div>
       <div style="margin-top: var(--space-2)">
-        <span data-text="body-muted">Projeto privado; README sanitizado disponível sob solicitação.</span>
+        <span data-text="body-muted">Monorepo com backend, dashboard/admin e infraestrutura local via Docker Compose (detalhes no README).</span>
       </div>
     </section>
     <Divider />
@@ -46,15 +46,15 @@ export const prerender = false;
       <div class="grid-12 gap-token-4" style="margin-top: var(--space-2)">
         <div style="grid-column: span 4">
           <div data-text="ui-label">Papel / escopo / tempo</div>
-          <p data-text="body-normal">Full‑stack. Ano: 2024.</p>
+          <p data-text="body-normal">Full‑stack. Arquitetura + backend (NestJS) + dashboards (React/Next).</p>
         </div>
         <div style="grid-column: span 4">
           <div data-text="ui-label">Escala (o mínimo)</div>
-          <p data-text="body-normal">Operação em eventos: portaria precisa funcionar sem rede e sem travar fila.</p>
+          <p data-text="body-normal">Operação em eventos e múltiplas organizações (multi-tenant), com necessidade de baixa fricção e consistência operacional.</p>
         </div>
         <div style="grid-column: span 4">
           <div data-text="ui-label">Restrições (o mínimo)</div>
-          <p data-text="body-normal">Sem internet na portaria e alto custo operacional se o check‑in falha.</p>
+          <p data-text="body-normal">Portaria pode ficar sem internet; integrações externas exigem idempotência e rastreabilidade para evitar duplicidade/erros.</p>
         </div>
       </div>
     </section>
@@ -62,9 +62,9 @@ export const prerender = false;
     <section aria-labelledby="problem-impact-p7">
       <h2 id="problem-impact-p7" data-text="heading-xl">Problema &amp; Impacto</h2>
       <ul class="case-psr">
-        <li data-text="body-normal"><strong>Sintomas:</strong> compra travada por etapas demais; check‑in parava quando a rede caía.</li>
-        <li data-text="body-normal"><strong>Causa:</strong> fluxo dependente de conectividade e operação sem fallback offline.</li>
-        <li data-text="body-normal"><strong>Impacto:</strong> risco operacional alto na portaria e aumento de suporte/erros em dia de evento.</li>
+        <li data-text="body-normal"><strong>Sintomas:</strong> venda/atendimento com dependência de integrações e portaria travando quando o check‑in exige rede.</li>
+        <li data-text="body-normal"><strong>Causa:</strong> falta de um fluxo único de venda e ausência de um mecanismo offline-first com fila e retry controlado para a operação crítica.</li>
+        <li data-text="body-normal"><strong>Impacto:</strong> risco operacional alto na portaria, divergências por reprocessamento e aumento de suporte em dia de evento.</li>
       </ul>
     </section>
     <Divider />
@@ -72,17 +72,17 @@ export const prerender = false;
       <h2 id="approach-p7" data-text="heading-xl">Abordagem</h2>
       <p data-text="body-normal">Como resolve (3 passos):</p>
       <ol class="case-psr">
-        <li data-text="body-normal"><strong>Canal único</strong> de compra via WhatsApp para reduzir etapas.</li>
-        <li data-text="body-normal"><strong>Check‑in offline‑first</strong> em PWA com fila local.</li>
-        <li data-text="body-normal"><strong>Sincronização</strong> periódica com backoff para evitar picos e falhas em cascata.</li>
+        <li data-text="body-normal"><strong>Vendas via WhatsApp</strong> integrando WhatsApp Cloud API e orquestração server-side por organização (multi-tenant).</li>
+        <li data-text="body-normal"><strong>Pagamentos</strong> via Mercado Pago com rotas administrativas para operação e suporte.</li>
+        <li data-text="body-normal"><strong>Operação offline-first</strong> (check‑in e POS) com fila local (IndexedDB) e sincronização em lote para reduzir rajadas.</li>
       </ol>
       <div class="case-stack" style="margin-top: var(--space-2)">
         <div data-text="ui-label">Stack</div>
         <div class="case-chips">
-          <span class="case-chip">WhatsApp</span>
-          <span class="case-chip">PWA</span>
-          <span class="case-chip">Offline queue</span>
-          <span class="case-chip">Sync + backoff</span>
+          <span class="case-chip">NestJS + PostgreSQL</span>
+          <span class="case-chip">WhatsApp Cloud API</span>
+          <span class="case-chip">Mercado Pago</span>
+          <span class="case-chip">PWA + fila offline</span>
         </div>
       </div>
     </section>
@@ -90,29 +90,35 @@ export const prerender = false;
     <section aria-labelledby="reliability-p7">
       <h2 id="reliability-p7" data-text="heading-xl">Confiabilidade</h2>
       <div style="display:grid; gap: var(--space-2); margin-top: var(--space-2)">
-        <p data-text="body-normal"><strong>Riscos:</strong> fila explodir em reconexão, travar UI na portaria, perda de eventos pendentes.</p>
-        <p data-text="body-normal"><strong>Garantias:</strong> fila local e backoff para reduzir rajadas; sincronização contínua quando houver rede.</p>
-        <p data-text="body-normal"><strong>Evidência:</strong> snippet do mecanismo de fila/sync (sanitizado).</p>
+        <p data-text="body-normal"><strong>Riscos:</strong> duplicidade em reenvio (offline/retry), rajadas na reconexão, inconsistência operacional entre dispositivos.</p>
+        <p data-text="body-normal"><strong>Garantias:</strong> fila local (IndexedDB) com retry e sincronização em lote para POS; idempotência por externalId para não duplicar vendas.</p>
+        <p data-text="body-normal"><strong>Evidência:</strong> snippet real do mecanismo de fila/sync (IndexedDB + batch sync do POS).</p>
       </div>
       <pre style="margin-top: var(--space-2)">
-<code data-text="body-normal">const queue = new LocalQueue('checkin');
-queue.push(&#123; code, ts: Date.now(), status: 'pending' &#125;);
-syncPeriodically(() =&gt; queue.flushToServer(), &#123; backoff: true &#125;);</code>
+<code data-text="body-normal">await db.add('syncQueue', &#123;
+  url,
+  method,
+  body,
+  timestamp: Date.now(),
+  retryCount: 0
+&#125;);
+// offline POS: /admin/pos/orders -&gt; /admin/pos/sync (batch)
+await fetch(syncUrl, &#123; method: 'POST', body: JSON.stringify(&#123; orders &#125;) &#125;);</code>
       </pre>
     </section>
     <Divider />
     <section aria-labelledby="next-p7">
       <h2 id="next-p7" data-text="heading-xl">Extensões / Próximos passos</h2>
       <ul class="case-psr">
-        <li data-text="body-normal">Adicionar observabilidade de fila (pendentes, idade, taxa de flush) para antecipar falhas.</li>
-        <li data-text="body-normal">Criar modo de “auditoria” para reprocessar eventos e reduzir suporte.</li>
-        <li data-text="body-normal">Instrumentar métricas do funil de compra para identificar gargalos por etapa.</li>
+        <li data-text="body-normal">Expandir observabilidade de fila (pendentes, idade, taxa de sincronização) para antecipar falhas em campo.</li>
+        <li data-text="body-normal">Consolidar relatórios operacionais (check‑in, POS e reconciliação) para reduzir suporte e acelerar auditoria.</li>
+        <li data-text="body-normal">Aprimorar métricas do funil (WhatsApp → pagamento → emissão/validação) para identificar gargalos por etapa.</li>
       </ul>
     </section>
     <Divider />
     <section aria-labelledby="conversion-p7">
       <h2 id="conversion-p7" data-text="heading-xl">Se você tem esse problema</h2>
-      <p data-text="body-normal">Se você precisa reduzir fricção de compra e garantir operação mesmo sem internet (portaria, campo, eventos), eu desenho um fluxo offline‑first com sincronização segura.</p>
+      <p data-text="body-normal">Se você precisa vender com baixa fricção e operar em campo sem depender de internet (portaria, eventos, PDV), eu desenho um fluxo offline-first com idempotência, sync em lote e trilha de auditoria.</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
         <a class="case-cta-secondary" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">Repo</a>

@@ -12,6 +12,7 @@ export interface SegmentedButtonProps {
   defaultActive?: string;
   onChange?: (activeId: string) => void;
   className?: string;
+  ariaLabel?: string;
 }
 
 export function SegmentedButton({
@@ -19,7 +20,8 @@ export function SegmentedButton({
   activeId,
   defaultActive,
   onChange,
-  className = ""
+  className = "",
+  ariaLabel
 }: SegmentedButtonProps) {
   const [internalActive, setInternalActive] = useState(defaultActive || buttons[0]?.id || "");
   const activeButton = activeId ?? internalActive;
@@ -84,7 +86,7 @@ export function SegmentedButton({
       className={`nl-seg relative inline-flex items-center justify-start rounded-full ${className}`.trim()}
       onMouseLeave={() => setHoveredIndex(null)}
       role="radiogroup"
-      aria-label="Seções"
+      aria-label={ariaLabel ?? "Seções"}
     >
       <div
         className="nl-seg-hover absolute rounded-full"

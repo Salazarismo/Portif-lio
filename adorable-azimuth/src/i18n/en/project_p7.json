@@ -1,0 +1,57 @@
+{
+  "project_p7.meta.title": "Nexus Platform — Victor de Alcântara Bueno",
+  "project_p7.meta.description": "Ticket sales via WhatsApp with offline check-in and an admin panel.",
+  "project_p7.hero.title": "Nexus Platform",
+  "project_p7.hero.subtitle": "Ticketing platform with WhatsApp sales, integrated payments, and resilient check-in operations at events.",
+  "project_p7.hero.kpi": "Main KPI: gate check-in operable without internet (offline-first + sync).",
+  "project_p7.hero.ladder": "Risk",
+  "project_p7.hero.image_alt": "WhatsApp purchase flow and admin dashboard",
+  "project_p7.hero.figure_caption": "Snapshot: real screenshot of the flow and admin view.",
+
+  "project_p7.tldr.problem_label": "Problem:",
+  "project_p7.tldr.problem": "sales and support depended on fragmented channels, and check-in failed when the network dropped at the gate.",
+  "project_p7.tldr.solution_label": "Solution:",
+  "project_p7.tldr.solution": "a WhatsApp sales flow + a multi-tenant backend with integrations (WhatsApp Cloud API and Mercado Pago) + offline-first check-in with a local queue and synchronization.",
+  "project_p7.tldr.result_label": "Result:",
+  "project_p7.tldr.result": "gate operations without internet with safe synchronization; fewer operational incidents on event day and a more predictable sales flow.",
+  "project_p7.tldr.note": "Monorepo with backend, admin dashboards, and local infrastructure via Docker Compose (details in the README).",
+
+  "project_p7.snapshot.col1": "Full-stack. Architecture + backend (NestJS) + dashboards (React/Next).",
+  "project_p7.snapshot.col2": "Event operations across multiple organizations (multi-tenant), with a need for low friction and operational consistency.",
+  "project_p7.snapshot.col3": "The gate may lose internet; external integrations require idempotency and traceability to avoid duplicates/errors.",
+
+  "project_p7.problem_impact.symptoms_label": "Symptoms:",
+  "project_p7.problem_impact.symptoms": "sales/support depending on integrations, and the gate getting stuck when check-in required network.",
+  "project_p7.problem_impact.cause_label": "Cause:",
+  "project_p7.problem_impact.cause": "no single sales flow and no offline-first mechanism with a queue and controlled retries for the critical operation.",
+  "project_p7.problem_impact.impact_label": "Impact:",
+  "project_p7.problem_impact.impact": "high operational risk at the gate, inconsistencies from reprocessing, and increased support on event day.",
+
+  "project_p7.approach.intro": "How it works (3 steps):",
+  "project_p7.approach.step1_label": "WhatsApp sales",
+  "project_p7.approach.step1": "by integrating WhatsApp Cloud API and server-side orchestration per organization (multi-tenant).",
+  "project_p7.approach.step2_label": "Payments",
+  "project_p7.approach.step2": "via Mercado Pago with admin routes for operations and support.",
+  "project_p7.approach.step3_label": "Offline-first operation",
+  "project_p7.approach.step3": "(check-in and POS) with a local queue (IndexedDB) and batch synchronization to reduce spikes.",
+  "project_p7.stack.title": "Stack",
+  "project_p7.stack.chip1": "NestJS + PostgreSQL",
+  "project_p7.stack.chip2": "WhatsApp Cloud API",
+  "project_p7.stack.chip3": "Mercado Pago",
+  "project_p7.stack.chip4": "PWA + offline queue",
+
+  "project_p7.reliability.risks_label": "Risks:",
+  "project_p7.reliability.risks": "duplicates on resend (offline/retry), spikes on reconnect, and operational inconsistency across devices.",
+  "project_p7.reliability.guarantees_label": "Guarantees:",
+  "project_p7.reliability.guarantees": "a local queue (IndexedDB) with retry and batch sync for POS; idempotency via externalId to avoid duplicated sales.",
+  "project_p7.reliability.evidence_label": "Evidence:",
+  "project_p7.reliability.evidence": "a real snippet of the queue/sync mechanism (IndexedDB + POS batch sync).",
+
+  "project_p7.next.item1": "Expand queue observability (pending, age, sync rate) to anticipate field failures.",
+  "project_p7.next.item2": "Consolidate operational reports (check-in, POS, and reconciliation) to reduce support and speed up auditing.",
+  "project_p7.next.item3": "Improve funnel metrics (WhatsApp → payment → issuance/validation) to identify bottlenecks by step.",
+
+  "project_p7.conversion.p": "If you need low-friction sales and to operate in the field without relying on internet (gates, events, POS), I design an offline-first flow with idempotency, batch sync, and an audit trail.",
+  "project_p7.conversion.whatsapp": "Chat on WhatsApp",
+  "project_p7.conversion.availability": "Available for projects in 2026."
+}

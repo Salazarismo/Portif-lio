@@ -1,0 +1,57 @@
+{
+  "project_p7.meta.title": "Plataforma Nexus — Victor de Alcântara Bueno",
+  "project_p7.meta.description": "Venda de ingressos pelo WhatsApp com check‑in offline e painel admin.",
+  "project_p7.hero.title": "Plataforma Nexus",
+  "project_p7.hero.subtitle": "Plataforma de ingressos com vendas via WhatsApp, pagamentos integrados e operação de check‑in resiliente em eventos.",
+  "project_p7.hero.kpi": "KPI principal: check‑in operável sem internet na portaria (offline-first + sincronização).",
+  "project_p7.hero.ladder": "Risco",
+  "project_p7.hero.image_alt": "Fluxo de compra no WhatsApp e painel admin",
+  "project_p7.hero.figure_caption": "Snapshot: print real do fluxo e visão administrativa.",
+
+  "project_p7.tldr.problem_label": "Problema:",
+  "project_p7.tldr.problem": "venda e atendimento dependentes de canais fragmentados e check‑in que falha quando a rede cai na portaria.",
+  "project_p7.tldr.solution_label": "Solução:",
+  "project_p7.tldr.solution": "fluxo de venda via WhatsApp + backend multi-tenant com integrações (WhatsApp Cloud API e Mercado Pago) + check‑in offline-first com fila local e sincronização.",
+  "project_p7.tldr.result_label": "Resultado:",
+  "project_p7.tldr.result": "operação de portaria sem internet com sincronização segura; menos incidência operacional em dia de evento e mais previsibilidade no fluxo de venda.",
+  "project_p7.tldr.note": "Monorepo com backend, dashboard/admin e infraestrutura local via Docker Compose (detalhes no README).",
+
+  "project_p7.snapshot.col1": "Full‑stack. Arquitetura + backend (NestJS) + dashboards (React/Next).",
+  "project_p7.snapshot.col2": "Operação em eventos e múltiplas organizações (multi-tenant), com necessidade de baixa fricção e consistência operacional.",
+  "project_p7.snapshot.col3": "Portaria pode ficar sem internet; integrações externas exigem idempotência e rastreabilidade para evitar duplicidade/erros.",
+
+  "project_p7.problem_impact.symptoms_label": "Sintomas:",
+  "project_p7.problem_impact.symptoms": "venda/atendimento com dependência de integrações e portaria travando quando o check‑in exige rede.",
+  "project_p7.problem_impact.cause_label": "Causa:",
+  "project_p7.problem_impact.cause": "falta de um fluxo único de venda e ausência de um mecanismo offline-first com fila e retry controlado para a operação crítica.",
+  "project_p7.problem_impact.impact_label": "Impacto:",
+  "project_p7.problem_impact.impact": "risco operacional alto na portaria, divergências por reprocessamento e aumento de suporte em dia de evento.",
+
+  "project_p7.approach.intro": "Como resolve (3 passos):",
+  "project_p7.approach.step1_label": "Vendas via WhatsApp",
+  "project_p7.approach.step1": "integrando WhatsApp Cloud API e orquestração server-side por organização (multi-tenant).",
+  "project_p7.approach.step2_label": "Pagamentos",
+  "project_p7.approach.step2": "via Mercado Pago com rotas administrativas para operação e suporte.",
+  "project_p7.approach.step3_label": "Operação offline-first",
+  "project_p7.approach.step3": "(check‑in e POS) com fila local (IndexedDB) e sincronização em lote para reduzir rajadas.",
+  "project_p7.stack.title": "Stack",
+  "project_p7.stack.chip1": "NestJS + PostgreSQL",
+  "project_p7.stack.chip2": "WhatsApp Cloud API",
+  "project_p7.stack.chip3": "Mercado Pago",
+  "project_p7.stack.chip4": "PWA + fila offline",
+
+  "project_p7.reliability.risks_label": "Riscos:",
+  "project_p7.reliability.risks": "duplicidade em reenvio (offline/retry), rajadas na reconexão, inconsistência operacional entre dispositivos.",
+  "project_p7.reliability.guarantees_label": "Garantias:",
+  "project_p7.reliability.guarantees": "fila local (IndexedDB) com retry e sincronização em lote para POS; idempotência por externalId para não duplicar vendas.",
+  "project_p7.reliability.evidence_label": "Evidência:",
+  "project_p7.reliability.evidence": "snippet real do mecanismo de fila/sync (IndexedDB + batch sync do POS).",
+
+  "project_p7.next.item1": "Expandir observabilidade de fila (pendentes, idade, taxa de sincronização) para antecipar falhas em campo.",
+  "project_p7.next.item2": "Consolidar relatórios operacionais (check‑in, POS e reconciliação) para reduzir suporte e acelerar auditoria.",
+  "project_p7.next.item3": "Aprimorar métricas do funil (WhatsApp → pagamento → emissão/validação) para identificar gargalos por etapa.",
+
+  "project_p7.conversion.p": "Se você precisa vender com baixa fricção e operar em campo sem depender de internet (portaria, eventos, PDV), eu desenho um fluxo offline-first com idempotência, sync em lote e trilha de auditoria.",
+  "project_p7.conversion.whatsapp": "Falar no WhatsApp",
+  "project_p7.conversion.availability": "Disponível para projetos em 2026."
+}

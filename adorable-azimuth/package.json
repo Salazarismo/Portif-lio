@@ -8,7 +8,9 @@
     "prebuild": "node scripts/clean-vercel-output.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/preact": "^4.1.3",

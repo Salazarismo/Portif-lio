@@ -1,8 +1,8 @@
 ---
-import BaseLayout from "../../components/BaseLayout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Divider from "../../components/ui/Divider.astro";
+import BaseLayout from "@/components/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Divider from "@/components/ui/Divider.astro";
 import { AspectRatioImage } from "@/components/ui/AspectRatioImage";
 import { createT, loadMessages, type Locale } from "@/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -132,7 +132,7 @@ await fetch(syncUrl, &#123; method: 'POST', body: JSON.stringify(&#123; orders &
       <p data-text="body-normal">{tP7("project_p7.conversion.p")}</p>
       <div class="case-conversion">
         <a class="case-cta" href="https://wa.me/5548984586949" target="_blank" rel="noopener noreferrer">{tP7("project_p7.conversion.whatsapp")}</a>
-        <a class="case-cta-secondary" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3O%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">{tCommon("common.cta.repo")}</a>
+        <a class="case-cta-secondary" href="mailto:victor.de.alcantara.bueno@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20repo%20%2F%20README%20(Plataforma%20Ingressos%20WhatsApp)" rel="noopener noreferrer">{tCommon("common.cta.repo")}</a>
         <a class="case-cta-secondary" href={`${getRelativeLocaleUrl(locale, "")}#projects`}>{tProjects("projects.buttons.back")}</a>
         <a class="case-cta-secondary" href={getRelativeLocaleUrl(locale, "projects/p3")}>{tProjects("projects.buttons.next")}</a>
         <span data-text="ui-helper">{tP7("project_p7.conversion.availability")}</span>

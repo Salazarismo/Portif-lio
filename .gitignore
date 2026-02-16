@@ -18,3 +18,9 @@ pnpm-debug.log*
 
 adorable-azimuth/components/
 pnpm-lock.yaml
+
+adorable-azimuth/test-results/
+adorable-azimuth/playwright-report/
+
+.vercel
+.env*.local

@@ -7,34 +7,40 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { profile } from "../data/profile";
 import { featuredProjects } from "../data/projects";
+import { createT, loadMessages, type Locale } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const locale = ((Astro.currentLocale as Locale) || "pt-br") as Locale;
+const tHome = createT(loadMessages(locale, "home"), { locale, namespace: "home" });
 ---
 <BaseLayout
-  title={`${profile.fullName} — Portfólio`}
-  description={`${profile.roleLine}. ${profile.tagline}`}
+  title={tHome("home.meta.title")}
+  description={tHome("home.meta.description")}
 >
   <Fragment slot="nav"><Header /></Fragment>
   <div class="nl-page">
     <div id="top"></div>
     <Hero
-      title={`${profile.fullName}\n${profile.roleLine}`}
-      subtitlePrefix="Construo produtos web e mobile com foco em "
-      subtitleMorphWords={["performance.", "UX.", "engenharia pragmática."]}
+      title={`${profile.fullName}\n${tHome("home.hero.role_line")}`}
+      subtitlePrefix={tHome("home.hero.tagline_prefix")}
+      subtitleMorphWords={[tHome("home.hero.tagline_morph_1"), tHome("home.hero.tagline_morph_2"), tHome("home.hero.tagline_morph_3")]}
       ctaLabel={profile.email}
       ctaHref={`mailto:${profile.email}`}
-      ctaSecondaryLabel="Ver projetos"
+      ctaSecondaryLabel={tHome("home.hero.cta_secondary")}
       ctaSecondaryHref="#projects"
-      microcopy="Projetos selecionados com foco em performance, UX e entrega."
+      microcopy={tHome("home.hero.microcopy")}
+      scrollRight={tHome("home.hero.scroll_right")}
       scrollHref="#projects"
     />
     <div class="nl-divider"></div>
     <section id="projects" class="nl-section" aria-labelledby="projects-title">
       <div class="nl-section-inner">
-        <h2 id="projects-title" class="nl-section-title" data-cell>Projetos</h2>
+        <h2 id="projects-title" class="nl-section-title" data-cell>{tHome("home.section.projects")}</h2>
         <div class="nl-project-grid">
           {featuredProjects.map((p, idx) => (
             <a
               class={`nl-project-card${idx === 0 ? ' nl-project-card--featured' : ''}`}
-              href={p.href}
+              href={getRelativeLocaleUrl(locale, p.href.replace(/^\//, ""))}
               aria-label={`${p.name} (${p.year})`}
               data-cell
             >
@@ -65,7 +71,7 @@ import { featuredProjects } from "../data/projects";
                     <span class="nl-project-metric-value">{p.metric.value}</span>
                   </span>
                 </div>
-                <span class="nl-project-cta">Ver case →</span>
+                <span class="nl-project-cta">{tHome("home.projects.cta")}</span>
               </div>
             </a>
           ))}
@@ -75,22 +81,18 @@ import { featuredProjects } from "../data/projects";
     <div class="nl-divider"></div>
     <section id="about" class="nl-section" aria-labelledby="about-title">
       <div class="nl-section-inner">
-        <h2 id="about-title" class="nl-section-title" data-cell>Sobre</h2>
+        <h2 id="about-title" class="nl-section-title" data-cell>{tHome("home.section.about")}</h2>
         <p class="nl-body" data-cell>
-          Trabalho com front-end, back-end e mobile, com prioridade em clareza de arquitetura, acessibilidade e métricas de produto.
-          Já atuei em projetos privados em produção e em iniciativas open-source, sempre buscando reduzir fricção e aumentar previsibilidade
-          de entrega.
+          {tHome("home.about.p1")} {tHome("home.about.p2")}
         </p>
-        <p class="nl-body" data-cell style="margin-top: 16px">
-          Tecnologias que uso com frequência: Astro/React, TypeScript, Flutter e stacks de API com foco em consistência e observabilidade.
-        </p>
+        <p class="nl-body" data-cell style="margin-top: 16px">{tHome("home.about.p3")}</p>
       </div>
     </section>
     <div class="nl-divider"></div>
     <section id="contact" class="nl-section" aria-labelledby="contact-title">
       <div class="nl-section-inner">
-        <h2 id="contact-title" class="nl-section-title" data-cell>Contato</h2>
-        <p class="nl-body" data-cell>Se você tem um projeto e quer conversar sobre escopo, riscos e próximos passos, me chame.</p>
+        <h2 id="contact-title" class="nl-section-title" data-cell>{tHome("home.section.contact")}</h2>
+        <p class="nl-body" data-cell>{tHome("home.contact.p")}</p>
         <div class="nl-hero-actions" style="margin-top: 32px" data-cell>
           <a class="nl-btn" href={`mailto:${profile.email}`}>Email</a>
           <a class="nl-btn" href={profile.links.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>

@@ -1,17 +1,35 @@
 ---
 import { profile } from "../data/profile";
 import HeaderNavSegmented from "../components/HeaderNavSegmented";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { createT, loadMessages, type Locale } from "@/i18n";
+
+const pathname = Astro.url.pathname;
+const locale = (Astro.currentLocale || (pathname.startsWith("/en") ? "en" : "pt-br")) as Locale;
+const restPath = locale === "en" ? pathname.replace(/^\/en\/?/, "") : pathname.replace(/^\//, "");
+const t = createT(loadMessages(locale, "common"), { locale, namespace: "common" });
+const tHome = createT(loadMessages(locale, "home"), { locale, namespace: "home" });
 ---
 <header id="site-header" class="nl-header" data-cell data-z="2">
   <div class="nl-header-inner">
     <div class="nl-header-left">
-      <a class="nl-brand" href="/">{profile.brand}</a>
+      <a class="nl-brand" href={getRelativeLocaleUrl(locale, "")}>{profile.brand}</a>
     </div>
     <div class="nl-header-center">
-      <span class="nl-availability">{profile.availability}</span>
+      <span class="nl-availability">{t("common.header.availability")}</span>
     </div>
     <div class="nl-header-right">
-      <HeaderNavSegmented client:idle />
+      <HeaderNavSegmented
+        client:idle
+        ariaLabel={t("common.nav.aria_label")}
+        labels={{
+          projects: tHome("home.section.projects"),
+          about: tHome("home.section.about"),
+          contact: tHome("home.section.contact")
+        }}
+      />
+      <a class="nl-email" href={getRelativeLocaleUrl("pt-br", restPath)} aria-current={locale === "pt-br" ? "page" : undefined}>{t("common.lang.pt")}</a>
+      <a class="nl-email" href={getRelativeLocaleUrl("en", restPath)} aria-current={locale === "en" ? "page" : undefined}>{t("common.lang.en")}</a>
       <a class="nl-email" href={`mailto:${profile.email}`}>{profile.email}</a>
     </div>
   </div>

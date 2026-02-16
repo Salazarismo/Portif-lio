@@ -1,0 +1,56 @@
+{
+  "project_p5.meta.title": "Relatorium — Quick Activity Button — Victor de Alcântara Bueno",
+  "project_p5.meta.description": "Aplicativo Flutter multiplataforma para gestão rural com dashboard e atalhos rápidos (QuickActionButton + Semantics + Tooltip + rotas nomeadas).",
+  "project_p5.hero.title": "Relatorium — UI Quick Activity Button",
+  "project_p5.hero.subtitle": "Aplicativo Flutter para gestão rural com dashboard e atalhos rápidos para iniciar fluxos (atividades, solo, orçamento e mais).",
+  "project_p5.hero.kpi": "Atalhos no Dashboard: 6 ações críticas disponíveis em um clique, com acessibilidade e feedback.",
+  "project_p5.hero.ladder": "Tempo",
+  "project_p5.hero.image_alt": "UI e programação — atalhos rápidos no dashboard",
+
+  "project_p5.tldr.problem_label": "Problema:",
+  "project_p5.tldr.problem": "iniciar fluxos frequentes (atividade, solo, orçamento etc.) exigia navegação antes de chegar na ação.",
+  "project_p5.tldr.solution_label": "Solução:",
+  "project_p5.tldr.solution": "atalhos padronizados com QuickActionButton + Semantics + Tooltip e navegação por rotas nomeadas (go_router).",
+  "project_p5.tldr.result_label": "Resultado:",
+  "project_p5.tldr.result": "dashboard com entradas rápidas consistentes e acessíveis para criar registros e acessar telas-chave.",
+  "project_p5.tldr.note": "Protótipo em Flutter neste repositório, com módulo Solo & Fertilidade e atalhos integrados ao Dashboard.",
+
+  "project_p5.snapshot.col1": "Flutter multiplataforma. Escopo: componente UI + integração no dashboard.",
+  "project_p5.snapshot.col2": "Dashboard com atalhos para múltiplos módulos (Atividades, Solo, Financeiro, Pragas & Doenças).",
+  "project_p5.snapshot.col3": "Acessibilidade (Semantics), feedback (Tooltip) e navegação consistente via rotas nomeadas.",
+
+  "project_p5.problem_impact.symptoms_label": "Sintomas:",
+  "project_p5.problem_impact.symptoms": "ações de criação/acesso rápido ficavam distribuídas entre telas e menus, atrasando o início do fluxo.",
+  "project_p5.problem_impact.cause_label": "Causa:",
+  "project_p5.problem_impact.cause": "ausência de um padrão de atalhos reutilizáveis com navegação consistente no dashboard.",
+  "project_p5.problem_impact.impact_label": "Impacto:",
+  "project_p5.problem_impact.impact": "mais passos para iniciar registros frequentes e maior chance de desvio de navegação.",
+
+  "project_p5.approach.intro": "Como resolve (3 passos):",
+  "project_p5.approach.step1_label": "Identificar",
+  "project_p5.approach.step1": "ações que iniciam fluxos frequentes no dashboard (ex.: criar atividade, análise de solo, orçamento).",
+  "project_p5.approach.step2_label": "Encapsular",
+  "project_p5.approach.step2": "em um QuickActionButton com Semantics e Tooltip (padrão único de UI + acessibilidade).",
+  "project_p5.approach.step3_label": "Navegar",
+  "project_p5.approach.step3": "por rotas nomeadas (go_router) para manter previsibilidade e reduzir ambiguidade.",
+
+  "project_p5.reliability.risks_label": "Riscos:",
+  "project_p5.reliability.risks": "atalhos “invisíveis” para acessibilidade, navegação inconsistente, regressão no fluxo.",
+  "project_p5.reliability.guarantees_label": "Garantias:",
+  "project_p5.reliability.guarantees": "Semantics define papel e rótulo; Tooltip dá contexto; rotas nomeadas reduzem desvios.",
+  "project_p5.reliability.evidence_label": "Evidência:",
+  "project_p5.reliability.evidence": "implementação do componente e uso no DashboardPage com pushNamed para rotas nomeadas.",
+  "project_p5.stack.title": "Stack",
+  "project_p5.stack.chip1": "Flutter",
+  "project_p5.stack.chip2": "Semantics",
+  "project_p5.stack.chip3": "Tooltip",
+  "project_p5.stack.chip4": "Rotas nomeadas",
+
+  "project_p5.next.item1": "Permitir configuração dos atalhos do dashboard (quais ações aparecem e em que ordem).",
+  "project_p5.next.item2": "Adicionar atalhos de teclado/foco para desktop sem perder consistência com mobile.",
+  "project_p5.next.item3": "Expandir testes de widget cobrindo Semantics, Tooltip e navegação por rotas nomeadas.",
+
+  "project_p5.conversion.p": "Se você precisa reduzir passos no dia a dia do app sem quebrar acessibilidade, eu redesenho fluxos e implemento atalhos reutilizáveis com navegação consistente.",
+  "project_p5.conversion.whatsapp": "Falar no WhatsApp",
+  "project_p5.conversion.availability": "Disponível para projetos em 2026."
+}

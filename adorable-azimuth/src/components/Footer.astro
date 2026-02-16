@@ -1,24 +1,30 @@
 ---
 const year = new Date().getFullYear();
 import { profile } from "../data/profile";
+import { createT, loadMessages, type Locale } from "@/i18n";
+
+const pathname = Astro.url.pathname;
+const locale = (Astro.currentLocale || (pathname.startsWith("/en") ? "en" : "pt-br")) as Locale;
+const tCommon = createT(loadMessages(locale, "common"), { locale, namespace: "common" });
+const tHome = createT(loadMessages(locale, "home"), { locale, namespace: "home" });
 ---
 <footer class="nl-footer">
   <div class="nl-footer-inner">
     <section class="nl-footer-cta" aria-labelledby="footer-cta-title" data-cell data-z="1">
-      <h2 id="footer-cta-title" class="nl-footer-cta-title">Quer tirar sua ideia do papel com engenharia bem feita?</h2>
-      <p class="nl-footer-cta-subtitle">Me conte contexto, restrições e objetivo. Eu retorno com perguntas técnicas e um caminho de execução.</p>
+      <h2 id="footer-cta-title" class="nl-footer-cta-title">{tCommon("common.footer.cta_title")}</h2>
+      <p class="nl-footer-cta-subtitle">{tCommon("common.footer.cta_subtitle")}</p>
       <div class="nl-hero-actions">
         <a class="nl-btn" href={`mailto:${profile.email}`}>{profile.email}</a>
       </div>
     </section>
-    <div class="nl-footer-large" data-cell>{profile.fullName} {profile.roleLine}</div>
+    <div class="nl-footer-large" data-cell>{profile.fullName} {tHome("home.hero.role_line")}</div>
     <div class="nl-footer-bottom">
-      <div class="nl-footer-links" aria-label="Links">
+      <div class="nl-footer-links" aria-label={tCommon("common.footer.links_label")}>
         <a class="nl-footer-link" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="nl-footer-link" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="nl-footer-link" href={profile.links.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
-      <a class="nl-footer-link" href="#top">Voltar ao topo ↑</a>
+      <a class="nl-footer-link" href="#top">{tCommon("common.footer.back_to_top")}</a>
       <div class="nl-footer-copy">Copyright ©{year} {profile.displayName}</div>
     </div>
   </div>

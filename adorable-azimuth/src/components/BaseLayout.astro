@@ -1,16 +1,40 @@
 ---
-const { title = "Astro", description = "", lang = "pt-BR" } = Astro.props;
+import { getAbsoluteLocaleUrl, getAbsoluteLocaleUrlList, getLocaleByPath, getRelativeLocaleUrl, pathHasLocale } from "astro:i18n";
+
+const { title = "Astro", description = "", lang } = Astro.props;
+const pathname = Astro.url.pathname;
+const locales = ["pt-br", "en"] as const;
+type Locale = typeof locales[number];
+const firstSegment = pathname.split("/").filter(Boolean)[0] ?? "";
+const localeFromPath = pathHasLocale(pathname) ? getLocaleByPath(firstSegment) : undefined;
+const locale = (Astro.currentLocale || (locales.includes(localeFromPath as Locale) ? localeFromPath : "pt-br")) as Locale;
+const localeRoot = getRelativeLocaleUrl(locale, "");
+const restPath = pathname.startsWith(localeRoot) ? pathname.slice(localeRoot.length) : pathname.replace(/^\//, "");
+const htmlLang = lang ?? (locale === "pt-br" ? "pt-BR" : "en");
+const canonical = getAbsoluteLocaleUrl(locale, restPath);
+const alternateHrefs = getAbsoluteLocaleUrlList(restPath);
+const alternates = locales.map((l, idx) => ({
+  locale: l,
+  href: alternateHrefs[idx] ?? getAbsoluteLocaleUrl(l, restPath),
+  hreflang: l === "pt-br" ? "pt-BR" : "en"
+}));
+const bodyClass = (pathname.startsWith("/projects/") || pathname.startsWith("/en/projects/")) ? "page-project" : undefined;
+
 import "../styles/global.css";
 import GsapInit from "../islands/GsapInit.island";
 import NavTransitions from "../islands/NavTransitions.island";
 import AnimatedMeshBackground from "@/components/AnimatedMeshBackground.astro";
 ---
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +43,7 @@ import AnimatedMeshBackground from "@/components/AnimatedMeshBackground.astro";
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fm=jpg&w=1200&q=80" />
     
   </head>
-  <body>
+  <body class={bodyClass}>
     <AnimatedMeshBackground />
     <nav aria-label="Principal"><slot name="nav" /></nav>
     <main id="main">

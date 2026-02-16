@@ -1,0 +1,125 @@
+---
+import "../../styles/global.css";
+
+import BaseLayout from "../../components/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { profile } from "../../data/profile";
+import { featuredProjects } from "../../data/projects";
+import { createT, loadMessages, type Locale } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const locale = ((Astro.currentLocale as Locale) || "en") as Locale;
+const tHome = createT(loadMessages(locale, "home"), { locale, namespace: "home" });
+
+const ladderEn: Record<string, string> = {
+  Receita: "Revenue",
+  Custo: "Cost",
+  Risco: "Risk",
+  Tempo: "Time",
+  Qualidade: "Quality",
+  "Experiência do usuário": "User experience"
+};
+
+const metricLabelEn: Record<string, string> = {
+  Tempo: "Time",
+  Latência: "Latency",
+  Offline: "Offline"
+};
+---
+<BaseLayout title={tHome("home.meta.title")} description={tHome("home.meta.description")}>
+  <Fragment slot="nav"><Header /></Fragment>
+  <div class="nl-page">
+    <div id="top"></div>
+    <Hero
+      title={`${profile.fullName}\n${tHome("home.hero.role_line")}`}
+      subtitlePrefix={tHome("home.hero.tagline_prefix")}
+      subtitleMorphWords={[tHome("home.hero.tagline_morph_1"), tHome("home.hero.tagline_morph_2"), tHome("home.hero.tagline_morph_3")]}
+      ctaLabel={profile.email}
+      ctaHref={`mailto:${profile.email}`}
+      ctaSecondaryLabel={tHome("home.hero.cta_secondary")}
+      ctaSecondaryHref="#projects"
+      microcopy={tHome("home.hero.microcopy")}
+      scrollRight={tHome("home.hero.scroll_right")}
+      scrollHref="#projects"
+    />
+    <div class="nl-divider"></div>
+    <section id="projects" class="nl-section" aria-labelledby="projects-title">
+      <div class="nl-section-inner">
+        <h2 id="projects-title" class="nl-section-title" data-cell>{tHome("home.section.projects")}</h2>
+        <div class="nl-project-grid">
+          {featuredProjects.map((p, idx) => {
+            const href = getRelativeLocaleUrl(locale, p.href.replace(/^\//, ""));
+            const ladder = locale === "en" ? (ladderEn[p.ladder] ?? p.ladder) : p.ladder;
+            const metricLabel = locale === "en" ? (metricLabelEn[p.metric.label] ?? p.metric.label) : p.metric.label;
+
+            return (
+              <a
+                class={`nl-project-card${idx === 0 ? ' nl-project-card--featured' : ''}`}
+                href={href}
+                aria-label={`${p.name} (${p.year})`}
+                data-cell
+              >
+                <div class="nl-project-image-wrap">
+                  <img
+                    class="nl-project-image"
+                    src={p.image.src}
+                    alt={p.image.alt}
+                    width={p.image.width}
+                    height={p.image.height}
+                    loading={idx === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+                <div class="nl-project-meta">
+                  <div class="nl-project-meta-top">
+                    <div class="nl-project-meta-title">
+                      <span class="nl-project-name">{p.name}</span>
+                      <span class="nl-badge" data-variant="secondary" data-ladder={ladder}>{ladder}</span>
+                    </div>
+                    <span class="nl-project-year">{p.year}</span>
+                  </div>
+                  <div class="nl-project-impact">{p.impactLine}</div>
+                  <div class="nl-project-sub">
+                    <span class="nl-project-role">{p.role}</span>
+                    <span class="nl-project-metric">
+                      <span class="nl-project-metric-label">{metricLabel}</span>
+                      <span class="nl-project-metric-value">{p.metric.value}</span>
+                    </span>
+                  </div>
+                  <span class="nl-project-cta">{tHome("home.projects.cta")}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+    <div class="nl-divider"></div>
+    <section id="about" class="nl-section" aria-labelledby="about-title">
+      <div class="nl-section-inner">
+        <h2 id="about-title" class="nl-section-title" data-cell>{tHome("home.section.about")}</h2>
+        <p class="nl-body" data-cell>
+          {tHome("home.about.p1")} {tHome("home.about.p2")}
+        </p>
+        <p class="nl-body" data-cell style="margin-top: 16px">
+          {tHome("home.about.p3")}
+        </p>
+      </div>
+    </section>
+    <div class="nl-divider"></div>
+    <section id="contact" class="nl-section" aria-labelledby="contact-title">
+      <div class="nl-section-inner">
+        <h2 id="contact-title" class="nl-section-title" data-cell>{tHome("home.section.contact")}</h2>
+        <p class="nl-body" data-cell>{tHome("home.contact.p")}</p>
+        <div class="nl-hero-actions" style="margin-top: 32px" data-cell>
+          <a class="nl-btn" href={`mailto:${profile.email}`}>Email</a>
+          <a class="nl-btn" href={profile.links.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="nl-btn" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <Fragment slot="footer"><Footer /></Fragment>
+</BaseLayout>

@@ -1,0 +1,14 @@
+{
+  "projects.sections.tldr": "TL;DR (1 minuto)",
+  "projects.sections.snapshot": "Snapshot (contexto rápido)",
+  "projects.sections.problem_impact": "Problema & Impacto",
+  "projects.sections.approach": "Abordagem",
+  "projects.sections.reliability": "Confiabilidade",
+  "projects.sections.next": "Extensões / Próximos passos",
+  "projects.sections.conversion": "Se você tem esse problema",
+  "projects.labels.role_scope_time": "Papel / escopo / tempo",
+  "projects.labels.scale_min": "Escala (o mínimo)",
+  "projects.labels.constraints_min": "Restrições (o mínimo)",
+  "projects.buttons.back": "Voltar",
+  "projects.buttons.next": "Próximo case"
+}

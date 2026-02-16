@@ -1,0 +1,21 @@
+{
+  "home.meta.title": "Victor de Alcântara Bueno — Portfolio",
+  "home.meta.description": "Software engineer. I build web and mobile products focused on performance, UX, and pragmatic engineering.",
+  "home.hero.role_line": "SOFTWARE ENGINEER",
+  "home.hero.tagline_prefix": "I build web and mobile products focused on ",
+  "home.hero.tagline_morph_1": "performance.",
+  "home.hero.tagline_morph_2": "UX.",
+  "home.hero.tagline_morph_3": "pragmatic engineering.",
+  "home.hero.microcopy": "Selected projects with focus on performance, UX, and delivery.",
+  "home.hero.cta_primary": "Email",
+  "home.hero.cta_secondary": "View projects",
+  "home.hero.scroll_right": "Explore ↓",
+  "home.section.projects": "Projects",
+  "home.section.about": "About",
+  "home.section.contact": "Contact",
+  "home.about.p1": "I work across front-end, back-end, and mobile, prioritizing architecture clarity, accessibility, and product metrics.",
+  "home.about.p2": "I’ve worked on private production systems and open-source initiatives, always aiming to reduce friction and increase delivery predictability.",
+  "home.about.p3": "Technologies I use often: Astro/React, TypeScript, Flutter, and API stacks focused on consistency and observability.",
+  "home.contact.p": "If you have a project and want to talk about scope, risks, and next steps, reach out.",
+  "home.projects.cta": "View case →"
+}

@@ -1,0 +1,55 @@
+{
+  "project_p3.meta.title": "Habit Analyzer — Victor de Alcântara Bueno",
+  "project_p3.meta.description": "Web app for habit tracking with analytics and reports.",
+  "project_p3.hero.title": "Habit Analyzer",
+  "project_p3.hero.subtitle": "Web habit tracking app with API and dashboard.",
+  "project_p3.hero.delivery": "Delivery: REST API (FastAPI) + frontend (Next.js) with authentication and charts.",
+  "project_p3.hero.ladder": "Cost",
+  "project_p3.hero.image_alt": "Illustrative programming and technology image",
+
+  "project_p3.tldr.problem_label": "Problem:",
+  "project_p3.tldr.problem": "tracking habits tends to end up in spreadsheets/notes, with little insight and low consistency.",
+  "project_p3.tldr.solution_label": "Solution:",
+  "project_p3.tldr.solution": "an app with a FastAPI backend (JWT) and a Next.js/TypeScript frontend with an entry flow and per-habit charts.",
+  "project_p3.tldr.result_label": "Result:",
+  "project_p3.tldr.result": "a working MVP with Docker Compose, Swagger/OpenAPI docs, and tests (pytest + Playwright E2E).",
+
+  "project_p3.snapshot.col1": "Architecture + full-stack. Year: 2025.",
+  "project_p3.snapshot.col2": "Multiple habits per user, daily entries, and enough history for charts and trends.",
+  "project_p3.snapshot.col3": "Consistent data (dates/values), authentication, and safe schema evolution with migrations.",
+
+  "project_p3.problem_impact.symptoms_label": "Symptoms:",
+  "project_p3.problem_impact.symptoms": "scattered manual tracking and low visibility into consistency/progress.",
+  "project_p3.problem_impact.cause_label": "Cause:",
+  "project_p3.problem_impact.cause": "data without a single model and without an aggregated view of per-habit history.",
+  "project_p3.problem_impact.impact_label": "Impact:",
+  "project_p3.problem_impact.impact": "lower adherence and worse routine decisions due to lack of signal.",
+
+  "project_p3.approach.intro": "How it works (3 steps):",
+  "project_p3.approach.step1_label": "Model",
+  "project_p3.approach.step1": "habits and entries (domain) and persist them in Postgres.",
+  "project_p3.approach.step2_label": "Expose",
+  "project_p3.approach.step2": "a REST API with FastAPI and JWT authentication.",
+  "project_p3.approach.step3_label": "Visualize",
+  "project_p3.approach.step3": "in the web dashboard (Next.js) with an entry flow and per-habit charts.",
+  "project_p3.approach.figure1_alt": "Analytics visual: summary and cache code snippet",
+  "project_p3.approach.figure1_caption": "Snapshot: chart UI consuming an API summary.",
+  "project_p3.approach.diagram": "Action → POST /api/v1/records (creates entry)\nPersistence → Postgres + migrations\nGET /api/v1/records/habit/'habit_id'/summary → time series\nFrontend → Chart.js renders progress",
+  "project_p3.approach.figure2_caption": "Diagram: from entry to the summary that feeds the charts.",
+
+  "project_p3.reliability.risks_label": "Risks:",
+  "project_p3.reliability.risks": "inconsistent data (dates/values), auth regressions, and mismatches between summary and time series.",
+  "project_p3.reliability.guarantees_label": "Guarantees:",
+  "project_p3.reliability.guarantees": "validation with Pydantic, migrations with Alembic, and tests (unit + Playwright E2E on the critical flow).",
+  "project_p3.reliability.evidence_label": "Evidence:",
+  "project_p3.reliability.evidence": "README, an OpenAPI snapshot, and a test suite in the repository.",
+  "project_p3.reliability.repo_link": "View repo",
+
+  "project_p3.next.item1": "Add goals, streaks, and reminders to reinforce adherence.",
+  "project_p3.next.item2": "Expand reports (weekly/monthly) and per-habit filters.",
+  "project_p3.next.item3": "Observability: API metrics and errors for safer iteration.",
+
+  "project_p3.conversion.p": "If you need a habit-tracking MVP with API and dashboard (auth + charts), I design the architecture, implement the critical flow, and validate it with tests.",
+  "project_p3.conversion.whatsapp": "Chat on WhatsApp",
+  "project_p3.conversion.availability": "Available for projects in 2026."
+}

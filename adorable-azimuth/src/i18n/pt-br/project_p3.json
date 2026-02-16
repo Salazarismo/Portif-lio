@@ -1,0 +1,55 @@
+{
+  "project_p3.meta.title": "Habit Analyzer — Victor de Alcântara Bueno",
+  "project_p3.meta.description": "Aplicativo web de acompanhamento de hábitos com analytics e relatórios.",
+  "project_p3.hero.title": "Habit Analyzer",
+  "project_p3.hero.subtitle": "Aplicativo web de acompanhamento de hábitos com API e dashboard.",
+  "project_p3.hero.delivery": "Entrega: API REST (FastAPI) + frontend (Next.js) com autenticação e gráficos.",
+  "project_p3.hero.ladder": "Custo",
+  "project_p3.hero.image_alt": "Imagem ilustrativa de programação e tecnologia",
+
+  "project_p3.tldr.problem_label": "Problema:",
+  "project_p3.tldr.problem": "registrar hábitos e acompanhar evolução tende a virar planilha/notas, com pouco insight e baixa consistência.",
+  "project_p3.tldr.solution_label": "Solução:",
+  "project_p3.tldr.solution": "app com backend FastAPI (JWT) e frontend Next.js/TypeScript com fluxo de registro e gráficos por hábito.",
+  "project_p3.tldr.result_label": "Resultado:",
+  "project_p3.tldr.result": "MVP funcional com Docker Compose, documentação via Swagger/OpenAPI e testes (pytest + Playwright E2E).",
+
+  "project_p3.snapshot.col1": "Arquitetura + Full‑stack. Ano: 2025.",
+  "project_p3.snapshot.col2": "Múltiplos hábitos por usuário, registros diários e histórico suficiente para gráficos e tendências.",
+  "project_p3.snapshot.col3": "Dados consistentes (datas/valores), autenticação e evolução segura do schema com migrações.",
+
+  "project_p3.problem_impact.symptoms_label": "Sintomas:",
+  "project_p3.problem_impact.symptoms": "registro manual disperso e pouca visibilidade de consistência/progresso.",
+  "project_p3.problem_impact.cause_label": "Causa:",
+  "project_p3.problem_impact.cause": "dados sem modelo único e sem uma visualização agregada do histórico por hábito.",
+  "project_p3.problem_impact.impact_label": "Impacto:",
+  "project_p3.problem_impact.impact": "baixa aderência ao acompanhamento e decisões piores sobre rotina por falta de sinal.",
+
+  "project_p3.approach.intro": "Como resolve (3 passos):",
+  "project_p3.approach.step1_label": "Modelar",
+  "project_p3.approach.step1": "hábitos e registros (domínio) e persistir no Postgres.",
+  "project_p3.approach.step2_label": "Expor",
+  "project_p3.approach.step2": "uma API REST com FastAPI e autenticação JWT.",
+  "project_p3.approach.step3_label": "Visualizar",
+  "project_p3.approach.step3": "no dashboard web (Next.js) com fluxo de registro e gráficos por hábito.",
+  "project_p3.approach.figure1_alt": "Visual de analytics: trecho de código de resumo e cache",
+  "project_p3.approach.figure1_caption": "Snapshot: UI de gráfico consumindo um resumo da API.",
+  "project_p3.approach.diagram": "Ação → POST /api/v1/records (registra)\nPersistência → Postgres + migrações\nGET /api/v1/records/habit/'habit_id'/summary → série temporal\nFrontend → Chart.js renderiza progresso",
+  "project_p3.approach.figure2_caption": "Diagrama: do registro ao resumo que alimenta os gráficos.",
+
+  "project_p3.reliability.risks_label": "Riscos:",
+  "project_p3.reliability.risks": "dados inconsistentes (datas/valores), regressão de autenticação e divergência entre resumo e série temporal.",
+  "project_p3.reliability.guarantees_label": "Garantias:",
+  "project_p3.reliability.guarantees": "validação com Pydantic, migrações com Alembic e testes (unitários + E2E com Playwright no fluxo crítico).",
+  "project_p3.reliability.evidence_label": "Evidência:",
+  "project_p3.reliability.evidence": "README, OpenAPI snapshot e suíte de testes no repositório.",
+  "project_p3.reliability.repo_link": "Ver repo",
+
+  "project_p3.next.item1": "Adicionar metas, streaks e lembretes para reforçar aderência.",
+  "project_p3.next.item2": "Expandir relatórios (semanal/mensal) e filtros por hábito.",
+  "project_p3.next.item3": "Observabilidade: métricas de API e erros para evolução segura.",
+
+  "project_p3.conversion.p": "Se você precisa de um MVP de acompanhamento de hábitos com API e dashboard (auth + gráficos), eu desenho a arquitetura, implemento o fluxo crítico e valido com testes.",
+  "project_p3.conversion.whatsapp": "Falar no WhatsApp",
+  "project_p3.conversion.availability": "Disponível para projetos em 2026."
+}

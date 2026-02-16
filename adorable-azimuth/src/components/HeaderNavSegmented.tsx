@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { SegmentedButton } from "./SegmentedButton";
 
 const ITEMS = [
@@ -17,8 +17,17 @@ function scrollToId(id: string) {
   window.scrollTo({ top, behavior: "smooth" });
 }
 
-export default function HeaderNavSegmented() {
-  const [active, setActive] = useState<string>(ITEMS[0].id);
+type Props = {
+  labels?: Partial<Record<(typeof ITEMS)[number]["id"], string>>;
+  ariaLabel?: string;
+};
+
+export default function HeaderNavSegmented({ labels, ariaLabel }: Props) {
+  const items = useMemo(
+    () => ITEMS.map((it) => ({ ...it, label: labels?.[it.id] ?? it.label })),
+    [labels]
+  );
+  const [active, setActive] = useState<string>(items[0].id);
   const [lockSpy, setLockSpy] = useState(false);
   const lockSpyRef = useRef(lockSpy);
   const unlockTimerRef = useRef<number | null>(null);
@@ -31,17 +40,17 @@ export default function HeaderNavSegmented() {
   useEffect(() => {
     const setFromHash = () => {
       const raw = window.location.hash.replace("#", "");
-      const found = ITEMS.find((i) => i.id === raw);
+      const found = items.find((i) => i.id === raw);
       if (found) setActive(found.id);
     };
 
     setFromHash();
     window.addEventListener("hashchange", setFromHash, { passive: true });
     return () => window.removeEventListener("hashchange", setFromHash);
-  }, []);
+  }, [items]);
 
   useEffect(() => {
-    const els = ITEMS.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
+    const els = items.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
     if (!els.length) return;
 
     const computeActive = () => {
@@ -90,7 +99,7 @@ export default function HeaderNavSegmented() {
   return (
     <div className="nl-seg-nav">
       <SegmentedButton
-        buttons={ITEMS as any}
+        buttons={items as any}
         activeId={active}
         onChange={(id) => {
           setLockSpy(true);
@@ -100,6 +109,7 @@ export default function HeaderNavSegmented() {
           history.replaceState(null, "", `/#${id}`);
           scrollToId(id);
         }}
+        ariaLabel={ariaLabel}
         className="bg-white/5 ring-1 ring-white/10"
       />
     </div>

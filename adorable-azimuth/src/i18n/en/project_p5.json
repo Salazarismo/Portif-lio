@@ -1,0 +1,56 @@
+{
+  "project_p5.meta.title": "Relatorium — Quick Activity Button — Victor de Alcântara Bueno",
+  "project_p5.meta.description": "Cross-platform Flutter app for rural management with a dashboard and quick shortcuts (QuickActionButton + Semantics + Tooltip + named routes).",
+  "project_p5.hero.title": "Relatorium — UI Quick Activity Button",
+  "project_p5.hero.subtitle": "Flutter app for rural management with a dashboard and quick shortcuts to start flows (activities, soil, budgeting, and more).",
+  "project_p5.hero.kpi": "Dashboard shortcuts: 6 critical actions available in one click, with accessibility and feedback.",
+  "project_p5.hero.ladder": "Time",
+  "project_p5.hero.image_alt": "UI and engineering — quick shortcuts on the dashboard",
+
+  "project_p5.tldr.problem_label": "Problem:",
+  "project_p5.tldr.problem": "starting frequent flows (activity, soil, budgeting, etc.) required navigation before reaching the action.",
+  "project_p5.tldr.solution_label": "Solution:",
+  "project_p5.tldr.solution": "standardized shortcuts with QuickActionButton + Semantics + Tooltip and named-route navigation (go_router).",
+  "project_p5.tldr.result_label": "Result:",
+  "project_p5.tldr.result": "a dashboard with consistent, accessible quick entry points to create records and reach key screens.",
+  "project_p5.tldr.note": "Flutter prototype in this repository, with a Soil & Fertility module and shortcuts integrated into the Dashboard.",
+
+  "project_p5.snapshot.col1": "Cross-platform Flutter. Scope: a UI component + dashboard integration.",
+  "project_p5.snapshot.col2": "Dashboard shortcuts across multiple modules (Activities, Soil, Finance, Pests & Diseases).",
+  "project_p5.snapshot.col3": "Accessibility (Semantics), feedback (Tooltip), and consistent navigation via named routes.",
+
+  "project_p5.problem_impact.symptoms_label": "Symptoms:",
+  "project_p5.problem_impact.symptoms": "quick create/access actions were scattered across screens and menus, delaying the start of the flow.",
+  "project_p5.problem_impact.cause_label": "Cause:",
+  "project_p5.problem_impact.cause": "no reusable shortcuts pattern with consistent dashboard navigation.",
+  "project_p5.problem_impact.impact_label": "Impact:",
+  "project_p5.problem_impact.impact": "more steps to start frequent entries and a higher chance of navigation drift.",
+
+  "project_p5.approach.intro": "How it works (3 steps):",
+  "project_p5.approach.step1_label": "Identify",
+  "project_p5.approach.step1": "actions that start frequent flows in the dashboard (e.g., create activity, soil analysis, budgeting).",
+  "project_p5.approach.step2_label": "Encapsulate",
+  "project_p5.approach.step2": "into a QuickActionButton with Semantics and Tooltip (a single UI + accessibility standard).",
+  "project_p5.approach.step3_label": "Navigate",
+  "project_p5.approach.step3": "via named routes (go_router) to keep things predictable and reduce ambiguity.",
+
+  "project_p5.reliability.risks_label": "Risks:",
+  "project_p5.reliability.risks": "shortcuts being “invisible” to accessibility, inconsistent navigation, and flow regressions.",
+  "project_p5.reliability.guarantees_label": "Guarantees:",
+  "project_p5.reliability.guarantees": "Semantics defines role and label; Tooltip provides context; named routes reduce drift.",
+  "project_p5.reliability.evidence_label": "Evidence:",
+  "project_p5.reliability.evidence": "component implementation and usage in DashboardPage with pushNamed for named routes.",
+  "project_p5.stack.title": "Stack",
+  "project_p5.stack.chip1": "Flutter",
+  "project_p5.stack.chip2": "Semantics",
+  "project_p5.stack.chip3": "Tooltip",
+  "project_p5.stack.chip4": "Named routes",
+
+  "project_p5.next.item1": "Allow dashboard shortcuts configuration (which actions show up and in what order).",
+  "project_p5.next.item2": "Add keyboard/focus shortcuts for desktop without losing mobile consistency.",
+  "project_p5.next.item3": "Expand widget tests covering Semantics, Tooltip, and named-route navigation.",
+
+  "project_p5.conversion.p": "If you need to reduce daily in-app steps without breaking accessibility, I redesign flows and implement reusable shortcuts with consistent navigation.",
+  "project_p5.conversion.whatsapp": "Chat on WhatsApp",
+  "project_p5.conversion.availability": "Available for projects in 2026."
+}
